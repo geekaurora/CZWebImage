@@ -10,6 +10,50 @@
 		2A02BFF11F7461EA00184823 /* CZWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A02BFE71F7461EA00184823 /* CZWebImage.framework */; };
 		2A02BFF61F7461EA00184823 /* CZWebImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02BFF51F7461EA00184823 /* CZWebImageTests.swift */; };
 		2A02BFF81F7461EA00184823 /* CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02BFEA1F7461EA00184823 /* CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A02C0311F74628700184823 /* CZWebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0021F74628700184823 /* CZWebImageManager.swift */; };
+		2A02C0321F74628700184823 /* CZImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0031F74628700184823 /* CZImageDownloader.swift */; };
+		2A02C0331F74628700184823 /* CZCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0041F74628700184823 /* CZCache.h */; };
+		2A02C0341F74628700184823 /* CZCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0051F74628700184823 /* CZCache.m */; };
+		2A02C0351F74628700184823 /* CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0061F74628700184823 /* CZWebImage.h */; };
+		2A02C0361F74628700184823 /* CZWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0071F74628700184823 /* CZWebImagePrefetcher.h */; };
+		2A02C0371F74628700184823 /* CZWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */; };
+		2A02C0381F74628700184823 /* CZWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0091F74628700184823 /* CZWebImageDecoder.h */; };
+		2A02C0391F74628700184823 /* CZWebImageDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C00A1F74628700184823 /* CZWebImageDecode.m */; };
+		2A02C03A1F74628700184823 /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C00B1F74628700184823 /* UIImage+Resize.h */; };
+		2A02C03B1F74628700184823 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C00C1F74628700184823 /* UIImage+Resize.m */; };
+		2A02C03C1F74628700184823 /* UIImageView+CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */; };
+		2A02C03D1F74628700184823 /* UIImageView+CZWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */; };
+		2A02C03E1F74628700184823 /* CZConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */; };
+		2A02C03F1F74628700184823 /* CZImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */; };
+		2A02C0401F74628700184823 /* TestDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0111F74628700184823 /* TestDataManger.swift */; };
+		2A02C0411F74628700184823 /* GPOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0121F74628700184823 /* GPOperationQueue.swift */; };
+		2A02C0421F74628700184823 /* CZOperationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0131F74628700184823 /* CZOperationsManager.swift */; };
+		2A02C0431F74628700184823 /* CZProMutexLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0151F74628700184823 /* CZProMutexLock.swift */; };
+		2A02C0441F74628700184823 /* CZMutexLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0161F74628700184823 /* CZMutexLock.swift */; };
+		2A02C0451F74628700184823 /* CZDispatchQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0171F74628700184823 /* CZDispatchQueue.h */; };
+		2A02C0461F74628700184823 /* CZDispatchQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0181F74628700184823 /* CZDispatchQueue.m */; };
+		2A02C0471F74628700184823 /* CZOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0191F74628700184823 /* CZOperationQueue.h */; };
+		2A02C0481F74628700184823 /* CZOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C01A1F74628700184823 /* CZOperationQueue.m */; };
+		2A02C0491F74628700184823 /* CZThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C01B1F74628700184823 /* CZThread.h */; };
+		2A02C04A1F74628700184823 /* CZThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C01C1F74628700184823 /* CZThread.m */; };
+		2A02C04B1F74628700184823 /* UIImage+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C01E1F74628700184823 /* UIImage+Additions.h */; };
+		2A02C04C1F74628700184823 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C01F1F74628700184823 /* UIImage+Additions.m */; };
+		2A02C04D1F74628700184823 /* YYFPSLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0201F74628700184823 /* YYFPSLabel.h */; };
+		2A02C04E1F74628700184823 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0211F74628700184823 /* YYFPSLabel.m */; };
+		2A02C04F1F74628700184823 /* UIView+YYFPSLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0221F74628700184823 /* UIView+YYFPSLabel.h */; };
+		2A02C0501F74628700184823 /* UIView+YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0231F74628700184823 /* UIView+YYFPSLabel.m */; };
+		2A02C0511F74628700184823 /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0241F74628700184823 /* UIView+Animation.h */; };
+		2A02C0521F74628700184823 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0251F74628700184823 /* UIView+Animation.m */; };
+		2A02C0531F74628700184823 /* CZWebImageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0261F74628700184823 /* CZWebImageUtils.h */; };
+		2A02C0541F74628700184823 /* CZWebImageUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0271F74628700184823 /* CZWebImageUtils.mm */; };
+		2A02C0551F74628700184823 /* CZLinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0281F74628700184823 /* CZLinkedList.h */; };
+		2A02C0561F74628700184823 /* CZLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0291F74628700184823 /* CZLinkedList.m */; };
+		2A02C0571F74628700184823 /* CZLinkedListNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C02A1F74628700184823 /* CZLinkedListNode.h */; };
+		2A02C0581F74628700184823 /* CZLinkedListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02B1F74628700184823 /* CZLinkedListNode.m */; };
+		2A02C0591F74628700184823 /* NSError+Description.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C02C1F74628700184823 /* NSError+Description.h */; };
+		2A02C05A1F74628700184823 /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02D1F74628700184823 /* NSError+Description.m */; };
+		2A02C05B1F74628700184823 /* NSString+md5String.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C02E1F74628700184823 /* NSString+md5String.h */; };
+		2A02C05C1F74628700184823 /* NSString+md5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02F1F74628700184823 /* NSString+md5String.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,6 +64,27 @@
 			remoteGlobalIDString = 2A02BFE61F7461EA00184823;
 			remoteInfo = CZWebImage;
 		};
+		2A02C0621F74629F00184823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 044E02481F74349B00849AA2;
+			remoteInfo = CZNetworking;
+		};
+		2A02C0641F74629F00184823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 044E02511F74349B00849AA2;
+			remoteInfo = CZNetworkingTests;
+		};
+		2A02C0681F7462AF00184823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 044E02471F74349B00849AA2;
+			remoteInfo = CZNetworking;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +94,51 @@
 		2A02BFF01F7461EA00184823 /* CZWebImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CZWebImageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A02BFF51F7461EA00184823 /* CZWebImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZWebImageTests.swift; sourceTree = "<group>"; };
 		2A02BFF71F7461EA00184823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A02C0021F74628700184823 /* CZWebImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageManager.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImageManager.swift; sourceTree = "<group>"; };
+		2A02C0031F74628700184823 /* CZImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloader.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZImageDownloader.swift; sourceTree = "<group>"; };
+		2A02C0041F74628700184823 /* CZCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZCache.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZCache.h; sourceTree = "<group>"; };
+		2A02C0051F74628700184823 /* CZCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZCache.m; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZCache.m; sourceTree = "<group>"; };
+		2A02C0061F74628700184823 /* CZWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImage.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImage.h; sourceTree = "<group>"; };
+		2A02C0071F74628700184823 /* CZWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImagePrefetcher.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImagePrefetcher.h; sourceTree = "<group>"; };
+		2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImagePrefetcher.m; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImagePrefetcher.m; sourceTree = "<group>"; };
+		2A02C0091F74628700184823 /* CZWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImageDecoder.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImageDecoder.h; sourceTree = "<group>"; };
+		2A02C00A1F74628700184823 /* CZWebImageDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImageDecode.m; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImageDecode.m; sourceTree = "<group>"; };
+		2A02C00B1F74628700184823 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImage+Resize.h"; sourceTree = "<group>"; };
+		2A02C00C1F74628700184823 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImage+Resize.m"; sourceTree = "<group>"; };
+		2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+CZWebImage.h"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImageView+CZWebImage.h"; sourceTree = "<group>"; };
+		2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+CZWebImage.m"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImageView+CZWebImage.m"; sourceTree = "<group>"; };
+		2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZConcurrentOperation.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZConcurrentOperation.swift; sourceTree = "<group>"; };
+		2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloadOperation.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZImageDownloadOperation.swift; sourceTree = "<group>"; };
+		2A02C0111F74628700184823 /* TestDataManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestDataManger.swift; path = /__Github/CZGroupon/CZFacebook/../../CZOperationQueue/CZOperationQueueDemo/CZOperationQueueDemo/TestDataManger.swift; sourceTree = "<absolute>"; };
+		2A02C0121F74628700184823 /* GPOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPOperationQueue.swift; path = /__Github/CZGroupon/CZFacebook/../../CZOperationQueue/CZOperationQueueDemo/CZOperationQueueDemo/CZOperationQueue/GPOperationQueue.swift; sourceTree = "<absolute>"; };
+		2A02C0131F74628700184823 /* CZOperationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZOperationsManager.swift; path = /__Github/CZGroupon/CZFacebook/../../CZOperationQueue/CZOperationQueueDemo/CZOperationQueueDemo/CZOperationQueue/CZOperationsManager.swift; sourceTree = "<absolute>"; };
+		2A02C0151F74628700184823 /* CZProMutexLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZProMutexLock.swift; path = ../../../../../CZTwitter/CZTwitter/CZInstagram/Utils/CZProMutexLock.swift; sourceTree = "<group>"; };
+		2A02C0161F74628700184823 /* CZMutexLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZMutexLock.swift; path = CZWebImage/Optional/CZMutexLock.swift; sourceTree = "<group>"; };
+		2A02C0171F74628700184823 /* CZDispatchQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZDispatchQueue.h; path = CZWebImage/Optional/CZDispatchQueue.h; sourceTree = "<group>"; };
+		2A02C0181F74628700184823 /* CZDispatchQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZDispatchQueue.m; path = CZWebImage/Optional/CZDispatchQueue.m; sourceTree = "<group>"; };
+		2A02C0191F74628700184823 /* CZOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZOperationQueue.h; path = CZWebImage/Optional/CZOperationQueue.h; sourceTree = "<group>"; };
+		2A02C01A1F74628700184823 /* CZOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZOperationQueue.m; path = CZWebImage/Optional/CZOperationQueue.m; sourceTree = "<group>"; };
+		2A02C01B1F74628700184823 /* CZThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZThread.h; path = CZWebImage/Optional/CZThread.h; sourceTree = "<group>"; };
+		2A02C01C1F74628700184823 /* CZThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZThread.m; path = CZWebImage/Optional/CZThread.m; sourceTree = "<group>"; };
+		2A02C01E1F74628700184823 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Additions.h"; path = "CZWebImage/Utils/UIImage+Additions.h"; sourceTree = "<group>"; };
+		2A02C01F1F74628700184823 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Additions.m"; path = "CZWebImage/Utils/UIImage+Additions.m"; sourceTree = "<group>"; };
+		2A02C0201F74628700184823 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYFPSLabel.h; path = CZWebImage/Utils/YYFPSLabel.h; sourceTree = "<group>"; };
+		2A02C0211F74628700184823 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYFPSLabel.m; path = CZWebImage/Utils/YYFPSLabel.m; sourceTree = "<group>"; };
+		2A02C0221F74628700184823 /* UIView+YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+YYFPSLabel.h"; path = "CZWebImage/Utils/UIView+YYFPSLabel.h"; sourceTree = "<group>"; };
+		2A02C0231F74628700184823 /* UIView+YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+YYFPSLabel.m"; path = "CZWebImage/Utils/UIView+YYFPSLabel.m"; sourceTree = "<group>"; };
+		2A02C0241F74628700184823 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Animation.h"; path = "CZWebImage/Utils/UIView+Animation.h"; sourceTree = "<group>"; };
+		2A02C0251F74628700184823 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Animation.m"; path = "CZWebImage/Utils/UIView+Animation.m"; sourceTree = "<group>"; };
+		2A02C0261F74628700184823 /* CZWebImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImageUtils.h; path = CZWebImage/Utils/CZWebImageUtils.h; sourceTree = "<group>"; };
+		2A02C0271F74628700184823 /* CZWebImageUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CZWebImageUtils.mm; path = CZWebImage/Utils/CZWebImageUtils.mm; sourceTree = "<group>"; };
+		2A02C0281F74628700184823 /* CZLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZLinkedList.h; path = CZWebImage/Optional/CZLinkedList.h; sourceTree = "<group>"; };
+		2A02C0291F74628700184823 /* CZLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZLinkedList.m; path = CZWebImage/Optional/CZLinkedList.m; sourceTree = "<group>"; };
+		2A02C02A1F74628700184823 /* CZLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZLinkedListNode.h; path = CZWebImage/Optional/CZLinkedListNode.h; sourceTree = "<group>"; };
+		2A02C02B1F74628700184823 /* CZLinkedListNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZLinkedListNode.m; path = CZWebImage/Optional/CZLinkedListNode.m; sourceTree = "<group>"; };
+		2A02C02C1F74628700184823 /* NSError+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+Description.h"; path = "CZWebImage/Utils/NSError+Description.h"; sourceTree = "<group>"; };
+		2A02C02D1F74628700184823 /* NSError+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+Description.m"; path = "CZWebImage/Utils/NSError+Description.m"; sourceTree = "<group>"; };
+		2A02C02E1F74628700184823 /* NSString+md5String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+md5String.h"; path = "CZWebImage/Utils/NSString+md5String.h"; sourceTree = "<group>"; };
+		2A02C02F1F74628700184823 /* NSString+md5String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+md5String.m"; path = "CZWebImage/Utils/NSString+md5String.m"; sourceTree = "<group>"; };
+		2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = ../CZGroupon/Common/CZWebImage/CZFlickr/CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +163,7 @@
 		2A02BFDD1F7461EA00184823 = {
 			isa = PBXGroup;
 			children = (
+				2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */,
 				2A02BFE91F7461EA00184823 /* CZWebImage */,
 				2A02BFF41F7461EA00184823 /* CZWebImageTests */,
 				2A02BFE81F7461EA00184823 /* Products */,
@@ -71,6 +182,7 @@
 		2A02BFE91F7461EA00184823 /* CZWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				2A02C0011F74623100184823 /* Core */,
 				2A02BFEA1F7461EA00184823 /* CZWebImage.h */,
 				2A02BFEB1F7461EA00184823 /* Info.plist */,
 			);
@@ -86,6 +198,92 @@
 			path = CZWebImageTests;
 			sourceTree = "<group>";
 		};
+		2A02C0011F74623100184823 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2A02C0021F74628700184823 /* CZWebImageManager.swift */,
+				2A02C0031F74628700184823 /* CZImageDownloader.swift */,
+				2A02C0041F74628700184823 /* CZCache.h */,
+				2A02C0051F74628700184823 /* CZCache.m */,
+				2A02C0061F74628700184823 /* CZWebImage.h */,
+				2A02C0071F74628700184823 /* CZWebImagePrefetcher.h */,
+				2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */,
+				2A02C0091F74628700184823 /* CZWebImageDecoder.h */,
+				2A02C00A1F74628700184823 /* CZWebImageDecode.m */,
+				2A02C00B1F74628700184823 /* UIImage+Resize.h */,
+				2A02C00C1F74628700184823 /* UIImage+Resize.m */,
+				2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */,
+				2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */,
+				2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */,
+				2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */,
+				2A02C01D1F74628700184823 /* Optional */,
+				2A02C0301F74628700184823 /* Utils */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		2A02C0141F74628700184823 /* GPOperationQueue */ = {
+			isa = PBXGroup;
+			children = (
+				2A02C0111F74628700184823 /* TestDataManger.swift */,
+				2A02C0121F74628700184823 /* GPOperationQueue.swift */,
+				2A02C0131F74628700184823 /* CZOperationsManager.swift */,
+			);
+			name = GPOperationQueue;
+			sourceTree = "<group>";
+		};
+		2A02C01D1F74628700184823 /* Optional */ = {
+			isa = PBXGroup;
+			children = (
+				2A02C0141F74628700184823 /* GPOperationQueue */,
+				2A02C0151F74628700184823 /* CZProMutexLock.swift */,
+				2A02C0161F74628700184823 /* CZMutexLock.swift */,
+				2A02C0171F74628700184823 /* CZDispatchQueue.h */,
+				2A02C0181F74628700184823 /* CZDispatchQueue.m */,
+				2A02C0191F74628700184823 /* CZOperationQueue.h */,
+				2A02C01A1F74628700184823 /* CZOperationQueue.m */,
+				2A02C01B1F74628700184823 /* CZThread.h */,
+				2A02C01C1F74628700184823 /* CZThread.m */,
+			);
+			name = Optional;
+			path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo;
+			sourceTree = "<group>";
+		};
+		2A02C0301F74628700184823 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2A02C01E1F74628700184823 /* UIImage+Additions.h */,
+				2A02C01F1F74628700184823 /* UIImage+Additions.m */,
+				2A02C0201F74628700184823 /* YYFPSLabel.h */,
+				2A02C0211F74628700184823 /* YYFPSLabel.m */,
+				2A02C0221F74628700184823 /* UIView+YYFPSLabel.h */,
+				2A02C0231F74628700184823 /* UIView+YYFPSLabel.m */,
+				2A02C0241F74628700184823 /* UIView+Animation.h */,
+				2A02C0251F74628700184823 /* UIView+Animation.m */,
+				2A02C0261F74628700184823 /* CZWebImageUtils.h */,
+				2A02C0271F74628700184823 /* CZWebImageUtils.mm */,
+				2A02C0281F74628700184823 /* CZLinkedList.h */,
+				2A02C0291F74628700184823 /* CZLinkedList.m */,
+				2A02C02A1F74628700184823 /* CZLinkedListNode.h */,
+				2A02C02B1F74628700184823 /* CZLinkedListNode.m */,
+				2A02C02C1F74628700184823 /* NSError+Description.h */,
+				2A02C02D1F74628700184823 /* NSError+Description.m */,
+				2A02C02E1F74628700184823 /* NSString+md5String.h */,
+				2A02C02F1F74628700184823 /* NSString+md5String.m */,
+			);
+			name = Utils;
+			path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo;
+			sourceTree = "<group>";
+		};
+		2A02C05E1F74629F00184823 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A02C0631F74629F00184823 /* CZNetworking.framework */,
+				2A02C0651F74629F00184823 /* CZNetworkingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,7 +291,25 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A02C0331F74628700184823 /* CZCache.h in Headers */,
+				2A02C0471F74628700184823 /* CZOperationQueue.h in Headers */,
+				2A02C0451F74628700184823 /* CZDispatchQueue.h in Headers */,
+				2A02C0491F74628700184823 /* CZThread.h in Headers */,
+				2A02C0551F74628700184823 /* CZLinkedList.h in Headers */,
+				2A02C0351F74628700184823 /* CZWebImage.h in Headers */,
+				2A02C0571F74628700184823 /* CZLinkedListNode.h in Headers */,
+				2A02C04D1F74628700184823 /* YYFPSLabel.h in Headers */,
+				2A02C04B1F74628700184823 /* UIImage+Additions.h in Headers */,
+				2A02C0361F74628700184823 /* CZWebImagePrefetcher.h in Headers */,
+				2A02C04F1F74628700184823 /* UIView+YYFPSLabel.h in Headers */,
+				2A02C0381F74628700184823 /* CZWebImageDecoder.h in Headers */,
+				2A02C0531F74628700184823 /* CZWebImageUtils.h in Headers */,
+				2A02C03A1F74628700184823 /* UIImage+Resize.h in Headers */,
 				2A02BFF81F7461EA00184823 /* CZWebImage.h in Headers */,
+				2A02C0511F74628700184823 /* UIView+Animation.h in Headers */,
+				2A02C03C1F74628700184823 /* UIImageView+CZWebImage.h in Headers */,
+				2A02C0591F74628700184823 /* NSError+Description.h in Headers */,
+				2A02C05B1F74628700184823 /* NSString+md5String.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +328,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2A02C0691F7462AF00184823 /* PBXTargetDependency */,
 			);
 			name = CZWebImage;
 			productName = CZWebImage;
@@ -168,6 +385,12 @@
 			mainGroup = 2A02BFDD1F7461EA00184823;
 			productRefGroup = 2A02BFE81F7461EA00184823 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2A02C05E1F74629F00184823 /* Products */;
+					ProjectRef = 2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2A02BFE61F7461EA00184823 /* CZWebImage */,
@@ -175,6 +398,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2A02C0631F74629F00184823 /* CZNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CZNetworking.framework;
+			remoteRef = 2A02C0621F74629F00184823 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A02C0651F74629F00184823 /* CZNetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CZNetworkingTests.xctest;
+			remoteRef = 2A02C0641F74629F00184823 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2A02BFE51F7461EA00184823 /* Resources */ = {
@@ -198,6 +438,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A02C0481F74628700184823 /* CZOperationQueue.m in Sources */,
+				2A02C0311F74628700184823 /* CZWebImageManager.swift in Sources */,
+				2A02C0441F74628700184823 /* CZMutexLock.swift in Sources */,
+				2A02C0581F74628700184823 /* CZLinkedListNode.m in Sources */,
+				2A02C0321F74628700184823 /* CZImageDownloader.swift in Sources */,
+				2A02C03D1F74628700184823 /* UIImageView+CZWebImage.m in Sources */,
+				2A02C0501F74628700184823 /* UIView+YYFPSLabel.m in Sources */,
+				2A02C04A1F74628700184823 /* CZThread.m in Sources */,
+				2A02C0341F74628700184823 /* CZCache.m in Sources */,
+				2A02C0421F74628700184823 /* CZOperationsManager.swift in Sources */,
+				2A02C03F1F74628700184823 /* CZImageDownloadOperation.swift in Sources */,
+				2A02C0411F74628700184823 /* GPOperationQueue.swift in Sources */,
+				2A02C0391F74628700184823 /* CZWebImageDecode.m in Sources */,
+				2A02C0371F74628700184823 /* CZWebImagePrefetcher.m in Sources */,
+				2A02C0431F74628700184823 /* CZProMutexLock.swift in Sources */,
+				2A02C04C1F74628700184823 /* UIImage+Additions.m in Sources */,
+				2A02C05A1F74628700184823 /* NSError+Description.m in Sources */,
+				2A02C0521F74628700184823 /* UIView+Animation.m in Sources */,
+				2A02C03B1F74628700184823 /* UIImage+Resize.m in Sources */,
+				2A02C0541F74628700184823 /* CZWebImageUtils.mm in Sources */,
+				2A02C03E1F74628700184823 /* CZConcurrentOperation.swift in Sources */,
+				2A02C0461F74628700184823 /* CZDispatchQueue.m in Sources */,
+				2A02C04E1F74628700184823 /* YYFPSLabel.m in Sources */,
+				2A02C0561F74628700184823 /* CZLinkedList.m in Sources */,
+				2A02C0401F74628700184823 /* TestDataManger.swift in Sources */,
+				2A02C05C1F74628700184823 /* NSString+md5String.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +482,11 @@
 			isa = PBXTargetDependency;
 			target = 2A02BFE61F7461EA00184823 /* CZWebImage */;
 			targetProxy = 2A02BFF21F7461EA00184823 /* PBXContainerItemProxy */;
+		};
+		2A02C0691F7462AF00184823 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CZNetworking;
+			targetProxy = 2A02C0681F7462AF00184823 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -360,6 +631,7 @@
 		2A02BFFF1F7461EA00184823 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = CZWebImageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +644,7 @@
 		2A02C0001F7461EA00184823 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = CZWebImageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -400,6 +673,7 @@
 				2A02BFFD1F7461EA00184823 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A02BFFE1F7461EA00184823 /* Build configuration list for PBXNativeTarget "CZWebImageTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +682,7 @@
 				2A02C0001F7461EA00184823 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
