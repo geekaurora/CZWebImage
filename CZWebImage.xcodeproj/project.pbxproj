@@ -10,37 +10,37 @@
 		2A02BFF11F7461EA00184823 /* CZWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A02BFE71F7461EA00184823 /* CZWebImage.framework */; };
 		2A02BFF61F7461EA00184823 /* CZWebImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02BFF51F7461EA00184823 /* CZWebImageTests.swift */; };
 		2A02BFF81F7461EA00184823 /* CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02BFEA1F7461EA00184823 /* CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C0311F74628700184823 /* CZWebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0021F74628700184823 /* CZWebImageManager.swift */; };
-		2A02C0321F74628700184823 /* CZImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0031F74628700184823 /* CZImageDownloader.swift */; };
-		2A02C0331F74628700184823 /* CZCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0041F74628700184823 /* CZCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C0341F74628700184823 /* CZCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0051F74628700184823 /* CZCache.m */; };
-		2A02C0351F74628700184823 /* CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0061F74628700184823 /* CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C0361F74628700184823 /* CZWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0071F74628700184823 /* CZWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C0371F74628700184823 /* CZWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */; };
-		2A02C0381F74628700184823 /* CZWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0091F74628700184823 /* CZWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C0391F74628700184823 /* CZWebImageDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C00A1F74628700184823 /* CZWebImageDecode.m */; };
-		2A02C03A1F74628700184823 /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C00B1F74628700184823 /* UIImage+Resize.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C03B1F74628700184823 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C00C1F74628700184823 /* UIImage+Resize.m */; };
-		2A02C03C1F74628700184823 /* UIImageView+CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C03D1F74628700184823 /* UIImageView+CZWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */; };
-		2A02C03E1F74628700184823 /* CZConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */; };
-		2A02C03F1F74628700184823 /* CZImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */; };
 		2A02C0401F74628700184823 /* TestDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0111F74628700184823 /* TestDataManger.swift */; };
 		2A02C0411F74628700184823 /* GPOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0121F74628700184823 /* GPOperationQueue.swift */; };
 		2A02C0421F74628700184823 /* CZOperationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0131F74628700184823 /* CZOperationsManager.swift */; };
 		2A02C0431F74628700184823 /* CZProMutexLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0151F74628700184823 /* CZProMutexLock.swift */; };
-		2A02C0441F74628700184823 /* CZMutexLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0161F74628700184823 /* CZMutexLock.swift */; };
-		2A02C04B1F74628700184823 /* UIImage+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C01E1F74628700184823 /* UIImage+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C04C1F74628700184823 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C01F1F74628700184823 /* UIImage+Additions.m */; };
-		2A02C0511F74628700184823 /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0241F74628700184823 /* UIView+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C0521F74628700184823 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0251F74628700184823 /* UIView+Animation.m */; };
-		2A02C0531F74628700184823 /* CZWebImageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C0261F74628700184823 /* CZWebImageUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C0541F74628700184823 /* CZWebImageUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0271F74628700184823 /* CZWebImageUtils.mm */; };
-		2A02C0591F74628700184823 /* NSError+Description.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C02C1F74628700184823 /* NSError+Description.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C05A1F74628700184823 /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02D1F74628700184823 /* NSError+Description.m */; };
-		2A02C05B1F74628700184823 /* NSString+md5String.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C02E1F74628700184823 /* NSString+md5String.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A02C05C1F74628700184823 /* NSString+md5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02F1F74628700184823 /* NSString+md5String.m */; };
 		2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9891911F749604005331F1 /* UIImage+Extension.swift */; };
+		2AEBF7621F758544005A1DEF /* CZCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7531F758544005A1DEF /* CZCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF7631F758544005A1DEF /* CZCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7541F758544005A1DEF /* CZCache.m */; };
+		2AEBF7641F758544005A1DEF /* CZConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */; };
+		2AEBF7651F758544005A1DEF /* CZImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */; };
+		2AEBF7661F758544005A1DEF /* CZImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7571F758544005A1DEF /* CZImageDownloadOperation.swift */; };
+		2AEBF7671F758544005A1DEF /* CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7581F758544005A1DEF /* CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF7681F758544005A1DEF /* CZWebImageDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */; };
+		2AEBF7691F758544005A1DEF /* CZWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF76A1F758544005A1DEF /* CZWebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF75B1F758544005A1DEF /* CZWebImageManager.swift */; };
+		2AEBF76B1F758544005A1DEF /* CZWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF75C1F758544005A1DEF /* CZWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF76C1F758544005A1DEF /* CZWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF75D1F758544005A1DEF /* CZWebImagePrefetcher.m */; };
+		2AEBF76D1F758544005A1DEF /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF75E1F758544005A1DEF /* UIImage+Resize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF76E1F758544005A1DEF /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF75F1F758544005A1DEF /* UIImage+Resize.m */; };
+		2AEBF76F1F758544005A1DEF /* UIImageView+CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7601F758544005A1DEF /* UIImageView+CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF7701F758544005A1DEF /* UIImageView+CZWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7611F758544005A1DEF /* UIImageView+CZWebImage.m */; };
+		2AEBF7741F758554005A1DEF /* CZMutexLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7711F758554005A1DEF /* CZMutexLock.swift */; };
+		2AEBF7891F75856F005A1DEF /* CZWebImageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7771F75856F005A1DEF /* CZWebImageUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF78A1F75856F005A1DEF /* CZWebImageUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7781F75856F005A1DEF /* CZWebImageUtils.mm */; };
+		2AEBF78D1F75856F005A1DEF /* NSError+Description.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF77B1F75856F005A1DEF /* NSError+Description.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF78E1F75856F005A1DEF /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF77C1F75856F005A1DEF /* NSError+Description.m */; };
+		2AEBF78F1F75856F005A1DEF /* NSString+md5String.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF77D1F75856F005A1DEF /* NSString+md5String.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF7901F75856F005A1DEF /* NSString+md5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF77E1F75856F005A1DEF /* NSString+md5String.m */; };
+		2AEBF7931F75856F005A1DEF /* UIImage+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7811F75856F005A1DEF /* UIImage+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF7941F75856F005A1DEF /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7821F75856F005A1DEF /* UIImage+Additions.m */; };
+		2AEBF7951F75856F005A1DEF /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7831F75856F005A1DEF /* UIView+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AEBF7961F75856F005A1DEF /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7841F75856F005A1DEF /* UIView+Animation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,38 +74,38 @@
 		2A02BFF01F7461EA00184823 /* CZWebImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CZWebImageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A02BFF51F7461EA00184823 /* CZWebImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZWebImageTests.swift; sourceTree = "<group>"; };
 		2A02BFF71F7461EA00184823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A02C0021F74628700184823 /* CZWebImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageManager.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImageManager.swift; sourceTree = "<group>"; };
-		2A02C0031F74628700184823 /* CZImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloader.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZImageDownloader.swift; sourceTree = "<group>"; };
-		2A02C0041F74628700184823 /* CZCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZCache.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZCache.h; sourceTree = "<group>"; };
-		2A02C0051F74628700184823 /* CZCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZCache.m; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZCache.m; sourceTree = "<group>"; };
-		2A02C0061F74628700184823 /* CZWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImage.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImage.h; sourceTree = "<group>"; };
-		2A02C0071F74628700184823 /* CZWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImagePrefetcher.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImagePrefetcher.h; sourceTree = "<group>"; };
-		2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImagePrefetcher.m; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImagePrefetcher.m; sourceTree = "<group>"; };
-		2A02C0091F74628700184823 /* CZWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImageDecoder.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImageDecoder.h; sourceTree = "<group>"; };
-		2A02C00A1F74628700184823 /* CZWebImageDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImageDecode.m; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImageDecode.m; sourceTree = "<group>"; };
-		2A02C00B1F74628700184823 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "CZWebImage/UIImage+Resize.h"; sourceTree = "<group>"; };
-		2A02C00C1F74628700184823 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "CZWebImage/UIImage+Resize.m"; sourceTree = "<group>"; };
-		2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+CZWebImage.h"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImageView+CZWebImage.h"; sourceTree = "<group>"; };
-		2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+CZWebImage.m"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImageView+CZWebImage.m"; sourceTree = "<group>"; };
-		2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZConcurrentOperation.swift; path = CZWebImage/CZConcurrentOperation.swift; sourceTree = "<group>"; };
-		2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloadOperation.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZImageDownloadOperation.swift; sourceTree = "<group>"; };
 		2A02C0111F74628700184823 /* TestDataManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestDataManger.swift; path = /__Github/CZGroupon/CZFacebook/../../CZOperationQueue/CZOperationQueueDemo/CZOperationQueueDemo/TestDataManger.swift; sourceTree = "<absolute>"; };
 		2A02C0121F74628700184823 /* GPOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPOperationQueue.swift; path = /__Github/CZGroupon/CZFacebook/../../CZOperationQueue/CZOperationQueueDemo/CZOperationQueueDemo/CZOperationQueue/GPOperationQueue.swift; sourceTree = "<absolute>"; };
 		2A02C0131F74628700184823 /* CZOperationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZOperationsManager.swift; path = /__Github/CZGroupon/CZFacebook/../../CZOperationQueue/CZOperationQueueDemo/CZOperationQueueDemo/CZOperationQueue/CZOperationsManager.swift; sourceTree = "<absolute>"; };
 		2A02C0151F74628700184823 /* CZProMutexLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZProMutexLock.swift; path = ../../../../../CZTwitter/CZTwitter/CZInstagram/Utils/CZProMutexLock.swift; sourceTree = "<group>"; };
-		2A02C0161F74628700184823 /* CZMutexLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZMutexLock.swift; path = CZWebImage/Optional/CZMutexLock.swift; sourceTree = "<group>"; };
-		2A02C01E1F74628700184823 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Additions.h"; path = "CZWebImage/Utils/UIImage+Additions.h"; sourceTree = "<group>"; };
-		2A02C01F1F74628700184823 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Additions.m"; path = "CZWebImage/Utils/UIImage+Additions.m"; sourceTree = "<group>"; };
-		2A02C0241F74628700184823 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Animation.h"; path = "CZWebImage/Utils/UIView+Animation.h"; sourceTree = "<group>"; };
-		2A02C0251F74628700184823 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Animation.m"; path = "CZWebImage/Utils/UIView+Animation.m"; sourceTree = "<group>"; };
-		2A02C0261F74628700184823 /* CZWebImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImageUtils.h; path = CZWebImage/Utils/CZWebImageUtils.h; sourceTree = "<group>"; };
-		2A02C0271F74628700184823 /* CZWebImageUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CZWebImageUtils.mm; path = CZWebImage/Utils/CZWebImageUtils.mm; sourceTree = "<group>"; };
-		2A02C02C1F74628700184823 /* NSError+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+Description.h"; path = "CZWebImage/Utils/NSError+Description.h"; sourceTree = "<group>"; };
-		2A02C02D1F74628700184823 /* NSError+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+Description.m"; path = "CZWebImage/Utils/NSError+Description.m"; sourceTree = "<group>"; };
-		2A02C02E1F74628700184823 /* NSString+md5String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+md5String.h"; path = "CZWebImage/Utils/NSString+md5String.h"; sourceTree = "<group>"; };
-		2A02C02F1F74628700184823 /* NSString+md5String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+md5String.m"; path = "CZWebImage/Utils/NSString+md5String.m"; sourceTree = "<group>"; };
 		2A9891911F749604005331F1 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Extension.swift"; path = "../../../../../CZTwitter/CZTwitter/CZInstagram/Utils/Extensions/UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2AEBF73C1F758423005A1DEF /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = ../CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
+		2AEBF7531F758544005A1DEF /* CZCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZCache.h; path = Core/CZCache.h; sourceTree = "<group>"; };
+		2AEBF7541F758544005A1DEF /* CZCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZCache.m; path = Core/CZCache.m; sourceTree = "<group>"; };
+		2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZConcurrentOperation.swift; path = Core/CZConcurrentOperation.swift; sourceTree = "<group>"; };
+		2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloader.swift; path = Core/CZImageDownloader.swift; sourceTree = "<group>"; };
+		2AEBF7571F758544005A1DEF /* CZImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloadOperation.swift; path = Core/CZImageDownloadOperation.swift; sourceTree = "<group>"; };
+		2AEBF7581F758544005A1DEF /* CZWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImage.h; path = Core/CZWebImage.h; sourceTree = "<group>"; };
+		2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImageDecode.m; path = Core/CZWebImageDecode.m; sourceTree = "<group>"; };
+		2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImageDecoder.h; path = Core/CZWebImageDecoder.h; sourceTree = "<group>"; };
+		2AEBF75B1F758544005A1DEF /* CZWebImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageManager.swift; path = Core/CZWebImageManager.swift; sourceTree = "<group>"; };
+		2AEBF75C1F758544005A1DEF /* CZWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImagePrefetcher.h; path = Core/CZWebImagePrefetcher.h; sourceTree = "<group>"; };
+		2AEBF75D1F758544005A1DEF /* CZWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImagePrefetcher.m; path = Core/CZWebImagePrefetcher.m; sourceTree = "<group>"; };
+		2AEBF75E1F758544005A1DEF /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Core/UIImage+Resize.h"; sourceTree = "<group>"; };
+		2AEBF75F1F758544005A1DEF /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Core/UIImage+Resize.m"; sourceTree = "<group>"; };
+		2AEBF7601F758544005A1DEF /* UIImageView+CZWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+CZWebImage.h"; path = "Core/UIImageView+CZWebImage.h"; sourceTree = "<group>"; };
+		2AEBF7611F758544005A1DEF /* UIImageView+CZWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+CZWebImage.m"; path = "Core/UIImageView+CZWebImage.m"; sourceTree = "<group>"; };
+		2AEBF7711F758554005A1DEF /* CZMutexLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZMutexLock.swift; path = CZWebImage/Core/Optional/CZMutexLock.swift; sourceTree = SOURCE_ROOT; };
+		2AEBF7771F75856F005A1DEF /* CZWebImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImageUtils.h; path = CZWebImage/Core/Utils/CZWebImageUtils.h; sourceTree = SOURCE_ROOT; };
+		2AEBF7781F75856F005A1DEF /* CZWebImageUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CZWebImageUtils.mm; path = CZWebImage/Core/Utils/CZWebImageUtils.mm; sourceTree = SOURCE_ROOT; };
+		2AEBF77B1F75856F005A1DEF /* NSError+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+Description.h"; path = "CZWebImage/Core/Utils/NSError+Description.h"; sourceTree = SOURCE_ROOT; };
+		2AEBF77C1F75856F005A1DEF /* NSError+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+Description.m"; path = "CZWebImage/Core/Utils/NSError+Description.m"; sourceTree = SOURCE_ROOT; };
+		2AEBF77D1F75856F005A1DEF /* NSString+md5String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+md5String.h"; path = "CZWebImage/Core/Utils/NSString+md5String.h"; sourceTree = SOURCE_ROOT; };
+		2AEBF77E1F75856F005A1DEF /* NSString+md5String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+md5String.m"; path = "CZWebImage/Core/Utils/NSString+md5String.m"; sourceTree = SOURCE_ROOT; };
+		2AEBF7811F75856F005A1DEF /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Additions.h"; path = "CZWebImage/Core/Utils/UIImage+Additions.h"; sourceTree = SOURCE_ROOT; };
+		2AEBF7821F75856F005A1DEF /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Additions.m"; path = "CZWebImage/Core/Utils/UIImage+Additions.m"; sourceTree = SOURCE_ROOT; };
+		2AEBF7831F75856F005A1DEF /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Animation.h"; path = "CZWebImage/Core/Utils/UIView+Animation.h"; sourceTree = SOURCE_ROOT; };
+		2AEBF7841F75856F005A1DEF /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Animation.m"; path = "CZWebImage/Core/Utils/UIView+Animation.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,18 +168,21 @@
 		2A02C0011F74623100184823 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2A02C0021F74628700184823 /* CZWebImageManager.swift */,
-				2A02C0031F74628700184823 /* CZImageDownloader.swift */,
-				2A02C0041F74628700184823 /* CZCache.h */,
-				2A02C0051F74628700184823 /* CZCache.m */,
-				2A02C0071F74628700184823 /* CZWebImagePrefetcher.h */,
-				2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */,
-				2A02C0091F74628700184823 /* CZWebImageDecoder.h */,
-				2A02C00A1F74628700184823 /* CZWebImageDecode.m */,
-				2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */,
-				2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */,
-				2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */,
-				2A02C0061F74628700184823 /* CZWebImage.h */,
+				2AEBF7531F758544005A1DEF /* CZCache.h */,
+				2AEBF7541F758544005A1DEF /* CZCache.m */,
+				2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */,
+				2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */,
+				2AEBF7571F758544005A1DEF /* CZImageDownloadOperation.swift */,
+				2AEBF7581F758544005A1DEF /* CZWebImage.h */,
+				2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */,
+				2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */,
+				2AEBF75B1F758544005A1DEF /* CZWebImageManager.swift */,
+				2AEBF75C1F758544005A1DEF /* CZWebImagePrefetcher.h */,
+				2AEBF75D1F758544005A1DEF /* CZWebImagePrefetcher.m */,
+				2AEBF75E1F758544005A1DEF /* UIImage+Resize.h */,
+				2AEBF75F1F758544005A1DEF /* UIImage+Resize.m */,
+				2AEBF7601F758544005A1DEF /* UIImageView+CZWebImage.h */,
+				2AEBF7611F758544005A1DEF /* UIImageView+CZWebImage.m */,
 				2A02C0301F74628700184823 /* Utils */,
 			);
 			name = Core;
@@ -198,6 +201,8 @@
 		2A02C01D1F74628700184823 /* Optional */ = {
 			isa = PBXGroup;
 			children = (
+				2A02C0151F74628700184823 /* CZProMutexLock.swift */,
+				2A9891911F749604005331F1 /* UIImage+Extension.swift */,
 				2A02C0141F74628700184823 /* GPOperationQueue */,
 			);
 			name = Optional;
@@ -206,23 +211,18 @@
 		2A02C0301F74628700184823 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2AEBF7771F75856F005A1DEF /* CZWebImageUtils.h */,
+				2AEBF7781F75856F005A1DEF /* CZWebImageUtils.mm */,
+				2AEBF77B1F75856F005A1DEF /* NSError+Description.h */,
+				2AEBF77C1F75856F005A1DEF /* NSError+Description.m */,
+				2AEBF77D1F75856F005A1DEF /* NSString+md5String.h */,
+				2AEBF77E1F75856F005A1DEF /* NSString+md5String.m */,
+				2AEBF7811F75856F005A1DEF /* UIImage+Additions.h */,
+				2AEBF7821F75856F005A1DEF /* UIImage+Additions.m */,
+				2AEBF7831F75856F005A1DEF /* UIView+Animation.h */,
+				2AEBF7841F75856F005A1DEF /* UIView+Animation.m */,
+				2AEBF7711F758554005A1DEF /* CZMutexLock.swift */,
 				2A02C01D1F74628700184823 /* Optional */,
-				2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */,
-				2A02C0151F74628700184823 /* CZProMutexLock.swift */,
-				2A02C0161F74628700184823 /* CZMutexLock.swift */,
-				2A9891911F749604005331F1 /* UIImage+Extension.swift */,
-				2A02C00B1F74628700184823 /* UIImage+Resize.h */,
-				2A02C00C1F74628700184823 /* UIImage+Resize.m */,
-				2A02C01E1F74628700184823 /* UIImage+Additions.h */,
-				2A02C01F1F74628700184823 /* UIImage+Additions.m */,
-				2A02C0241F74628700184823 /* UIView+Animation.h */,
-				2A02C0251F74628700184823 /* UIView+Animation.m */,
-				2A02C0261F74628700184823 /* CZWebImageUtils.h */,
-				2A02C0271F74628700184823 /* CZWebImageUtils.mm */,
-				2A02C02C1F74628700184823 /* NSError+Description.h */,
-				2A02C02D1F74628700184823 /* NSError+Description.m */,
-				2A02C02E1F74628700184823 /* NSString+md5String.h */,
-				2A02C02F1F74628700184823 /* NSString+md5String.m */,
 			);
 			name = Utils;
 			path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo;
@@ -244,18 +244,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A02C0331F74628700184823 /* CZCache.h in Headers */,
-				2A02C0351F74628700184823 /* CZWebImage.h in Headers */,
-				2A02C04B1F74628700184823 /* UIImage+Additions.h in Headers */,
-				2A02C0361F74628700184823 /* CZWebImagePrefetcher.h in Headers */,
-				2A02C0381F74628700184823 /* CZWebImageDecoder.h in Headers */,
-				2A02C0531F74628700184823 /* CZWebImageUtils.h in Headers */,
-				2A02C03A1F74628700184823 /* UIImage+Resize.h in Headers */,
+				2AEBF7621F758544005A1DEF /* CZCache.h in Headers */,
+				2AEBF78D1F75856F005A1DEF /* NSError+Description.h in Headers */,
+				2AEBF78F1F75856F005A1DEF /* NSString+md5String.h in Headers */,
+				2AEBF7691F758544005A1DEF /* CZWebImageDecoder.h in Headers */,
+				2AEBF7671F758544005A1DEF /* CZWebImage.h in Headers */,
+				2AEBF76B1F758544005A1DEF /* CZWebImagePrefetcher.h in Headers */,
+				2AEBF7931F75856F005A1DEF /* UIImage+Additions.h in Headers */,
+				2AEBF76D1F758544005A1DEF /* UIImage+Resize.h in Headers */,
 				2A02BFF81F7461EA00184823 /* CZWebImage.h in Headers */,
-				2A02C0511F74628700184823 /* UIView+Animation.h in Headers */,
-				2A02C03C1F74628700184823 /* UIImageView+CZWebImage.h in Headers */,
-				2A02C0591F74628700184823 /* NSError+Description.h in Headers */,
-				2A02C05B1F74628700184823 /* NSString+md5String.h in Headers */,
+				2AEBF7891F75856F005A1DEF /* CZWebImageUtils.h in Headers */,
+				2AEBF76F1F758544005A1DEF /* UIImageView+CZWebImage.h in Headers */,
+				2AEBF7951F75856F005A1DEF /* UIView+Animation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +311,7 @@
 					2A02BFE61F7461EA00184823 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 55RDUQ8X48;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					2A02BFEF1F7461EA00184823 = {
@@ -383,26 +384,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A02C0311F74628700184823 /* CZWebImageManager.swift in Sources */,
-				2A02C0441F74628700184823 /* CZMutexLock.swift in Sources */,
-				2A02C0321F74628700184823 /* CZImageDownloader.swift in Sources */,
-				2A02C03D1F74628700184823 /* UIImageView+CZWebImage.m in Sources */,
-				2A02C0341F74628700184823 /* CZCache.m in Sources */,
 				2A02C0421F74628700184823 /* CZOperationsManager.swift in Sources */,
-				2A02C03F1F74628700184823 /* CZImageDownloadOperation.swift in Sources */,
+				2AEBF7941F75856F005A1DEF /* UIImage+Additions.m in Sources */,
+				2AEBF76A1F758544005A1DEF /* CZWebImageManager.swift in Sources */,
+				2AEBF7701F758544005A1DEF /* UIImageView+CZWebImage.m in Sources */,
+				2AEBF7901F75856F005A1DEF /* NSString+md5String.m in Sources */,
+				2AEBF7651F758544005A1DEF /* CZImageDownloader.swift in Sources */,
+				2AEBF76C1F758544005A1DEF /* CZWebImagePrefetcher.m in Sources */,
+				2AEBF7961F75856F005A1DEF /* UIView+Animation.m in Sources */,
+				2AEBF78E1F75856F005A1DEF /* NSError+Description.m in Sources */,
 				2A02C0411F74628700184823 /* GPOperationQueue.swift in Sources */,
+				2AEBF7741F758554005A1DEF /* CZMutexLock.swift in Sources */,
+				2AEBF7681F758544005A1DEF /* CZWebImageDecode.m in Sources */,
+				2AEBF78A1F75856F005A1DEF /* CZWebImageUtils.mm in Sources */,
 				2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */,
-				2A02C0391F74628700184823 /* CZWebImageDecode.m in Sources */,
-				2A02C0371F74628700184823 /* CZWebImagePrefetcher.m in Sources */,
+				2AEBF7661F758544005A1DEF /* CZImageDownloadOperation.swift in Sources */,
 				2A02C0431F74628700184823 /* CZProMutexLock.swift in Sources */,
-				2A02C04C1F74628700184823 /* UIImage+Additions.m in Sources */,
-				2A02C05A1F74628700184823 /* NSError+Description.m in Sources */,
-				2A02C0521F74628700184823 /* UIView+Animation.m in Sources */,
-				2A02C03B1F74628700184823 /* UIImage+Resize.m in Sources */,
-				2A02C0541F74628700184823 /* CZWebImageUtils.mm in Sources */,
-				2A02C03E1F74628700184823 /* CZConcurrentOperation.swift in Sources */,
 				2A02C0401F74628700184823 /* TestDataManger.swift in Sources */,
-				2A02C05C1F74628700184823 /* NSString+md5String.m in Sources */,
+				2AEBF76E1F758544005A1DEF /* UIImage+Resize.m in Sources */,
+				2AEBF7641F758544005A1DEF /* CZConcurrentOperation.swift in Sources */,
+				2AEBF7631F758544005A1DEF /* CZCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +530,7 @@
 		2A02BFFC1F7461EA00184823 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
@@ -541,6 +543,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.CZWebImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -548,6 +551,7 @@
 		2A02BFFD1F7461EA00184823 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
