@@ -32,11 +32,11 @@
 		2AEBF7B81F758750005A1DEF /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7A91F758750005A1DEF /* UIImage+Additions.m */; };
 		2AEBF7B91F758750005A1DEF /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7AA1F758750005A1DEF /* UIImage+Resize.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AEBF7BA1F758750005A1DEF /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7AB1F758750005A1DEF /* UIImage+Resize.m */; };
-		2AEBF7BB1F758750005A1DEF /* UIImageView+CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7AC1F758750005A1DEF /* UIImageView+CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AEBF7BC1F758750005A1DEF /* UIImageView+CZWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7AD1F758750005A1DEF /* UIImageView+CZWebImage.m */; };
 		2AEBF7BD1F758750005A1DEF /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7AE1F758750005A1DEF /* UIView+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AEBF7BE1F758750005A1DEF /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7AF1F758750005A1DEF /* UIView+Animation.m */; };
 		2AEBF7C01F75888D005A1DEF /* CZCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7BF1F75888D005A1DEF /* CZCache.swift */; };
+		2AEBF7C71F75BCA5005A1DEF /* UIImageView+CZWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */; };
+		2AEBF7C91F75C118005A1DEF /* CZWebImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7C81F75C118005A1DEF /* CZWebImageConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +98,8 @@
 		2AEBF7AE1F758750005A1DEF /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Animation.h"; path = "CZWebImage/Core/Utils/UIView+Animation.h"; sourceTree = SOURCE_ROOT; };
 		2AEBF7AF1F758750005A1DEF /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Animation.m"; path = "CZWebImage/Core/Utils/UIView+Animation.m"; sourceTree = SOURCE_ROOT; };
 		2AEBF7BF1F75888D005A1DEF /* CZCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZCache.swift; path = Core/CZCache.swift; sourceTree = "<group>"; };
+		2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+CZWebImage.swift"; path = "Core/UIImageView+CZWebImage.swift"; sourceTree = "<group>"; };
+		2AEBF7C81F75C118005A1DEF /* CZWebImageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageConstants.swift; path = Core/CZWebImageConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,11 +168,13 @@
 				2AEBF7BF1F75888D005A1DEF /* CZCache.swift */,
 				2AEBF7AC1F758750005A1DEF /* UIImageView+CZWebImage.h */,
 				2AEBF7AD1F758750005A1DEF /* UIImageView+CZWebImage.m */,
+				2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */,
 				2AEBF7581F758544005A1DEF /* CZWebImage.h */,
 				2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */,
 				2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */,
 				2AEBF75C1F758544005A1DEF /* CZWebImagePrefetcher.h */,
 				2AEBF75D1F758544005A1DEF /* CZWebImagePrefetcher.m */,
+				2AEBF7C81F75C118005A1DEF /* CZWebImageConstants.swift */,
 				2A02C0301F74628700184823 /* Utils */,
 			);
 			name = Core;
@@ -217,7 +221,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AEBF7691F758544005A1DEF /* CZWebImageDecoder.h in Headers */,
-				2AEBF7BB1F758750005A1DEF /* UIImageView+CZWebImage.h in Headers */,
 				2AEBF7B51F758750005A1DEF /* NSString+md5String.h in Headers */,
 				2AEBF7B31F758750005A1DEF /* NSError+Description.h in Headers */,
 				2AEBF7B91F758750005A1DEF /* UIImage+Resize.h in Headers */,
@@ -367,11 +370,12 @@
 				2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */,
 				2AEBF7661F758544005A1DEF /* CZImageDownloadOperation.swift in Sources */,
 				2A02C0431F74628700184823 /* CZProMutexLock.swift in Sources */,
+				2AEBF7C71F75BCA5005A1DEF /* UIImageView+CZWebImage.swift in Sources */,
 				2AEBF7B41F758750005A1DEF /* NSError+Description.m in Sources */,
 				2AEBF7641F758544005A1DEF /* CZConcurrentOperation.swift in Sources */,
-				2AEBF7BC1F758750005A1DEF /* UIImageView+CZWebImage.m in Sources */,
 				2AEBF7B21F758750005A1DEF /* CZWebImageUtils.mm in Sources */,
 				2AEBF7B61F758750005A1DEF /* NSString+md5String.m in Sources */,
+				2AEBF7C91F75C118005A1DEF /* CZWebImageConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

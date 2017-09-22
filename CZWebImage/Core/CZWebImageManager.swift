@@ -9,13 +9,6 @@
 import UIKit
 import CZNetworking
 
-enum CZWebImageConstants {
-    static let shouldObserveOperations: Bool = false
-    static let defaultImageQueueMaxConcurrent: Int = 50
-    static let largeImageQueueMaxConcurrent: Int = 20
-    static let kOperations: String = "operations"
-}
-
 @objc open class CZWebImageManager: NSObject {
     var imageManager: CZWebImageManager?
     fileprivate var downloader: CZImageDownloader
