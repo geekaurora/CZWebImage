@@ -16,6 +16,6 @@ enum CZWebImageConstants {
     static let errorDomain = "CZWebImage"
 }
 
-//@objc enum CZWebImageOption: Int {
-//    case shouldFadeIn = 0
-//}
+@objc public enum CZWebImageOption: Int {
+    case shouldFadeIn = 0
+}

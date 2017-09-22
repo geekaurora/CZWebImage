@@ -12,15 +12,17 @@ import CZNetworking
 public typealias CZWebImageCompletion = (Error?) -> Void
 
 private var kImageUrl: UInt8 = 0
+
 extension UIImageView {
-    var czImageUrl: URL? {
+    public var czImageUrl: URL? {
         get { return objc_getAssociatedObject(self, &kImageUrl) as? URL }
         set { objc_setAssociatedObject(self, &kImageUrl, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
     
-    func cz_setImage(withURL url: URL?,
+    public func cz_setImage(withURL url: URL?,
                      placeholderImage: UIImage? = nil,
                      cropSize: CGSize? = nil,
+                     options: Set<CZWebImageOption>? = nil,
                      completion: CZWebImageCompletion? = nil) {
         guard let url = url else {
             CZMainQueueScheduler.async {
@@ -34,10 +36,17 @@ extension UIImageView {
         
         CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, downloadType: .default) {[weak self] (image, number, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
+            if let options = options, options.contains(.shouldFadeIn) {
+                //self.fadein
+            }
+            
+            self.image = image
+            self.layoutIfNeeded()
+            completion?(nil)
         }
     }
     
-    func cz_cancelCurrentImageLoad() {
+    public func cz_cancelCurrentImageLoad() {
         if let czImageUrl = czImageUrl {
             CZWebImageManager.shared.cancelDownload(with: czImageUrl)
         }
