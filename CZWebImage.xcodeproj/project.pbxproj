@@ -221,11 +221,11 @@
 		2A02C0301F74628700184823 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2A9891911F749604005331F1 /* UIImage+Extension.swift */,
 				2A02C01D1F74628700184823 /* Optional */,
 				2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */,
 				2A02C0151F74628700184823 /* CZProMutexLock.swift */,
 				2A02C0161F74628700184823 /* CZMutexLock.swift */,
+				2A9891911F749604005331F1 /* UIImage+Extension.swift */,
 				2A02C00B1F74628700184823 /* UIImage+Resize.h */,
 				2A02C00C1F74628700184823 /* UIImage+Resize.m */,
 				2A02C01E1F74628700184823 /* UIImage+Additions.h */,
