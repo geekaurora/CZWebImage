@@ -171,13 +171,13 @@
 		2A02C0011F74623100184823 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */,
 				2AEBF75B1F758544005A1DEF /* CZWebImageManager.swift */,
 				2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */,
 				2AEBF7571F758544005A1DEF /* CZImageDownloadOperation.swift */,
 				2AEBF7BF1F75888D005A1DEF /* CZCache.swift */,
 				2AEBF7AC1F758750005A1DEF /* UIImageView+CZWebImage.h */,
 				2AEBF7AD1F758750005A1DEF /* UIImageView+CZWebImage.m */,
-				2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */,
 				2AEBF7581F758544005A1DEF /* CZWebImage.h */,
 				2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */,
 				2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */,

@@ -19,6 +19,20 @@ extension UIImageView {
         set { objc_setAssociatedObject(self, &kImageUrl, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
     
+    /// Bridging function exposed to Objective-C
+    @objc(cz_setImageWithURL:placeholderImage:cropSize:options:completion:)
+    public func cz_setImage(withURL url: URL?,
+                            placeholderImage: UIImage?,
+                            cropSize: CGSize,
+                            options: NSSet?,
+                            completion: CZWebImageCompletion?) {
+        cz_setImage(withURL: url,
+                    placeholderImage: placeholderImage,
+                    cropSize: cropSize,
+                    options: options as? Set<CZWebImageOption>,
+                    completion: completion)
+    }
+    
     public func cz_setImage(withURL url: URL?,
                      placeholderImage: UIImage? = nil,
                      cropSize: CGSize? = nil,

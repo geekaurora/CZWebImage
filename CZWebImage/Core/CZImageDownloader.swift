@@ -59,7 +59,7 @@ public class CZImageDownloader: NSObject {
                                                  success: { (task, data) in
             guard let data = data as? Data else {preconditionFailure()}
             var image = UIImage(data: data)
-            if let cropSize = cropSize {
+            if let cropSize = cropSize, cropSize != .zero {
                 //image = image?.resize(with: cropSize)
                 image = image?.crop(toSize: cropSize)
             }
