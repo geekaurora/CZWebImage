@@ -26,10 +26,16 @@ extension UIImageView {
                             cropSize: CGSize,
                             options: NSSet?,
                             completion: CZWebImageCompletion?) {
+        // Convert NSNset<NSNumber *>? to Set<CZWebImageOption>?
+        var bridgingOptions: Set<CZWebImageOption>? = nil
+        if let options = (options as? Set<NSNumber>)?.flatMap({ CZWebImageOption(rawValue: $0.intValue)}) {
+            bridgingOptions = Set(options)
+        }
+            
         cz_setImage(withURL: url,
                     placeholderImage: placeholderImage,
                     cropSize: cropSize,
-                    options: options as? Set<CZWebImageOption>,
+                    options: bridgingOptions,
                     completion: completion)
     }
     
@@ -51,15 +57,17 @@ extension UIImageView {
         
         CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, downloadType: .default) {[weak self] (image, number, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
-            if let options = options,
-                options.contains(.shouldFadeIn) {
-                self.fadeIn(withAnimationName: CZWebImageConstants.kFadeAnimation,
-                            interval: CZWebImageConstants.fadeAnimationDuration)
+            CZMainQueueScheduler.async {
+                if let options = options,
+                    options.contains(.shouldFadeIn) {
+                    self.fadeIn(withAnimationName: CZWebImageConstants.kFadeAnimation,
+                                interval: CZWebImageConstants.fadeAnimationDuration)
+                }
+
+                self.image = image
+                self.layoutIfNeeded()
+                completion?(nil)
             }
-            
-            self.image = image
-            self.layoutIfNeeded()
-            completion?(nil)
         }
     }
     
