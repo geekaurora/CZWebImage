@@ -181,7 +181,6 @@
 				2A02C0031F74628700184823 /* CZImageDownloader.swift */,
 				2A02C0041F74628700184823 /* CZCache.h */,
 				2A02C0051F74628700184823 /* CZCache.m */,
-				2A02C0061F74628700184823 /* CZWebImage.h */,
 				2A02C0071F74628700184823 /* CZWebImagePrefetcher.h */,
 				2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */,
 				2A02C0091F74628700184823 /* CZWebImageDecoder.h */,
@@ -189,6 +188,7 @@
 				2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */,
 				2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */,
 				2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */,
+				2A02C0061F74628700184823 /* CZWebImage.h */,
 				2A02C0301F74628700184823 /* Utils */,
 			);
 			name = Core;
