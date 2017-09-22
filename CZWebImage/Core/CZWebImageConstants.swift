@@ -12,7 +12,8 @@ enum CZWebImageConstants {
     static let shouldObserveOperations: Bool = false
     static let defaultImageQueueMaxConcurrent: Int = 50
     static let largeImageQueueMaxConcurrent: Int = 20
-    static let kOperations: String = "operations"
+    static let kOperations = "operations"
+    static let errorDomain = "CZWebImage"
 }
 
 //@objc enum CZWebImageOption: Int {

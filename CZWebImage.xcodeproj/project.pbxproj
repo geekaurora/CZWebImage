@@ -11,6 +11,7 @@
 		2A02BFF61F7461EA00184823 /* CZWebImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02BFF51F7461EA00184823 /* CZWebImageTests.swift */; };
 		2A02BFF81F7461EA00184823 /* CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02BFEA1F7461EA00184823 /* CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A02C0431F74628700184823 /* CZProMutexLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C0151F74628700184823 /* CZProMutexLock.swift */; };
+		2A65C7BA1F75CA2800C3563E /* CZWebImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A65C7B91F75CA2800C3563E /* CZWebImageError.swift */; };
 		2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9891911F749604005331F1 /* UIImage+Extension.swift */; };
 		2AEBF7641F758544005A1DEF /* CZConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */; };
 		2AEBF7651F758544005A1DEF /* CZImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */; };
@@ -37,6 +38,7 @@
 		2AEBF7C01F75888D005A1DEF /* CZCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7BF1F75888D005A1DEF /* CZCache.swift */; };
 		2AEBF7C71F75BCA5005A1DEF /* UIImageView+CZWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */; };
 		2AEBF7C91F75C118005A1DEF /* CZWebImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7C81F75C118005A1DEF /* CZWebImageConstants.swift */; };
+		2AEBF7CB1F75C97C005A1DEF /* CZError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7CA1F75C97C005A1DEF /* CZError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2A02BFE61F7461EA00184823;
 			remoteInfo = CZWebImage;
+		};
+		2A65C7BD1F75CA5600C3563E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AEBF73C1F758423005A1DEF /* CZNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 044E02471F74349B00849AA2;
+			remoteInfo = CZNetworking;
 		};
 		2AEBF7421F758424005A1DEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -71,6 +80,7 @@
 		2A02BFF51F7461EA00184823 /* CZWebImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CZWebImageTests.swift; sourceTree = "<group>"; };
 		2A02BFF71F7461EA00184823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A02C0151F74628700184823 /* CZProMutexLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZProMutexLock.swift; path = ../../../../../CZTwitter/CZTwitter/CZInstagram/Utils/CZProMutexLock.swift; sourceTree = "<group>"; };
+		2A65C7B91F75CA2800C3563E /* CZWebImageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageError.swift; path = CZWebImage/Core/Utils/CZWebImageError.swift; sourceTree = SOURCE_ROOT; };
 		2A9891911F749604005331F1 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Extension.swift"; path = "../../../../../CZTwitter/CZTwitter/CZInstagram/Utils/Extensions/UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2AEBF73C1F758423005A1DEF /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = ../CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
 		2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZConcurrentOperation.swift; path = ../../../../../CZWebImage/CZWebImage/Core/CZConcurrentOperation.swift; sourceTree = "<group>"; };
@@ -100,6 +110,7 @@
 		2AEBF7BF1F75888D005A1DEF /* CZCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZCache.swift; path = Core/CZCache.swift; sourceTree = "<group>"; };
 		2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+CZWebImage.swift"; path = "Core/UIImageView+CZWebImage.swift"; sourceTree = "<group>"; };
 		2AEBF7C81F75C118005A1DEF /* CZWebImageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageConstants.swift; path = Core/CZWebImageConstants.swift; sourceTree = "<group>"; };
+		2AEBF7CA1F75C97C005A1DEF /* CZError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZError.swift; path = CZWebImage/Core/Utils/CZError.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +194,8 @@
 		2A02C0301F74628700184823 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2AEBF7CA1F75C97C005A1DEF /* CZError.swift */,
+				2A65C7B91F75CA2800C3563E /* CZWebImageError.swift */,
 				2AEBF7A11F758750005A1DEF /* CZMutexLock.swift */,
 				2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */,
 				2A02C0151F74628700184823 /* CZProMutexLock.swift */,
@@ -248,6 +261,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2A65C7BE1F75CA5600C3563E /* PBXTargetDependency */,
 			);
 			name = CZWebImage;
 			productName = CZWebImage;
@@ -362,9 +376,11 @@
 				2AEBF76A1F758544005A1DEF /* CZWebImageManager.swift in Sources */,
 				2AEBF7B81F758750005A1DEF /* UIImage+Additions.m in Sources */,
 				2AEBF7651F758544005A1DEF /* CZImageDownloader.swift in Sources */,
+				2AEBF7CB1F75C97C005A1DEF /* CZError.swift in Sources */,
 				2AEBF7BE1F758750005A1DEF /* UIView+Animation.m in Sources */,
 				2AEBF7BA1F758750005A1DEF /* UIImage+Resize.m in Sources */,
 				2AEBF7C01F75888D005A1DEF /* CZCache.swift in Sources */,
+				2A65C7BA1F75CA2800C3563E /* CZWebImageError.swift in Sources */,
 				2AEBF76C1F758544005A1DEF /* CZWebImagePrefetcher.m in Sources */,
 				2AEBF7681F758544005A1DEF /* CZWebImageDecode.m in Sources */,
 				2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */,
@@ -394,6 +410,11 @@
 			isa = PBXTargetDependency;
 			target = 2A02BFE61F7461EA00184823 /* CZWebImage */;
 			targetProxy = 2A02BFF21F7461EA00184823 /* PBXContainerItemProxy */;
+		};
+		2A65C7BE1F75CA5600C3563E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CZNetworking;
+			targetProxy = 2A65C7BD1F75CA5600C3563E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

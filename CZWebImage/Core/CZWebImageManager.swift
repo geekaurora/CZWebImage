@@ -26,7 +26,7 @@ import CZNetworking
                        cropSize: CGSize,
                        downloadType: CZImageDownloadType,
                        completionHandler: CZImageDownloderCompletion!) {
-        self.cache.getCachedFile(withUrl: url) {[weak self] (imageIn) in
+        cache.getCachedFile(withUrl: url) {[weak self] (imageIn) in
             guard let `self` = self else {return}
             if let imageIn = imageIn {
                 // Load from local disk

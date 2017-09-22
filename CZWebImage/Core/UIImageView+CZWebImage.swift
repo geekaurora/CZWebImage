@@ -8,11 +8,27 @@
 
 import UIKit
 
-private var kImageUrl: UInt8 = 0
+public typealias CZWebImageCompletion = (Error?) -> Void
 
+private var kImageUrl: UInt8 = 0
 extension UIImageView {
-    var imageUrl: String? {
+    var czImageUrl: String? {
         get { return objc_getAssociatedObject(self, &kImageUrl) as? String }
         set { objc_setAssociatedObject(self, &kImageUrl, newValue, .OBJC_ASSOCIATION_RETAIN) }
+    }
+    
+    func cz_setImage(withURL url: URL?,
+                     placeholderImage: UIImage? = nil,
+                     completion: CZWebImageCompletion? = nil) {
+        guard let url = url else {
+            completion?(CZWebImageError("imageURL is nil."))
+            return
+        }
+    }
+    
+    func cz_cancelCurrentImageLoad() {
+        if let czImageUrl = czImageUrl {
+            CZWebImageManager.sharedInstance.cancelDownload(with: URL(string: czImageUrl)!)
+        }
     }
 }
