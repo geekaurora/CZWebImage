@@ -9,7 +9,7 @@
 #import "UIImageView+CZWebImage.h"
 //#import "FlickrDemo-Swift.h"
 //#import "UIImageView+WebCache.h"
-#import "CZCache.h"
+//#import "CZCache.h"
 #import "objc/runtime.h"
 #import "UIView+Animation.h"
 #import <CZWebImage/CZWebImage-Swift.h>

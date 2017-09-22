@@ -24,7 +24,7 @@ enum CZWebImageConstants {
     
     public override init() {
         downloader = CZImageDownloader.shared
-        cache = CZCache.sharedInsance()
+        cache = CZCache.shared
         super.init()
     }
     
@@ -33,7 +33,7 @@ enum CZWebImageConstants {
                        cropSize: CGSize,
                        downloadType: CZImageDownloadType,
                        completionHandler: CZImageDownloderCompletion!) {
-        self.cache.getCachedImage(withUrl: url.absoluteString) {[weak self] (imageIn) in
+        self.cache.getCachedFile(withUrl: url) {[weak self] (imageIn) in
             guard let `self` = self else {return}
             if let imageIn = imageIn {
                 // Load from local disk

@@ -62,7 +62,8 @@ public class CZImageDownloader: NSObject {
                 //image = image?.resize(with: cropSize)
                 image = image?.crop(toSize: cropSize)
             }
-            CZCache.sharedInsance().cacheFile(withUrl: url.absoluteString, with: image)
+            CZCache.shared.cacheFile(withUrl: url, image: image)
+                                                    
             CZMainQueueScheduler.async {
                 completionHandler?(image, NSNumber(value: false), url)
             }

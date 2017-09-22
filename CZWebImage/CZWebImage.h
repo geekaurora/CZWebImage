@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import <CZWebImage/CZCache.h>
+//#import <CZWebImage/CZCache.h>
 #import <CZWebImage/CZWebImagePrefetcher.h>
 #import <CZWebImage/CZWebImageDecoder.h>
 #import <CZWebImage/UIImageView+CZWebImage.h>

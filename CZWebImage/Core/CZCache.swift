@@ -9,8 +9,8 @@
 import UIKit
 import CZNetworking
 
-@objc class CZCache: NSObject {
-    static let sharedInsance = CZCache()
+@objc open class CZCache: NSObject {
+    public static let shared = CZCache()
     
     fileprivate var ioQueue: DispatchQueue
     
@@ -33,7 +33,7 @@ import CZNetworking
     fileprivate(set) var maxCacheAge: UInt
     fileprivate(set) var maxCacheSize: UInt
     
-    @objc init(maxCacheAge: UInt = 0, maxCacheSize: UInt = 0) {
+    @objc public init(maxCacheAge: UInt = 0, maxCacheSize: UInt = 0) {
         ioQueue = DispatchQueue(label: "com.tony.cache.ioQueue",
                                 qos: .userInitiated,
                                 attributes: .concurrent)
@@ -54,26 +54,25 @@ import CZNetworking
         super.init()
     }
     
-    func cacheFilePath(forUrlStr urlStr: String) -> String {
+    public func cacheFilePath(forUrlStr urlStr: String) -> String {
         return CZCache.cacheFolder + urlStr.MD5
     }
     
     @objc(cacheFileWithUrl:withImage:)
-    func cacheFile(with urlStr: String, image: UIImage?) {
+    public func cacheFile(withUrl url: URL, image: UIImage?) {
         guard let image = image else {return}
-        let filePath = cacheFilePath(forUrlStr: urlStr)
+        let filePath = cacheFilePath(forUrlStr: url.absoluteString)
         
         cacheMem(image: image, forKey: filePath)
     }
     
-    //- (void)getCachedImageWithUrl:(NSString*)url completion:(void(^)(UIImage *imageIn))completion
     @objc(getCachedImageWithUrl:completion:)
-    func getFile(with urlStr: String, completion: (UIImage?) -> Void)  {
-        let image = memCache.object(forKey: NSString(string: urlStr))
+    public func getCachedFile(withUrl url: URL, completion: (UIImage?) -> Void)  {
+        let image = memCache.object(forKey: NSString(string: url.absoluteString))
         completion(image)
     }
     
-    func cacheMem(image: UIImage, forKey key: String) {
+    public func cacheMem(image: UIImage, forKey key: String) {
         memCache.setObject(image,
                            forKey: NSString(string: key),
                            cost: cacheCost(forImage: image))

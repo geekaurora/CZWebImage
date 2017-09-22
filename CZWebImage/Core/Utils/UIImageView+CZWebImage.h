@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CZCache.h"
+//#import "CZCache.h"
 
 @interface UIImageView(CZWebImage)
 
