@@ -20,8 +20,6 @@
 		2AEBF7681F758544005A1DEF /* CZWebImageDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */; };
 		2AEBF7691F758544005A1DEF /* CZWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AEBF76A1F758544005A1DEF /* CZWebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF75B1F758544005A1DEF /* CZWebImageManager.swift */; };
-		2AEBF76B1F758544005A1DEF /* CZWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF75C1F758544005A1DEF /* CZWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AEBF76C1F758544005A1DEF /* CZWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF75D1F758544005A1DEF /* CZWebImagePrefetcher.m */; };
 		2AEBF7B01F758750005A1DEF /* CZMutexLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7A11F758750005A1DEF /* CZMutexLock.swift */; };
 		2AEBF7B11F758750005A1DEF /* CZWebImageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7A21F758750005A1DEF /* CZWebImageUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AEBF7B21F758750005A1DEF /* CZWebImageUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7A31F758750005A1DEF /* CZWebImageUtils.mm */; };
@@ -241,7 +239,6 @@
 				2AEBF7B11F758750005A1DEF /* CZWebImageUtils.h in Headers */,
 				2AEBF7B71F758750005A1DEF /* UIImage+Additions.h in Headers */,
 				2AEBF7671F758544005A1DEF /* CZWebImage.h in Headers */,
-				2AEBF76B1F758544005A1DEF /* CZWebImagePrefetcher.h in Headers */,
 				2A02BFF81F7461EA00184823 /* CZWebImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,7 +378,6 @@
 				2AEBF7BA1F758750005A1DEF /* UIImage+Resize.m in Sources */,
 				2AEBF7C01F75888D005A1DEF /* CZCache.swift in Sources */,
 				2A65C7BA1F75CA2800C3563E /* CZWebImageError.swift in Sources */,
-				2AEBF76C1F758544005A1DEF /* CZWebImagePrefetcher.m in Sources */,
 				2AEBF7681F758544005A1DEF /* CZWebImageDecode.m in Sources */,
 				2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */,
 				2AEBF7661F758544005A1DEF /* CZImageDownloadOperation.swift in Sources */,

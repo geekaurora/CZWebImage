@@ -46,9 +46,8 @@ public class CZImageDownloader: NSObject {
         largeImageQueue.cancelAllOperations()
     }
     
-    @objc(downloadImageWithURL:cropSize:downloadType:completionHandler:)
     public func downloadImage(with url: URL?,
-                       cropSize: CGSize,
+                       cropSize: CGSize? = nil,
                        downloadType: CZImageDownloadType,
                        completionHandler: CZImageDownloderCompletion!) {
         guard let url = url else {return}
@@ -60,7 +59,7 @@ public class CZImageDownloader: NSObject {
                                                  success: { (task, data) in
             guard let data = data as? Data else {preconditionFailure()}
             var image = UIImage(data: data)
-            if !__CGSizeEqualToSize(cropSize, .zero) {
+            if let cropSize = cropSize {
                 //image = image?.resize(with: cropSize)
                 image = image?.crop(toSize: cropSize)
             }

@@ -13,7 +13,7 @@ import CZNetworking
     var imageManager: CZWebImageManager?
     fileprivate var downloader: CZImageDownloader
     fileprivate var cache: CZCache
-    public static let sharedInstance: CZWebImageManager = CZWebImageManager()
+    public static let shared: CZWebImageManager = CZWebImageManager()
     
     public override init() {
         downloader = CZImageDownloader.shared
@@ -21,9 +21,8 @@ import CZNetworking
         super.init()
     }
     
-    @objc(downloadImageWithURL:cropSize:downloadType:completionHandler:)
     public func downloadImage(with url: URL!,
-                       cropSize: CGSize,
+                       cropSize: CGSize? = nil,
                        downloadType: CZImageDownloadType,
                        completionHandler: CZImageDownloderCompletion!) {
         cache.getCachedFile(withUrl: url) {[weak self] (imageIn) in
