@@ -11,7 +11,7 @@
 #import "NSString+md5String.h"
 #import "CZWebImageDecoder.h"
  
-// Reverse DNS name convension
+// Reverse DNS name convension 
 static char* const kCZImageCacheIOQueue = "com.FlickrDemo.cacheIOQueue";
 static char* const kCZImageCacheDictionary = "com.FlickrDemo.kCZImageCacheDictionary";
 
