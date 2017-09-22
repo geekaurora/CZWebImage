@@ -44,6 +44,7 @@
 		2A02C05A1F74628700184823 /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02D1F74628700184823 /* NSError+Description.m */; };
 		2A02C05B1F74628700184823 /* NSString+md5String.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C02E1F74628700184823 /* NSString+md5String.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A02C05C1F74628700184823 /* NSString+md5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02F1F74628700184823 /* NSString+md5String.m */; };
+		2A194D851F7498E80027EE24 /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A02C0631F74629F00184823 /* CZNetworking.framework */; };
 		2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9891911F749604005331F1 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A194D851F7498E80027EE24 /* CZNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
