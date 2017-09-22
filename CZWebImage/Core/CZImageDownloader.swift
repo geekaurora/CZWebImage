@@ -24,7 +24,9 @@ public class CZImageDownloader: NSObject {
     
     public override init() {
         defaultImageQueue = OperationQueue()
+        defaultImageQueue.qualityOfService = .userInteractive
         largeImageQueue = OperationQueue()
+        largeImageQueue.qualityOfService = .default
         super.init()
         
         defaultImageQueue.maxConcurrentOperationCount = CZWebImageConstants.defaultImageQueueMaxConcurrent
@@ -70,8 +72,6 @@ public class CZImageDownloader: NSObject {
         }) { (task, error) in
             print("DOWNLOAD ERROR: \(error.localizedDescription)")
         }
-        
-        operation.queuePriority = (downloadType == .prefetch) ? .low : .normal
         queue.addOperation(operation)
     }
     
@@ -91,7 +91,6 @@ public class CZImageDownloader: NSObject {
 }
 
 // MARK: - KVO Delegation
-
 extension CZImageDownloader {
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard context == &kvoContext,
