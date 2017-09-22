@@ -8,6 +8,11 @@
 
 import UIKit
 
-fileprivate extension UIImageView {
-    
+private var kImageUrl: UInt8 = 0
+
+extension UIImageView {
+    var imageUrl: String? {
+        get { return objc_getAssociatedObject(self, &kImageUrl) as? String }
+        set { objc_setAssociatedObject(self, &kImageUrl, newValue, .OBJC_ASSOCIATION_RETAIN) }
+    }
 }
