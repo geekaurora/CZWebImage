@@ -216,8 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				2A02C0141F74628700184823 /* GPOperationQueue */,
-				2A02C0151F74628700184823 /* CZProMutexLock.swift */,
-				2A02C0161F74628700184823 /* CZMutexLock.swift */,
 			);
 			name = Optional;
 			path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo;
@@ -226,6 +224,8 @@
 		2A02C0301F74628700184823 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2A02C0151F74628700184823 /* CZProMutexLock.swift */,
+				2A02C0161F74628700184823 /* CZMutexLock.swift */,
 				2A02C01E1F74628700184823 /* UIImage+Additions.h */,
 				2A02C01F1F74628700184823 /* UIImage+Additions.m */,
 				2A02C0241F74628700184823 /* UIView+Animation.h */,
