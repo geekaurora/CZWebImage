@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CZNetworking
 
 @objc class CZCache2: NSObject {
     static let sharedInsance = CZCache2()
@@ -18,7 +19,7 @@ import UIKit
     fileprivate var memCache: NSCache<AnyObject, AnyObject>
     fileprivate var fileManager: FileManager
     fileprivate static let cacheFolder: String = {
-        let cacheFolder = CZWebImageUtils.documentFolder() + "CZCache"
+        let cacheFolder = CZWebImageUtils.documentFolder() + "CZCache/"
         let fileManager = FileManager()
         if !fileManager.fileExists(atPath: cacheFolder) {
             do {
@@ -54,7 +55,7 @@ import UIKit
     }
     
     func cacheFilePath(for urlStr: String) -> String {
-        return ""
+        return CZCache2.cacheFolder + urlStr.MD5
     }
 }
 
