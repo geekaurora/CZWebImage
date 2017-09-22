@@ -1,5 +1,5 @@
 //
-//  CZCache2.swift
+//  CZCache.swift
 //  CZWebImage
 //
 //  Created by Cheng Zhang on 9/22/17.
@@ -9,14 +9,14 @@
 import UIKit
 import CZNetworking
 
-@objc class CZCache2: NSObject {
-    static let sharedInsance = CZCache2()
+@objc class CZCache: NSObject {
+    static let sharedInsance = CZCache()
     
     fileprivate var ioQueue: DispatchQueue
     
     fileprivate var cachedItemsInfoLock: CZMutexLock<[String: Any]>
     fileprivate var hasCachedItemsInfoToFlushToDisk: Bool = false
-    fileprivate var memCache: NSCache<AnyObject, AnyObject>
+    fileprivate var memCache: NSCache<NSString, UIImage>
     fileprivate var fileManager: FileManager
     fileprivate static let cacheFolder: String = {
         let cacheFolder = CZWebImageUtils.documentFolder() + "CZCache/"
@@ -33,7 +33,7 @@ import CZNetworking
     fileprivate(set) var maxCacheAge: UInt
     fileprivate(set) var maxCacheSize: UInt
     
-    init(maxCacheAge: UInt = 0, maxCacheSize: UInt = 0) {
+    @objc init(maxCacheAge: UInt = 0, maxCacheSize: UInt = 0) {
         ioQueue = DispatchQueue(label: "com.tony.cache.ioQueue",
                                 qos: .userInitiated,
                                 attributes: .concurrent)
@@ -54,11 +54,34 @@ import CZNetworking
         super.init()
     }
     
-    func cacheFilePath(for urlStr: String) -> String {
-        return CZCache2.cacheFolder + urlStr.MD5
+    func cacheFilePath(forUrlStr urlStr: String) -> String {
+        return CZCache.cacheFolder + urlStr.MD5
+    }
+    
+    @objc(cacheFileWithUrl:withImage:)
+    func cacheFile(with urlStr: String, image: UIImage?) {
+        guard let image = image else {return}
+        let filePath = cacheFilePath(forUrlStr: urlStr)
+        
+        cacheMem(image: image, forKey: filePath)
+    }
+    
+    //- (void)getCachedImageWithUrl:(NSString*)url completion:(void(^)(UIImage *imageIn))completion
+    @objc(getCachedImageWithUrl:completion:)
+    func getFile(with urlStr: String, completion: (UIImage?) -> Void)  {
+        let image = memCache.object(forKey: NSString(string: urlStr))
+        completion(image)
+    }
+    
+    func cacheMem(image: UIImage, forKey key: String) {
+        memCache.setObject(image,
+                           forKey: NSString(string: key),
+                           cost: cacheCost(forImage: image))
     }
 }
 
-fileprivate extension CZCache2 {
-    
+fileprivate extension CZCache {
+    func cacheCost(forImage image: UIImage) -> Int {
+        return Int(image.size.height * image.size.width * image.scale * image.scale)
+    }
 }
