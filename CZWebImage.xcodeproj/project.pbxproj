@@ -44,6 +44,7 @@
 		2A02C05A1F74628700184823 /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02D1F74628700184823 /* NSError+Description.m */; };
 		2A02C05B1F74628700184823 /* NSString+md5String.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C02E1F74628700184823 /* NSString+md5String.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A02C05C1F74628700184823 /* NSString+md5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02F1F74628700184823 /* NSString+md5String.m */; };
+		2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9891911F749604005331F1 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,11 +94,11 @@
 		2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImagePrefetcher.m; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImagePrefetcher.m; sourceTree = "<group>"; };
 		2A02C0091F74628700184823 /* CZWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImageDecoder.h; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImageDecoder.h; sourceTree = "<group>"; };
 		2A02C00A1F74628700184823 /* CZWebImageDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImageDecode.m; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZWebImageDecode.m; sourceTree = "<group>"; };
-		2A02C00B1F74628700184823 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImage+Resize.h"; sourceTree = "<group>"; };
-		2A02C00C1F74628700184823 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImage+Resize.m"; sourceTree = "<group>"; };
+		2A02C00B1F74628700184823 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "CZWebImage/UIImage+Resize.h"; sourceTree = "<group>"; };
+		2A02C00C1F74628700184823 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "CZWebImage/UIImage+Resize.m"; sourceTree = "<group>"; };
 		2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+CZWebImage.h"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImageView+CZWebImage.h"; sourceTree = "<group>"; };
 		2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+CZWebImage.m"; path = "../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/UIImageView+CZWebImage.m"; sourceTree = "<group>"; };
-		2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZConcurrentOperation.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZConcurrentOperation.swift; sourceTree = "<group>"; };
+		2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZConcurrentOperation.swift; path = CZWebImage/CZConcurrentOperation.swift; sourceTree = "<group>"; };
 		2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloadOperation.swift; path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo/CZWebImage/CZImageDownloadOperation.swift; sourceTree = "<group>"; };
 		2A02C0111F74628700184823 /* TestDataManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestDataManger.swift; path = /__Github/CZGroupon/CZFacebook/../../CZOperationQueue/CZOperationQueueDemo/CZOperationQueueDemo/TestDataManger.swift; sourceTree = "<absolute>"; };
 		2A02C0121F74628700184823 /* GPOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPOperationQueue.swift; path = /__Github/CZGroupon/CZFacebook/../../CZOperationQueue/CZOperationQueueDemo/CZOperationQueueDemo/CZOperationQueue/GPOperationQueue.swift; sourceTree = "<absolute>"; };
@@ -119,6 +120,7 @@
 		2A02C02E1F74628700184823 /* NSString+md5String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+md5String.h"; path = "CZWebImage/Utils/NSString+md5String.h"; sourceTree = "<group>"; };
 		2A02C02F1F74628700184823 /* NSString+md5String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+md5String.m"; path = "CZWebImage/Utils/NSString+md5String.m"; sourceTree = "<group>"; };
 		2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = ../CZGroupon/Common/CZWebImage/CZFlickr/CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
+		2A9891911F749604005331F1 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Extension.swift"; path = "../../../../../CZTwitter/CZTwitter/CZInstagram/Utils/Extensions/UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,13 +192,9 @@
 				2A02C0081F74628700184823 /* CZWebImagePrefetcher.m */,
 				2A02C0091F74628700184823 /* CZWebImageDecoder.h */,
 				2A02C00A1F74628700184823 /* CZWebImageDecode.m */,
-				2A02C00B1F74628700184823 /* UIImage+Resize.h */,
-				2A02C00C1F74628700184823 /* UIImage+Resize.m */,
 				2A02C00D1F74628700184823 /* UIImageView+CZWebImage.h */,
 				2A02C00E1F74628700184823 /* UIImageView+CZWebImage.m */,
-				2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */,
 				2A02C0101F74628700184823 /* CZImageDownloadOperation.swift */,
-				2A02C01D1F74628700184823 /* Optional */,
 				2A02C0301F74628700184823 /* Utils */,
 			);
 			name = Core;
@@ -218,14 +216,18 @@
 				2A02C0141F74628700184823 /* GPOperationQueue */,
 			);
 			name = Optional;
-			path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo;
 			sourceTree = "<group>";
 		};
 		2A02C0301F74628700184823 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2A9891911F749604005331F1 /* UIImage+Extension.swift */,
+				2A02C01D1F74628700184823 /* Optional */,
+				2A02C00F1F74628700184823 /* CZConcurrentOperation.swift */,
 				2A02C0151F74628700184823 /* CZProMutexLock.swift */,
 				2A02C0161F74628700184823 /* CZMutexLock.swift */,
+				2A02C00B1F74628700184823 /* UIImage+Resize.h */,
+				2A02C00C1F74628700184823 /* UIImage+Resize.m */,
 				2A02C01E1F74628700184823 /* UIImage+Additions.h */,
 				2A02C01F1F74628700184823 /* UIImage+Additions.m */,
 				2A02C0241F74628700184823 /* UIView+Animation.h */,
@@ -412,6 +414,7 @@
 				2A02C0421F74628700184823 /* CZOperationsManager.swift in Sources */,
 				2A02C03F1F74628700184823 /* CZImageDownloadOperation.swift in Sources */,
 				2A02C0411F74628700184823 /* GPOperationQueue.swift in Sources */,
+				2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */,
 				2A02C0391F74628700184823 /* CZWebImageDecode.m in Sources */,
 				2A02C0371F74628700184823 /* CZWebImagePrefetcher.m in Sources */,
 				2A02C0431F74628700184823 /* CZProMutexLock.swift in Sources */,
@@ -493,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -541,7 +544,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
