@@ -24,11 +24,10 @@ extension UIImageView {
     public func cz_setImage(withURL url: URL?,
                             placeholderImage: UIImage?,
                             cropSize: CGSize,
-                            options: NSSet?,
+                            options: [NSNumber]?,
                             completion: CZWebImageCompletion?) {
-        // Convert NSNset<NSNumber *>? to Set<CZWebImageOption>?
         var bridgingOptions: Set<CZWebImageOption>? = nil
-        if let options = (options as? Set<NSNumber>)?.flatMap({ CZWebImageOption(rawValue: $0.intValue)}) {
+        if let options = options?.flatMap({ CZWebImageOption(rawValue: $0.intValue)}) {
             bridgingOptions = Set(options)
         }
             
