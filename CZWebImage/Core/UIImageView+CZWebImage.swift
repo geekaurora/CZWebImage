@@ -22,7 +22,7 @@ extension UIImageView {
     public func cz_setImage(withURL url: URL?,
                      placeholderImage: UIImage? = nil,
                      cropSize: CGSize? = nil,
-                     options: Set<CZWebImageOption>? = nil,
+                     options: Set<CZWebImageOption>? = [.shouldFadeIn],
                      completion: CZWebImageCompletion? = nil) {
         guard let url = url else {
             CZMainQueueScheduler.async {
@@ -37,7 +37,8 @@ extension UIImageView {
         CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, downloadType: .default) {[weak self] (image, number, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
             if let options = options, options.contains(.shouldFadeIn) {
-                //self.fadein
+                self.fadeIn(withAnimationName: CZWebImageConstants.kFadeAnimation,
+                            interval: CZWebImageConstants.fadeAnimationDuration)
             }
             
             self.image = image
