@@ -40,7 +40,6 @@
 		2A02C05A1F74628700184823 /* NSError+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02D1F74628700184823 /* NSError+Description.m */; };
 		2A02C05B1F74628700184823 /* NSString+md5String.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A02C02E1F74628700184823 /* NSString+md5String.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A02C05C1F74628700184823 /* NSString+md5String.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02C02F1F74628700184823 /* NSString+md5String.m */; };
-		2A194D851F7498E80027EE24 /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A02C0631F74629F00184823 /* CZNetworking.framework */; };
 		2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9891911F749604005331F1 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,26 +51,19 @@
 			remoteGlobalIDString = 2A02BFE61F7461EA00184823;
 			remoteInfo = CZWebImage;
 		};
-		2A02C0621F74629F00184823 /* PBXContainerItemProxy */ = {
+		2AEBF7201F7582EA005A1DEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */;
+			containerPortal = 2AEBF71A1F7582EA005A1DEF /* CZNetworking.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 044E02481F74349B00849AA2;
 			remoteInfo = CZNetworking;
 		};
-		2A02C0641F74629F00184823 /* PBXContainerItemProxy */ = {
+		2AEBF7221F7582EA005A1DEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */;
+			containerPortal = 2AEBF71A1F7582EA005A1DEF /* CZNetworking.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 044E02511F74349B00849AA2;
 			remoteInfo = CZNetworkingTests;
-		};
-		2A02C0681F7462AF00184823 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 044E02471F74349B00849AA2;
-			remoteInfo = CZNetworking;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -112,8 +104,8 @@
 		2A02C02D1F74628700184823 /* NSError+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+Description.m"; path = "CZWebImage/Utils/NSError+Description.m"; sourceTree = "<group>"; };
 		2A02C02E1F74628700184823 /* NSString+md5String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+md5String.h"; path = "CZWebImage/Utils/NSString+md5String.h"; sourceTree = "<group>"; };
 		2A02C02F1F74628700184823 /* NSString+md5String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+md5String.m"; path = "CZWebImage/Utils/NSString+md5String.m"; sourceTree = "<group>"; };
-		2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = ../CZGroupon/Common/CZWebImage/CZFlickr/CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
 		2A9891911F749604005331F1 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Extension.swift"; path = "../../../../../CZTwitter/CZTwitter/CZInstagram/Utils/Extensions/UIImage+Extension.swift"; sourceTree = "<group>"; };
+		2AEBF71A1F7582EA005A1DEF /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A194D851F7498E80027EE24 /* CZNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +130,7 @@
 		2A02BFDD1F7461EA00184823 = {
 			isa = PBXGroup;
 			children = (
-				2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */,
+				2AEBF71A1F7582EA005A1DEF /* CZNetworking.xcodeproj */,
 				2A02BFE91F7461EA00184823 /* CZWebImage */,
 				2A02BFF41F7461EA00184823 /* CZWebImageTests */,
 				2A02BFE81F7461EA00184823 /* Products */,
@@ -237,11 +228,11 @@
 			path = ../../CZGroupon/Common/CZWebImage/CZFlickr/FlickrDemo;
 			sourceTree = "<group>";
 		};
-		2A02C05E1F74629F00184823 /* Products */ = {
+		2AEBF71B1F7582EA005A1DEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A02C0631F74629F00184823 /* CZNetworking.framework */,
-				2A02C0651F74629F00184823 /* CZNetworkingTests.xctest */,
+				2AEBF7211F7582EA005A1DEF /* CZNetworking.framework */,
+				2AEBF7231F7582EA005A1DEF /* CZNetworkingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -283,7 +274,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2A02C0691F7462AF00184823 /* PBXTargetDependency */,
 			);
 			name = CZWebImage;
 			productName = CZWebImage;
@@ -342,8 +332,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2A02C05E1F74629F00184823 /* Products */;
-					ProjectRef = 2A02C05D1F74629F00184823 /* CZNetworking.xcodeproj */;
+					ProductGroup = 2AEBF71B1F7582EA005A1DEF /* Products */;
+					ProjectRef = 2AEBF71A1F7582EA005A1DEF /* CZNetworking.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -355,18 +345,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2A02C0631F74629F00184823 /* CZNetworking.framework */ = {
+		2AEBF7211F7582EA005A1DEF /* CZNetworking.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CZNetworking.framework;
-			remoteRef = 2A02C0621F74629F00184823 /* PBXContainerItemProxy */;
+			remoteRef = 2AEBF7201F7582EA005A1DEF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A02C0651F74629F00184823 /* CZNetworkingTests.xctest */ = {
+		2AEBF7231F7582EA005A1DEF /* CZNetworkingTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CZNetworkingTests.xctest;
-			remoteRef = 2A02C0641F74629F00184823 /* PBXContainerItemProxy */;
+			remoteRef = 2AEBF7221F7582EA005A1DEF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -431,11 +421,6 @@
 			isa = PBXTargetDependency;
 			target = 2A02BFE61F7461EA00184823 /* CZWebImage */;
 			targetProxy = 2A02BFF21F7461EA00184823 /* PBXContainerItemProxy */;
-		};
-		2A02C0691F7462AF00184823 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CZNetworking;
-			targetProxy = 2A02C0681F7462AF00184823 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
