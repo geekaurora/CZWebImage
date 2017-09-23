@@ -57,12 +57,12 @@ class CZCache: NSObject {
     public func cacheFile(withUrl url: URL, data: Data?) {
         guard let data = data else {return}
         let filePath = cacheFilePath(forUrlStr: url.absoluteString)
-        // Mem Cache
+        // Mem cache
         if let image = UIImage(data: data) {
             setMemCache(image: image, forKey: filePath)
         }
         
-        // Disk Cache
+        // Disk cache
         ioQueue.async(flags: .barrier) {[weak self] in
             guard let `self` = self else {return}
             do {
@@ -83,13 +83,11 @@ class CZCache: NSObject {
             var image: UIImage? = self.getMemCache(forKey: filePath)
             if image == nil {
                 image = self.ioQueue.sync {
-                    do {
-                        let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
-                        let image = UIImage(data: data)
+                    if let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
+                       let image = UIImage(data: data) {
+                        // Set mem cache after loading data from local drive
                         self.setMemCache(image: image, forKey: filePath)
                         return image
-                    } catch {
-                        //assertionFailure("Failed to read file. Error - \(error.localizedDescription)")
                     }
                     return nil
                 }
@@ -113,8 +111,7 @@ fileprivate extension CZCache {
         return memCache.object(forKey: NSString(string: key))
     }
     
-    func setMemCache(image: UIImage?, forKey key: String) {
-        guard let image = image else {return}
+    func setMemCache(image: UIImage, forKey key: String) {
         memCache.setObject(image,
                            forKey: NSString(string: key),
                            cost: cacheCost(forImage: image))
