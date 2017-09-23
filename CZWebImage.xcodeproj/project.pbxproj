@@ -39,7 +39,6 @@
 		2AEBF7C01F75888D005A1DEF /* CZCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7BF1F75888D005A1DEF /* CZCache.swift */; };
 		2AEBF7C71F75BCA5005A1DEF /* UIImageView+CZWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */; };
 		2AEBF7C91F75C118005A1DEF /* CZWebImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7C81F75C118005A1DEF /* CZWebImageConstants.swift */; };
-		2AEBF7CB1F75C97C005A1DEF /* CZError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7CA1F75C97C005A1DEF /* CZError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +111,6 @@
 		2AEBF7BF1F75888D005A1DEF /* CZCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZCache.swift; path = Core/CZCache.swift; sourceTree = "<group>"; };
 		2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImageView+CZWebImage.swift"; path = "Core/UIImageView+CZWebImage.swift"; sourceTree = "<group>"; };
 		2AEBF7C81F75C118005A1DEF /* CZWebImageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageConstants.swift; path = Core/CZWebImageConstants.swift; sourceTree = "<group>"; };
-		2AEBF7CA1F75C97C005A1DEF /* CZError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZError.swift; path = CZWebImage/Core/Utils/CZError.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +195,6 @@
 		2A02C0301F74628700184823 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2AEBF7CA1F75C97C005A1DEF /* CZError.swift */,
 				2A65C7B91F75CA2800C3563E /* CZWebImageError.swift */,
 				2AEBF7A11F758750005A1DEF /* CZMutexLock.swift */,
 				2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */,
@@ -379,7 +376,6 @@
 				2AEBF76A1F758544005A1DEF /* CZWebImageManager.swift in Sources */,
 				2AEBF7B81F758750005A1DEF /* UIImage+Additions.m in Sources */,
 				2AEBF7651F758544005A1DEF /* CZImageDownloader.swift in Sources */,
-				2AEBF7CB1F75C97C005A1DEF /* CZError.swift in Sources */,
 				2AEBF7BE1F758750005A1DEF /* UIView+Animation.m in Sources */,
 				2AEBF7BA1F758750005A1DEF /* UIImage+Resize.m in Sources */,
 				2AEBF7C01F75888D005A1DEF /* CZCache.swift in Sources */,

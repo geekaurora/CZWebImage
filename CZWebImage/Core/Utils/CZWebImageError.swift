@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CZNetworking
 
 open class CZWebImageError: CZError {
     public init(_ description: String? = nil, code: Int = 99) {
