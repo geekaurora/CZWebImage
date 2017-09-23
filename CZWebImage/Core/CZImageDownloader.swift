@@ -11,7 +11,8 @@ import CZNetworking
 
 fileprivate var kvoContext: UInt8 = 0
 
-public typealias CZImageDownloderCompletion = (UIImage?, NSNumber, URL) -> Void
+// Bool - isFromCache
+public typealias CZImageDownloderCompletion = (UIImage?, Bool, URL) -> Void
 
 @objc public enum CZImageDownloadType: Int {
     case `default` = 0, large, prefetch
@@ -66,7 +67,7 @@ public class CZImageDownloader: NSObject {
             CZCache.shared.cacheFile(withUrl: url, image: image)
                                                     
             CZMainQueueScheduler.async {
-                completionHandler?(image, NSNumber(value: false), url)
+                completionHandler?(image, false, url)
             }
         }) { (task, error) in
             print("DOWNLOAD ERROR: \(error.localizedDescription)")

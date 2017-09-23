@@ -68,7 +68,8 @@ import CZNetworking
     
     @objc(getCachedImageWithUrl:completion:)
     public func getCachedFile(withUrl url: URL, completion: (UIImage?) -> Void)  {
-        let image = memCache.object(forKey: NSString(string: url.absoluteString))
+        let filePath = cacheFilePath(forUrlStr: url.absoluteString)
+        let image = memCache.object(forKey: NSString(string: filePath))
         completion(image)
     }
     

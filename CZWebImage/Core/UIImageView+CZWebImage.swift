@@ -54,13 +54,15 @@ extension UIImageView {
             return
         }
         
-        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, downloadType: .default) {[weak self] (image, number, url) in
+        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, downloadType: .default) {[weak self] (image, isFromCache, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
             CZMainQueueScheduler.async {
-                if let options = options,
-                    options.contains(.shouldFadeIn) {
-                    self.fadeIn(withAnimationName: CZWebImageConstants.kFadeAnimation,
-                                interval: CZWebImageConstants.fadeAnimationDuration)
+                if let options = options {
+                    if !isFromCache &&
+                        options.contains(.shouldFadeIn) {
+                        self.fadeIn(withAnimationName: CZWebImageConstants.kFadeAnimation,
+                                    interval: CZWebImageConstants.fadeAnimationDuration)
+                    }
                 }
 
                 self.image = image

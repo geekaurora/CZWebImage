@@ -30,7 +30,7 @@ import CZNetworking
             if let imageIn = imageIn {
                 // Load from local disk
                 CZMainQueueScheduler.async {
-                    completionHandler?(imageIn, NSNumber(value: true), url)
+                    completionHandler?(imageIn, true, url)
                 }
                 return
             }
