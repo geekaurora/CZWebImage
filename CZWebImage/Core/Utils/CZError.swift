@@ -17,7 +17,7 @@ open class CZError: NSError {
         super.init(domain: domain, code: code, userInfo: userInfo)
     }
     
-    required public  init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
