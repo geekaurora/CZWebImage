@@ -36,7 +36,7 @@ class CZCache: NSObject {
     // 60 days
     fileprivate static let kCZCacheDefaultMaxAge: TimeInterval = 60 * 24 * 60 * 60
     // 500M
-    fileprivate static let kCZCacheDefaultMaxSize: Int =  500 * 1024 * 1024
+    fileprivate static let kCZCacheDefaultMaxSize: Int =  0 // 500 * 1024 * 1024
     
     public init(maxCacheAge: TimeInterval = kCZCacheDefaultMaxAge,
                 maxCacheSize: Int = kCZCacheDefaultMaxSize) {
@@ -148,6 +148,7 @@ class CZCache: NSObject {
 //        }
         
         // 2. Clean disk by maxSize setting: based on visited date (simple LRU)
+        print("CacheSize: \(self.size)")
         if self.size > self.maxCacheSize {
             let expectedCacheSize = self.maxCacheSize / 2
             let expectedReduceSize = self.size - expectedCacheSize
@@ -175,11 +176,12 @@ class CZCache: NSObject {
                     let oneFileSize = (value[CZCache.kFileSize] as? Int) ?? 0
                     removedFilesSize += oneFileSize
                 }
+                self.flushCachedItemsInfoToDisk(cachedItemsInfo)
                 return removedKeys.flatMap {self.cacheFileURL(forKey: $0)}
             }
             
             // Remove corresponding files from disk
-            self.ioQueue.async(flags: .barrier) {[weak self] in
+            self.ioQueue.sync(flags: .barrier) {[weak self] in
                 guard let `self` = self else {return}
                 removeFileURLs?.forEach {
                     do {
@@ -189,6 +191,8 @@ class CZCache: NSObject {
                     }
                 }
             }
+            
+            
             
         }
     }
