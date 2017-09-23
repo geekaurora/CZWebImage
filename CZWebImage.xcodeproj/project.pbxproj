@@ -15,6 +15,7 @@
 		2A92007B1F75DE2000A21F01 /* CZCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A9200791F75DE2000A21F01 /* CZCache.h */; };
 		2A92007C1F75DE2000A21F01 /* CZCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A92007A1F75DE2000A21F01 /* CZCache.m */; };
 		2A92007E1F75E12A00A21F01 /* CZCacheFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A92007D1F75E12A00A21F01 /* CZCacheFileManager.swift */; };
+		2A92008A1F76D4F300A21F01 /* CZFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9200891F76D4F300A21F01 /* CZFileHelper.swift */; };
 		2A9891921F749604005331F1 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9891911F749604005331F1 /* UIImage+Extension.swift */; };
 		2AEBF7641F758544005A1DEF /* CZConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */; };
 		2AEBF7651F758544005A1DEF /* CZImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */; };
@@ -84,6 +85,7 @@
 		2A9200791F75DE2000A21F01 /* CZCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZCache.h; path = Deprecated/CZCache.h; sourceTree = "<group>"; };
 		2A92007A1F75DE2000A21F01 /* CZCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZCache.m; path = Deprecated/CZCache.m; sourceTree = "<group>"; };
 		2A92007D1F75E12A00A21F01 /* CZCacheFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZCacheFileManager.swift; path = Core/CZCacheFileManager.swift; sourceTree = "<group>"; };
+		2A9200891F76D4F300A21F01 /* CZFileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZFileHelper.swift; path = Core/CZFileHelper.swift; sourceTree = "<group>"; };
 		2A9891911F749604005331F1 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Extension.swift"; path = "../../../../../CZTwitter/CZTwitter/CZInstagram/Utils/Extensions/UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2AEBF73C1F758423005A1DEF /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = ../CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
 		2AEBF7551F758544005A1DEF /* CZConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZConcurrentOperation.swift; path = ../../../../../CZWebImage/CZWebImage/Core/CZConcurrentOperation.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				2AEBF7BF1F75888D005A1DEF /* CZCache.swift */,
 				2A92007D1F75E12A00A21F01 /* CZCacheFileManager.swift */,
+				2A9200891F76D4F300A21F01 /* CZFileHelper.swift */,
 				2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */,
 				2AEBF75B1F758544005A1DEF /* CZWebImageManager.swift */,
 				2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */,
@@ -376,6 +379,7 @@
 				2AEBF76A1F758544005A1DEF /* CZWebImageManager.swift in Sources */,
 				2AEBF7B81F758750005A1DEF /* UIImage+Additions.m in Sources */,
 				2AEBF7651F758544005A1DEF /* CZImageDownloader.swift in Sources */,
+				2A92008A1F76D4F300A21F01 /* CZFileHelper.swift in Sources */,
 				2AEBF7BE1F758750005A1DEF /* UIView+Animation.m in Sources */,
 				2AEBF7BA1F758750005A1DEF /* UIImage+Resize.m in Sources */,
 				2AEBF7C01F75888D005A1DEF /* CZCache.swift in Sources */,

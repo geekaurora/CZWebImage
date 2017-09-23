@@ -24,6 +24,11 @@ class CZCache: NSObject {
     fileprivate(set) var maxCacheAge: UInt
     fileprivate(set) var maxCacheSize: UInt
     
+    fileprivate static let kCZCacheCachedItemsInfoFileName = "cachedItemsInfo.plist"
+    fileprivate static let kCZCachedFileModifiedDate = "modifiedDate"
+    fileprivate static let kCZCachedFileVisitedDate = "visitedDate"
+    fileprivate static let kCZCachedFileSize = "size"
+    
     public init(maxCacheAge: UInt = 0,
                 maxCacheSize: UInt = 0) {
         operationQueue = OperationQueue()
@@ -58,14 +63,18 @@ class CZCache: NSObject {
         }
         
         // Disk Cache
-        ioQueue.async {
+        ioQueue.async(flags: .barrier) {[weak self] in
+            guard let `self` = self else {return}
             do {
                 try data.write(to: URL(fileURLWithPath: filePath))
+                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kCZCachedFileModifiedDate, value: NSDate())
+                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kCZCachedFileVisitedDate, value: NSDate())
+                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kCZCachedFileSize, value: data.count)
             } catch {
                 assertionFailure("Failed to write file. Error - \(error.localizedDescription)")
             }
         }
-    }
+    }    
     
     public func getCachedFile(withUrl url: URL, completion: @escaping (UIImage?) -> Void)  {
         operationQueue.addOperation {[weak self] in
@@ -92,14 +101,21 @@ class CZCache: NSObject {
         }
     }
     
-    public func cacheMem(image: UIImage, forKey key: String) {
-        memCache.setObject(image,
-                           forKey: NSString(string: key),
-                           cost: cacheCost(forImage: image))
+    func setCachedItemsInfo(key: String, subkey: String, value: Any) {
+        cachedItemsInfoLock.writeLock { (cachedItemsInfo) -> Void in
+            cachedItemsInfo[key] = cachedItemsInfo[key] ?? [String: Any]()
+            cachedItemsInfo[key]![subkey] = value
+        }
     }
 }
 
 fileprivate extension CZCache {
+    func cacheMem(image: UIImage, forKey key: String) {
+        memCache.setObject(image,
+                           forKey: NSString(string: key),
+                           cost: cacheCost(forImage: image))
+    }
+
     func cacheCost(forImage image: UIImage) -> Int {
         return Int(image.size.height * image.size.width * image.scale * image.scale)
     }
