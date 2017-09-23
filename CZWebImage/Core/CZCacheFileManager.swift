@@ -10,7 +10,7 @@ import UIKit
 
 class CZCacheFileManager: NSObject {
     static let cacheFolder: String = {
-        let cacheFolder = CZWebImageUtils.documentFolder() + "CZCache/"
+        let cacheFolder = CZWebImageUtils.documentFolder() + "/CZCache/"
         let fileManager = FileManager()
         if !fileManager.fileExists(atPath: cacheFolder) {
             do {

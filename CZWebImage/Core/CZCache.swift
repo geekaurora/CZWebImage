@@ -15,7 +15,8 @@ class CZImageCache: CZCache {
 
 class CZCache: NSObject {
     fileprivate var ioQueue: DispatchQueue
-    fileprivate var cachedItemsInfoLock: CZMutexLock<[String: Any]>
+    fileprivate var operationQueue: OperationQueue
+    fileprivate var cachedItemsInfoLock: CZMutexLock<[String: [String: Any]]>
     fileprivate var hasCachedItemsInfoToFlushToDisk: Bool = false
     fileprivate var memCache: NSCache<NSString, UIImage>
     fileprivate var fileManager: FileManager
@@ -25,6 +26,9 @@ class CZCache: NSObject {
     
     public init(maxCacheAge: UInt = 0,
                 maxCacheSize: UInt = 0) {
+        operationQueue = OperationQueue()
+        operationQueue.maxConcurrentOperationCount = 60
+        
         ioQueue = DispatchQueue(label: "com.tony.cache.ioQueue",
                                 qos: .userInitiated,
                                 attributes: .concurrent)
@@ -48,15 +52,44 @@ class CZCache: NSObject {
     public func cacheFile(withUrl url: URL, data: Data?) {
         guard let data = data else {return}
         let filePath = cacheFilePath(forUrlStr: url.absoluteString)
+        // Mem Cache
         if let image = UIImage(data: data) {
             cacheMem(image: image, forKey: filePath)
         }
-    } 
+        
+        // Disk Cache
+        ioQueue.async {
+            do {
+                try data.write(to: URL(fileURLWithPath: filePath))
+            } catch {
+                assertionFailure("Failed to write file. Error - \(error.localizedDescription)")
+            }
+        }
+    }
     
-    public func getCachedFile(withUrl url: URL, completion: (UIImage?) -> Void)  {
-        let filePath = cacheFilePath(forUrlStr: url.absoluteString)
-        let image = memCache.object(forKey: NSString(string: filePath))
-        completion(image)
+    public func getCachedFile(withUrl url: URL, completion: @escaping (UIImage?) -> Void)  {
+        operationQueue.addOperation {[weak self] in
+            guard let `self` = self else {return}
+            let filePath = self.cacheFilePath(forUrlStr: url.absoluteString)
+            var image: UIImage? = self.memCache.object(forKey: NSString(string: filePath))
+            if image == nil {
+                image = self.ioQueue.sync {
+                    do {
+                        let url = URL(fileURLWithPath: filePath)
+                        print(url)
+                        let data = try Data(contentsOf: url)
+                        let image = UIImage(data: data)
+                        return image
+                    } catch {
+                        //assertionFailure("Failed to read file. Error - \(error.localizedDescription)")
+                    }
+                    return nil
+                }
+            }
+            CZMainQueueScheduler.async {
+                completion(image)
+            }
+        }
     }
     
     public func cacheMem(image: UIImage, forKey key: String) {
