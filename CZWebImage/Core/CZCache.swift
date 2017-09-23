@@ -15,23 +15,17 @@ class CZImageCache: CZCache {
 
 /// Generic cache class for various types of data. e.g. UIImage, Video, etc.
 class CZCache: NSObject {
-    // External closure convert `Data` to desired `DataType`. e.g. `UIImage`
-    //public typealias DataResolver = (Data?) -> DataType?
-    //public typealias ReverseDataResolver = (DataType?) -> Data?
-    
     fileprivate var ioQueue: DispatchQueue
     fileprivate var cachedItemsInfoLock: CZMutexLock<[String: Any]>
     fileprivate var hasCachedItemsInfoToFlushToDisk: Bool = false
     fileprivate var memCache: NSCache<NSString, UIImage>
     fileprivate var fileManager: FileManager
-    //fileprivate var dataResolver: DataResolver?
 
     fileprivate(set) var maxCacheAge: UInt
     fileprivate(set) var maxCacheSize: UInt
     
     public init(maxCacheAge: UInt = 0,
                 maxCacheSize: UInt = 0
-                //,dataResolver: DataResolver? = nil
         ) {
         
         //self.dataResolver = dataResolver
