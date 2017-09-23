@@ -51,7 +51,7 @@ class CZCache: NSObject {
         if let image = UIImage(data: data) {
             cacheMem(image: image, forKey: filePath)
         }
-    }
+    } 
     
     public func getCachedFile(withUrl url: URL, completion: (UIImage?) -> Void)  {
         let filePath = cacheFilePath(forUrlStr: url.absoluteString)
