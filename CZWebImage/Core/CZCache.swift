@@ -59,7 +59,7 @@ class CZCache: NSObject {
         let filePath = cacheFilePath(forUrlStr: url.absoluteString)
         // Mem Cache
         if let image = UIImage(data: data) {
-            cacheMem(image: image, forKey: filePath)
+            setMemCache(image: image, forKey: filePath)
         }
         
         // Disk Cache
@@ -80,14 +80,13 @@ class CZCache: NSObject {
         operationQueue.addOperation {[weak self] in
             guard let `self` = self else {return}
             let filePath = self.cacheFilePath(forUrlStr: url.absoluteString)
-            var image: UIImage? = self.memCache.object(forKey: NSString(string: filePath))
+            var image: UIImage? = self.getMemCache(forKey: filePath)
             if image == nil {
                 image = self.ioQueue.sync {
                     do {
-                        let url = URL(fileURLWithPath: filePath)
-                        print(url)
-                        let data = try Data(contentsOf: url)
+                        let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
                         let image = UIImage(data: data)
+                        self.setMemCache(image: image, forKey: filePath)
                         return image
                     } catch {
                         //assertionFailure("Failed to read file. Error - \(error.localizedDescription)")
@@ -110,7 +109,12 @@ class CZCache: NSObject {
 }
 
 fileprivate extension CZCache {
-    func cacheMem(image: UIImage, forKey key: String) {
+    func getMemCache(forKey key: String) -> UIImage? {
+        return memCache.object(forKey: NSString(string: key))
+    }
+    
+    func setMemCache(image: UIImage?, forKey key: String) {
+        guard let image = image else {return}
         memCache.setObject(image,
                            forKey: NSString(string: key),
                            cost: cacheCost(forImage: image))
