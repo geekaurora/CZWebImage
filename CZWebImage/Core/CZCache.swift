@@ -9,28 +9,17 @@
 import UIKit
 import CZNetworking
 
-class CZImageCache: CZCache {
+class CZImageCache: CZCache<UIImage> {
     public static let shared = CZImageCache()
 }
-
-open class CZCache: NSObject {
+/// Generic cache class for various types of data. e.g. Image, Video, etc.
+open class CZCache<DataType>: NSObject {
     fileprivate var ioQueue: DispatchQueue
     fileprivate var cachedItemsInfoLock: CZMutexLock<[String: Any]>
     fileprivate var hasCachedItemsInfoToFlushToDisk: Bool = false
     fileprivate var memCache: NSCache<NSString, UIImage>
     fileprivate var fileManager: FileManager
-    fileprivate static let cacheFolder: String = {
-        let cacheFolder = CZWebImageUtils.documentFolder() + "CZCache/"
-        let fileManager = FileManager()
-        if !fileManager.fileExists(atPath: cacheFolder) {
-            do {
-                try fileManager.createDirectory(atPath: cacheFolder, withIntermediateDirectories: true, attributes: nil)
-            } catch {
-                assertionFailure("Failure of creating folder! Error - \(error.localizedDescription); Folder - \(cacheFolder)")
-            }
-        }
-        return cacheFolder
-    }()
+
     fileprivate(set) var maxCacheAge: UInt
     fileprivate(set) var maxCacheSize: UInt
     
@@ -82,6 +71,6 @@ fileprivate extension CZCache {
     
     
     public func cacheFilePath(forUrlStr urlStr: String) -> String {
-        return CZCache.cacheFolder + urlStr.MD5
+        return CZCacheFileManager.cacheFolder + urlStr.MD5
     }
 }

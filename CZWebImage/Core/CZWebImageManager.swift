@@ -12,12 +12,11 @@ import CZNetworking
 @objc open class CZWebImageManager: NSObject {
     var imageManager: CZWebImageManager?
     fileprivate var downloader: CZImageDownloader
-    fileprivate var cache: CZCache
+    fileprivate var cache = CZImageCache.shared
     public static let shared: CZWebImageManager = CZWebImageManager()
     
     public override init() {
         downloader = CZImageDownloader.shared
-        cache = CZImageCache.shared
         super.init()
     }
     
