@@ -65,7 +65,7 @@ public class CZImageDownloader: NSObject {
                 image = image?.crop(toSize: cropSize)
                 internalData =  image == nil ? nil : UIImagePNGRepresentation(image!)
             }
-            CZImageCache.shared.cacheFile(withUrl: url, data: internalData)
+            CZImageCache.shared.setCacheFile(withUrl: url, data: internalData)
                                                     
             CZMainQueueScheduler.async {
                 completionHandler?(image, false, url)

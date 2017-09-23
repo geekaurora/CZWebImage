@@ -29,11 +29,16 @@ class CZCache: NSObject {
     
     fileprivate static let kCachedItemsInfoFile = "cachedItemsInfo.plist"
     fileprivate static let kFileModifiedDate = "modifiedDate"
-    fileprivate static let kFileVisitedDate = "visitedDate"
+    fileprivate static let kFileLastVisitedDate = "visitedDate"
     fileprivate static let kFileSize = "size"
     
-    public init(maxCacheAge: UInt = 0,
-                maxCacheSize: UInt = 0) {
+    // 60 days
+    fileprivate static let kCZCacheDefaultMaxAge: UInt =  60 * 24 * 60 * 60
+    // 500M
+    fileprivate static let kCZCacheDefaultMaxSize: UInt =  500 * 1024 * 1024
+    
+    public init(maxCacheAge: UInt = kCZCacheDefaultMaxAge,
+                maxCacheSize: UInt = kCZCacheDefaultMaxSize) {
         operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 60
         
@@ -57,22 +62,22 @@ class CZCache: NSObject {
         //        [self cleanDiskWithCompletionBlock:nil];
     }
     
-    public func cacheFile(withUrl url: URL, data: Data?) {
+    public func setCacheFile(withUrl url: URL, data: Data?) {
         guard let data = data else {return}
-        let filePath = cacheFilePath(forUrlStr: url.absoluteString)
+        let (fileURL, cacheKey) = cacheFileInfo(forURL: url)
         // Mem cache
         if let image = UIImage(data: data) {
-            setMemCache(image: image, forKey: filePath)
+            setMemCache(image: image, forKey: cacheKey)
         }
         
         // Disk cache
         ioQueue.async(flags: .barrier) {[weak self] in
             guard let `self` = self else {return}
             do {
-                try data.write(to: URL(fileURLWithPath: filePath))
-                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kFileModifiedDate, value: NSDate())
-                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kFileVisitedDate, value: NSDate())
-                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kFileSize, value: data.count)
+                try data.write(to: fileURL)
+                self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileModifiedDate, value: NSDate())
+                self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileLastVisitedDate, value: NSDate())
+                self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileSize, value: data.count)
             } catch {
                 assertionFailure("Failed to write file. Error - \(error.localizedDescription)")
             }
@@ -82,16 +87,18 @@ class CZCache: NSObject {
     public func getCachedFile(withUrl url: URL, completion: @escaping (UIImage?) -> Void)  {
         operationQueue.addOperation {[weak self] in
             guard let `self` = self else {return}
-            let filePath = self.cacheFilePath(forUrlStr: url.absoluteString)
+            let (fileURL, cacheKey) = self.cacheFileInfo(forURL: url)
             // Read data from mem cache
-            var image: UIImage? = self.getMemCache(forKey: filePath)
+            var image: UIImage? = self.getMemCache(forKey: cacheKey)
             // Read data from disk cache
             if image == nil {
                 image = self.ioQueue.sync {
-                    if let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
+                    if let data = try? Data(contentsOf: fileURL),
                        let image = UIImage(data: data) {
+                        // update lastVisited date
+                        self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileLastVisitedDate, value: NSDate())
                         // Set mem cache after loading data from local drive
-                        self.setMemCache(image: image, forKey: filePath)
+                        self.setMemCache(image: image, forKey: cacheKey)
                         return image
                     }
                     return nil
@@ -102,6 +109,11 @@ class CZCache: NSObject {
                 completion(image)
             }
         }
+    }
+    
+    public typealias CleanDiskCacheCompletion = () -> Void
+    func cleanDiskCacheIfNeeded(completion: CleanDiskCacheCompletion? = nil){
+        
     }
 }
 
@@ -143,7 +155,10 @@ fileprivate extension CZCache {
     }
     
     
-    func cacheFilePath(forUrlStr urlStr: String) -> String {
-        return CZCacheFileManager.cacheFolder + urlStr.MD5
+    typealias CacheFileInfo = (fileURL: URL, cacheKey: String)
+    func cacheFileInfo(forURL url: URL) -> CacheFileInfo {
+        let cacheKey = url.absoluteString.MD5
+        let fileURL = URL(fileURLWithPath: CZCacheFileManager.cacheFolder + url.absoluteString.MD5)
+        return (fileURL: fileURL, cacheKey: cacheKey)
     }
 }
