@@ -79,16 +79,15 @@ public class CZDispatchReadWriteLock {
         return t
     }
     @discardableResult
-    public func writeLock<T>(_ block: @escaping () -> T?) -> T? {
-        var retVal: T?
-        syncQueue.sync(flags: .barrier, execute: { [weak self] in
-            guard let _ = self else {
-                assertionFailure("self was deallocated!")
-                return
+    public func writeLock<T>(isAsync: Bool = false, block: @escaping () -> T?) -> T? {
+        if isAsync {
+            syncQueue.async(flags: .barrier) { _ = block() }
+            return nil
+        } else {
+            return syncQueue.sync(flags: .barrier) {() -> T? in
+                return block()
             }
-            retVal = block()
-        })
-        return retVal
+        }
     }
 }
 

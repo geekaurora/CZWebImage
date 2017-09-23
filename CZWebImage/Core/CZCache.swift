@@ -148,17 +148,28 @@ class CZCache: NSObject {
         }
 
         // 2. Clean disk by maxSize setting: based on visited date (simple LRU)
-//        cachedItemsInfoLock.readLock { (cachedItemsInfo: CachedItemsInfo) -> Void in
-//            let res = cachedItemsInfo.sorted { (keyValue1: (key: String, value: [String : Any]),
-//                                                keyValue2: (key: String, value: [String : Any])) -> Bool in
-//                if let modifiedDate1 = keyValue1.value[CZCache.kFileVisitedDate] as? Date,
-//                   let modifiedDate2 = keyValue2.value[CZCache.kFileVisitedDate] as? Date {
-//                    return modifiedDate1.timeIntervalSince(modifiedDate2) < 0
-//                } else {
-//                    fatalError()
-//                }
-//            }
-//        }
+        cachedItemsInfoLock.writeLock { (cachedItemsInfo: inout CachedItemsInfo) -> Void in
+            let res = cachedItemsInfo.sorted { (keyValue1: (key: String, value: [String : Any]),
+                                                keyValue2: (key: String, value: [String : Any])) -> Bool in
+                if let modifiedDate1 = keyValue1.value[CZCache.kFileVisitedDate] as? Date,
+                   let modifiedDate2 = keyValue2.value[CZCache.kFileVisitedDate] as? Date {
+                    return modifiedDate1.timeIntervalSince(modifiedDate2) < 0
+                } else {
+                    fatalError()
+                }
+            }
+        }
+    }
+    
+    var size: Int {
+        return cachedItemsInfoLock.readLock { (cachedItemsInfo: CachedItemsInfo) -> Int in
+            var totalCacheSize: Int = 0
+            for (_, value) in cachedItemsInfo {
+                let oneFileSize = (value[CZCache.kFileSize] as? Int)  ?? 0
+                totalCacheSize += oneFileSize
+            }
+            return totalCacheSize
+        } ?? 0
     }
 }
 
