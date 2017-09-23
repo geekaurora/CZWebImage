@@ -59,12 +59,13 @@ public class CZImageDownloader: NSObject {
                                                  progress: nil,
                                                  success: { (task, data) in
             guard let data = data as? Data else {preconditionFailure()}
+            var internalData: Data? = data
             var image = UIImage(data: data)
             if let cropSize = cropSize, cropSize != .zero {
-                //image = image?.resize(with: cropSize)
                 image = image?.crop(toSize: cropSize)
+                internalData =  image == nil ? nil : UIImagePNGRepresentation(image!)
             }
-            CZImageCache.shared.cacheFile(withUrl: url, image: image)
+            CZImageCache.shared.cacheFile(withUrl: url, data: internalData)
                                                     
             CZMainQueueScheduler.async {
                 completionHandler?(image, false, url)

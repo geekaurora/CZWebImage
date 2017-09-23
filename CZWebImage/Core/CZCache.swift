@@ -13,7 +13,6 @@ class CZImageCache: CZCache {
     public static let shared = CZImageCache()
 }
 
-/// Generic cache class for various types of data. e.g. UIImage, Video, etc.
 class CZCache: NSObject {
     fileprivate var ioQueue: DispatchQueue
     fileprivate var cachedItemsInfoLock: CZMutexLock<[String: Any]>
@@ -25,10 +24,7 @@ class CZCache: NSObject {
     fileprivate(set) var maxCacheSize: UInt
     
     public init(maxCacheAge: UInt = 0,
-                maxCacheSize: UInt = 0
-        ) {
-        
-        //self.dataResolver = dataResolver
+                maxCacheSize: UInt = 0) {
         ioQueue = DispatchQueue(label: "com.tony.cache.ioQueue",
                                 qos: .userInitiated,
                                 attributes: .concurrent)
@@ -49,11 +45,12 @@ class CZCache: NSObject {
         super.init()
     }
     
-    public func cacheFile(withUrl url: URL, image: UIImage?) {
-        guard let image = image else {return}
+    public func cacheFile(withUrl url: URL, data: Data?) {
+        guard let data = data else {return}
         let filePath = cacheFilePath(forUrlStr: url.absoluteString)
-        
-        cacheMem(image: image, forKey: filePath)
+        if let image = UIImage(data: data) {
+            cacheMem(image: image, forKey: filePath)
+        }
     }
     
     public func getCachedFile(withUrl url: URL, completion: (UIImage?) -> Void)  {
