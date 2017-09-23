@@ -9,21 +9,32 @@
 import UIKit
 import CZNetworking
 
-class CZImageCache: CZCache<UIImage> {
+class CZImageCache: CZCache {
     public static let shared = CZImageCache()
 }
-/// Generic cache class for various types of data. e.g. Image, Video, etc.
-open class CZCache<DataType>: NSObject {
+
+/// Generic cache class for various types of data. e.g. UIImage, Video, etc.
+class CZCache: NSObject {
+    // External closure convert `Data` to desired `DataType`. e.g. `UIImage`
+    //public typealias DataResolver = (Data?) -> DataType?
+    //public typealias ReverseDataResolver = (DataType?) -> Data?
+    
     fileprivate var ioQueue: DispatchQueue
     fileprivate var cachedItemsInfoLock: CZMutexLock<[String: Any]>
     fileprivate var hasCachedItemsInfoToFlushToDisk: Bool = false
     fileprivate var memCache: NSCache<NSString, UIImage>
     fileprivate var fileManager: FileManager
+    //fileprivate var dataResolver: DataResolver?
 
     fileprivate(set) var maxCacheAge: UInt
     fileprivate(set) var maxCacheSize: UInt
     
-    @objc public init(maxCacheAge: UInt = 0, maxCacheSize: UInt = 0) {
+    public init(maxCacheAge: UInt = 0,
+                maxCacheSize: UInt = 0
+                //,dataResolver: DataResolver? = nil
+        ) {
+        
+        //self.dataResolver = dataResolver
         ioQueue = DispatchQueue(label: "com.tony.cache.ioQueue",
                                 qos: .userInitiated,
                                 attributes: .concurrent)
@@ -70,7 +81,7 @@ fileprivate extension CZCache {
     }
     
     
-    public func cacheFilePath(forUrlStr urlStr: String) -> String {
+    func cacheFilePath(forUrlStr urlStr: String) -> String {
         return CZCacheFileManager.cacheFolder + urlStr.MD5
     }
 }
