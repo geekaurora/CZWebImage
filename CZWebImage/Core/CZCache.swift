@@ -20,14 +20,14 @@ class CZCache: NSObject {
     fileprivate var hasCachedItemsInfoToFlushToDisk: Bool = false
     fileprivate var memCache: NSCache<NSString, UIImage>
     fileprivate var fileManager: FileManager
-
+    fileprivate var cachedItemsInfoFilePath: String
     fileprivate(set) var maxCacheAge: UInt
     fileprivate(set) var maxCacheSize: UInt
     
-    fileprivate static let kCZCacheCachedItemsInfoFileName = "cachedItemsInfo.plist"
-    fileprivate static let kCZCachedFileModifiedDate = "modifiedDate"
-    fileprivate static let kCZCachedFileVisitedDate = "visitedDate"
-    fileprivate static let kCZCachedFileSize = "size"
+    fileprivate static let kCachedItemsInfoFile = "cachedItemsInfo.plist"
+    fileprivate static let kFileModifiedDate = "modifiedDate"
+    fileprivate static let kFileVisitedDate = "visitedDate"
+    fileprivate static let kFileSize = "size"
     
     public init(maxCacheAge: UInt = 0,
                 maxCacheSize: UInt = 0) {
@@ -45,6 +45,7 @@ class CZCache: NSObject {
         memCache.countLimit = 1000
         memCache.totalCostLimit = 1000 * 1024 * 1024
         
+        cachedItemsInfoFilePath = CZCacheFileManager.cacheFolder + "/" + CZCache.kCachedItemsInfoFile
         cachedItemsInfoLock = CZMutexLock([:])
 //        _cachedItemsInfo = [self loadCachedItemsInfoFromDisk] ? : [NSMutableDictionary new];
 //        [self cleanDiskWithCompletionBlock:nil];
@@ -67,9 +68,9 @@ class CZCache: NSObject {
             guard let `self` = self else {return}
             do {
                 try data.write(to: URL(fileURLWithPath: filePath))
-                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kCZCachedFileModifiedDate, value: NSDate())
-                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kCZCachedFileVisitedDate, value: NSDate())
-                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kCZCachedFileSize, value: data.count)
+                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kFileModifiedDate, value: NSDate())
+                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kFileVisitedDate, value: NSDate())
+                self.setCachedItemsInfo(key: filePath, subkey: CZCache.kFileSize, value: data.count)
             } catch {
                 assertionFailure("Failed to write file. Error - \(error.localizedDescription)")
             }
@@ -80,7 +81,9 @@ class CZCache: NSObject {
         operationQueue.addOperation {[weak self] in
             guard let `self` = self else {return}
             let filePath = self.cacheFilePath(forUrlStr: url.absoluteString)
+            // Read data from mem cache
             var image: UIImage? = self.getMemCache(forKey: filePath)
+            // Read data from disk cache
             if image == nil {
                 image = self.ioQueue.sync {
                     if let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
@@ -92,6 +95,7 @@ class CZCache: NSObject {
                     return nil
                 }
             }
+            // Completion callback
             CZMainQueueScheduler.async {
                 completion(image)
             }
@@ -99,9 +103,12 @@ class CZCache: NSObject {
     }
     
     func setCachedItemsInfo(key: String, subkey: String, value: Any) {
-        cachedItemsInfoLock.writeLock { (cachedItemsInfo) -> Void in
+        cachedItemsInfoLock.writeLock {[weak self] (cachedItemsInfo) -> Void in
+            guard let `self` = self else {return}
             cachedItemsInfo[key] = cachedItemsInfo[key] ?? [String: Any]()
             cachedItemsInfo[key]![subkey] = value
+            print(self.cachedItemsInfoFilePath)
+            (cachedItemsInfo as NSDictionary).write(to: URL(fileURLWithPath: self.cachedItemsInfoFilePath), atomically: true)
         }
     }
 }
