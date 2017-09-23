@@ -334,7 +334,6 @@ static const NSString *kCZCachedFileSize = @"fileSize";
         }];
     });
 
-
     // 2. Clean disk by maxSize setting: based on visited date (simple LRU)
     if ([self getSize] > self.maxCacheSize) {
         dispatch_sync(self.cachedItemsInfoQueue, ^{// Read lock

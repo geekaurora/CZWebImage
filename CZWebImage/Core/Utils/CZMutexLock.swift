@@ -63,21 +63,16 @@ public class CZMutexLock<Item>: NSObject {
 }
 
 public class CZDispatchReadWriteLock {
-    fileprivate let syncQueue = DispatchQueue(label: "com.tony.mutexLock", attributes: DispatchQueue.Attributes.concurrent)
+    fileprivate let syncQueue = DispatchQueue(label: "com.tony.mutexLock", attributes: .concurrent)
     public init () {}
 
     @discardableResult
     public func readLock<T>(_ block: @escaping () -> T?) -> T?  {
-        var t: T?
-        syncQueue.sync { [weak self] in
-            guard let _ = self else {
-                assertionFailure("self was deallocated!")
-                return
-            }
-            t = block()
+        return syncQueue.sync { () -> T? in
+            return block()
         }
-        return t
     }
+    
     @discardableResult
     public func writeLock<T>(isAsync: Bool = false, block: @escaping () -> T?) -> T? {
         if isAsync {
