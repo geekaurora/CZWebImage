@@ -17,7 +17,7 @@ import CZNetworking
     
     public override init() {
         downloader = CZImageDownloader.shared
-        cache = CZCache.shared
+        cache = CZImageCache.shared
         super.init()
     }
     

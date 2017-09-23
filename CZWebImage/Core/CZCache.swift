@@ -9,11 +9,12 @@
 import UIKit
 import CZNetworking
 
-@objc open class CZCache: NSObject {
-    public static let shared = CZCache()
-    
+class CZImageCache: CZCache {
+    public static let shared = CZImageCache()
+}
+
+open class CZCache: NSObject {
     fileprivate var ioQueue: DispatchQueue
-    
     fileprivate var cachedItemsInfoLock: CZMutexLock<[String: Any]>
     fileprivate var hasCachedItemsInfoToFlushToDisk: Bool = false
     fileprivate var memCache: NSCache<NSString, UIImage>
@@ -54,11 +55,6 @@ import CZNetworking
         super.init()
     }
     
-    public func cacheFilePath(forUrlStr urlStr: String) -> String {
-        return CZCache.cacheFolder + urlStr.MD5
-    }
-    
-    @objc(cacheFileWithUrl:withImage:)
     public func cacheFile(withUrl url: URL, image: UIImage?) {
         guard let image = image else {return}
         let filePath = cacheFilePath(forUrlStr: url.absoluteString)
@@ -66,7 +62,6 @@ import CZNetworking
         cacheMem(image: image, forKey: filePath)
     }
     
-    @objc(getCachedImageWithUrl:completion:)
     public func getCachedFile(withUrl url: URL, completion: (UIImage?) -> Void)  {
         let filePath = cacheFilePath(forUrlStr: url.absoluteString)
         let image = memCache.object(forKey: NSString(string: filePath))
@@ -83,5 +78,10 @@ import CZNetworking
 fileprivate extension CZCache {
     func cacheCost(forImage image: UIImage) -> Int {
         return Int(image.size.height * image.size.width * image.scale * image.scale)
+    }
+    
+    
+    public func cacheFilePath(forUrlStr urlStr: String) -> String {
+        return CZCache.cacheFolder + urlStr.MD5
     }
 }
