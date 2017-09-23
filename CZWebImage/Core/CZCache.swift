@@ -29,7 +29,7 @@ class CZCache: NSObject {
     
     fileprivate static let kCachedItemsInfoFile = "cachedItemsInfo.plist"
     fileprivate static let kFileModifiedDate = "modifiedDate"
-    fileprivate static let kFileLastVisitedDate = "visitedDate"
+    fileprivate static let kFileVisitedDate = "visitedDate"
     fileprivate static let kFileSize = "size"
     
     // 60 days
@@ -76,7 +76,7 @@ class CZCache: NSObject {
             do {
                 try data.write(to: fileURL)
                 self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileModifiedDate, value: NSDate())
-                self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileLastVisitedDate, value: NSDate())
+                self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileVisitedDate, value: NSDate())
                 self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileSize, value: data.count)
             } catch {
                 assertionFailure("Failed to write file. Error - \(error.localizedDescription)")
@@ -96,7 +96,7 @@ class CZCache: NSObject {
                     if let data = try? Data(contentsOf: fileURL),
                        let image = UIImage(data: data) {
                         // update lastVisited date
-                        self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileLastVisitedDate, value: NSDate())
+                        self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileVisitedDate, value: NSDate())
                         // Set mem cache after loading data from local drive
                         self.setMemCache(image: image, forKey: cacheKey)
                         return image
@@ -116,28 +116,44 @@ class CZCache: NSObject {
         let currDate = Date()
         
         // 1. Clean disk by age
-        cachedItemsInfoLock.readLock { (cachedItemsInfo: CachedItemsInfo) -> Void in
-            cachedItemsInfo.flatMap({ (keyValue: (key: String, value: [String : Any])) -> String? in
+        let removeFileURLs = cachedItemsInfoLock.writeLock { (cachedItemsInfo: inout CachedItemsInfo) -> [URL] in
+            var removedKeys = [String]()
+            
+            // Remove key if its fileModifiedDate exceeds maxCacheAge
+            cachedItemsInfo.forEach { (keyValue: (key: String, value: [String : Any])) in
                 if let modifiedDate = keyValue.value[CZCache.kFileModifiedDate] as? Date,
                     currDate.timeIntervalSince(modifiedDate) > self.maxCacheAge {
-                    return keyValue.key
+                    removedKeys.append(keyValue.key)
+                    cachedItemsInfo.removeValue(forKey: keyValue.key)
                 }
-                return nil
-            })
+            }
+            let removeFileURLs = removedKeys.flatMap{ self.cacheFileURL(forKey: $0) }
+            return removeFileURLs
         }
-        
-        // 2. Clean disk by maxSize setting: based on visited date (simple LRU)
-        cachedItemsInfoLock.readLock { (cachedItemsInfo: CachedItemsInfo) -> Void in
-            let res = cachedItemsInfo.sorted { (keyValue1: (key: String, value: [String : Any]),
-                                                keyValue2: (key: String, value: [String : Any])) -> Bool in
-                if let modifiedDate1 = keyValue1.value[CZCache.kFileModifiedDate] as? Date,
-                   let modifiedDate2 = keyValue2.value[CZCache.kFileModifiedDate] as? Date {
-                    return modifiedDate1.timeIntervalSince(modifiedDate2) < 0
-                } else {
-                    fatalError()
+        // Remove corresponding files from disk
+        self.ioQueue.async(flags: .barrier) {[weak self] in
+            guard let `self` = self else {return}
+            removeFileURLs?.forEach {
+                do {
+                    try self.fileManager.removeItem(at: $0)
+                } catch {
+                    assertionFailure("Failed to remove file. Error - \(error.localizedDescription)")
                 }
             }
         }
+
+        // 2. Clean disk by maxSize setting: based on visited date (simple LRU)
+//        cachedItemsInfoLock.readLock { (cachedItemsInfo: CachedItemsInfo) -> Void in
+//            let res = cachedItemsInfo.sorted { (keyValue1: (key: String, value: [String : Any]),
+//                                                keyValue2: (key: String, value: [String : Any])) -> Bool in
+//                if let modifiedDate1 = keyValue1.value[CZCache.kFileVisitedDate] as? Date,
+//                   let modifiedDate2 = keyValue2.value[CZCache.kFileVisitedDate] as? Date {
+//                    return modifiedDate1.timeIntervalSince(modifiedDate2) < 0
+//                } else {
+//                    fatalError()
+//                }
+//            }
+//        }
     }
 }
 
