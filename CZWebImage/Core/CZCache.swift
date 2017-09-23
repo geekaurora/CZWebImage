@@ -181,7 +181,7 @@ class CZCache: NSObject {
             }
             
             // Remove corresponding files from disk
-            self.ioQueue.sync(flags: .barrier) {[weak self] in
+            self.ioQueue.async(flags: .barrier) {[weak self] in
                 guard let `self` = self else {return}
                 removeFileURLs?.forEach {
                     do {
@@ -191,8 +191,9 @@ class CZCache: NSObject {
                     }
                 }
             }
-
         }
+        
+        completion?()
     }
     
     var size: Int {
