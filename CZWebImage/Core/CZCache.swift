@@ -24,7 +24,7 @@ class CZCache: NSObject {
     fileprivate var cachedItemsInfoFileURL: URL = {
         return URL(fileURLWithPath: CZCacheFileManager.cacheFolder + "/" + CZCache.kCachedItemsInfoFile)
     }()
-    fileprivate(set) var maxCacheAge: UInt
+    fileprivate(set) var maxCacheAge: TimeInterval
     fileprivate(set) var maxCacheSize: UInt
     
     fileprivate static let kCachedItemsInfoFile = "cachedItemsInfo.plist"
@@ -33,11 +33,11 @@ class CZCache: NSObject {
     fileprivate static let kFileSize = "size"
     
     // 60 days
-    fileprivate static let kCZCacheDefaultMaxAge: UInt =  60 * 24 * 60 * 60
+    fileprivate static let kCZCacheDefaultMaxAge: TimeInterval =  60 * 24 * 60 * 60
     // 500M
     fileprivate static let kCZCacheDefaultMaxSize: UInt =  500 * 1024 * 1024
     
-    public init(maxCacheAge: UInt = kCZCacheDefaultMaxAge,
+    public init(maxCacheAge: TimeInterval = kCZCacheDefaultMaxAge,
                 maxCacheSize: UInt = kCZCacheDefaultMaxSize) {
         operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 60
@@ -113,7 +113,31 @@ class CZCache: NSObject {
     
     public typealias CleanDiskCacheCompletion = () -> Void
     func cleanDiskCacheIfNeeded(completion: CleanDiskCacheCompletion? = nil){
+        let currDate = Date()
         
+        // 1. Clean disk by age
+        cachedItemsInfoLock.readLock { (cachedItemsInfo: CachedItemsInfo) -> Void in
+            cachedItemsInfo.flatMap({ (keyValue: (key: String, value: [String : Any])) -> String? in
+                if let modifiedDate = keyValue.value[CZCache.kFileModifiedDate] as? Date,
+                    currDate.timeIntervalSince(modifiedDate) > self.maxCacheAge {
+                    return keyValue.key
+                }
+                return nil
+            })
+        }
+        
+        // 2. Clean disk by maxSize setting: based on visited date (simple LRU)
+        cachedItemsInfoLock.readLock { (cachedItemsInfo: CachedItemsInfo) -> Void in
+            let res = cachedItemsInfo.sorted { (keyValue1: (key: String, value: [String : Any]),
+                                                keyValue2: (key: String, value: [String : Any])) -> Bool in
+                if let modifiedDate1 = keyValue1.value[CZCache.kFileModifiedDate] as? Date,
+                   let modifiedDate2 = keyValue2.value[CZCache.kFileModifiedDate] as? Date {
+                    return modifiedDate1.timeIntervalSince(modifiedDate2) < 0
+                } else {
+                    fatalError()
+                }
+            }
+        }
     }
 }
 
@@ -160,5 +184,9 @@ fileprivate extension CZCache {
         let cacheKey = url.absoluteString.MD5
         let fileURL = URL(fileURLWithPath: CZCacheFileManager.cacheFolder + url.absoluteString.MD5)
         return (fileURL: fileURL, cacheKey: cacheKey)
+    }
+    
+    func cacheFileURL(forKey key: String) -> URL {
+        return URL(fileURLWithPath: CZCacheFileManager.cacheFolder + key)
     }
 }
