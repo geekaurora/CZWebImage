@@ -33,12 +33,14 @@ class CZCache: NSObject {
     fileprivate static let kFileSize = "size"
     
     // 60 days
-    fileprivate static let kCZCacheDefaultMaxAge: TimeInterval =  60 * 24 * 60 * 60
+    fileprivate static let kCZCacheDefaultMaxAge: TimeInterval =  0 // 60 * 24 * 60 * 60
     // 500M
     fileprivate static let kCZCacheDefaultMaxSize: UInt =  500 * 1024 * 1024
     
     public init(maxCacheAge: TimeInterval = kCZCacheDefaultMaxAge,
                 maxCacheSize: UInt = kCZCacheDefaultMaxSize) {
+        print("cacheFolder: " + CZCacheFileManager.cacheFolder)
+
         operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 60
         
@@ -59,7 +61,9 @@ class CZCache: NSObject {
         
         let cachedItemsInfo: CachedItemsInfo = loadCachedItemsInfo() ?? [:]
         cachedItemsInfoLock = CZMutexLock(cachedItemsInfo)
-        //        [self cleanDiskWithCompletionBlock:nil];
+        
+        // Clean cache
+        cleanDiskCacheIfNeeded()
     }
     
     public func setCacheFile(withUrl url: URL, data: Data?) {
@@ -127,11 +131,12 @@ class CZCache: NSObject {
                     cachedItemsInfo.removeValue(forKey: keyValue.key)
                 }
             }
+            self.flushCachedItemsInfoToDisk(cachedItemsInfo)
             let removeFileURLs = removedKeys.flatMap{ self.cacheFileURL(forKey: $0) }
             return removeFileURLs
         }
         // Remove corresponding files from disk
-        self.ioQueue.async(flags: .barrier) {[weak self] in
+        self.ioQueue.sync(flags: .barrier) {[weak self] in
             guard let `self` = self else {return}
             removeFileURLs?.forEach {
                 do {
@@ -168,7 +173,7 @@ fileprivate extension CZCache {
             cachedItemsInfo[key] = cachedItemsInfo[key] ?? [String: Any]()
             cachedItemsInfo[key]![subkey] = value
             print(self.cachedItemsInfoFileURL)
-            (cachedItemsInfo as NSDictionary).write(to: self.cachedItemsInfoFileURL, atomically: true)
+            self.flushCachedItemsInfoToDisk(cachedItemsInfo)
         }
     }
     
@@ -176,8 +181,12 @@ fileprivate extension CZCache {
         cachedItemsInfoLock.writeLock {[weak self] (cachedItemsInfo) -> Void in
             guard let `self` = self else {return}
             cachedItemsInfo.removeValue(forKey: key)
-            (cachedItemsInfo as NSDictionary).write(to: self.cachedItemsInfoFileURL, atomically: true)
+            self.flushCachedItemsInfoToDisk(cachedItemsInfo)
         }
+    }
+    
+    func flushCachedItemsInfoToDisk(_ cachedItemsInfo: CachedItemsInfo) {
+        (cachedItemsInfo as NSDictionary).write(to: self.cachedItemsInfoFileURL, atomically: true)
     }
     
     func getMemCache(forKey key: String) -> UIImage? {
