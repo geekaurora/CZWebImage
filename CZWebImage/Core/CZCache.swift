@@ -15,6 +15,7 @@ class CZImageCache: CZCache {
 
 class CZCache: NSObject {
     fileprivate typealias CachedItemsInfo = [String: [String: Any]]
+    public typealias CleanDiskCacheCompletion = () -> Void
     fileprivate var ioQueue: DispatchQueue
     fileprivate var operationQueue: OperationQueue
     fileprivate var cachedItemsInfoLock: CZMutexLock<CachedItemsInfo>!
@@ -33,7 +34,7 @@ class CZCache: NSObject {
     fileprivate static let kFileSize = "size"
     
     // 60 days
-    fileprivate static let kCZCacheDefaultMaxAge: TimeInterval =  0 // 60 * 24 * 60 * 60
+    fileprivate static let kCZCacheDefaultMaxAge: TimeInterval = 60 * 24 * 60 * 60
     // 500M
     fileprivate static let kCZCacheDefaultMaxSize: UInt =  500 * 1024 * 1024
     
@@ -115,7 +116,6 @@ class CZCache: NSObject {
         }
     }
     
-    public typealias CleanDiskCacheCompletion = () -> Void
     func cleanDiskCacheIfNeeded(completion: CleanDiskCacheCompletion? = nil){
         let currDate = Date()
         
@@ -136,7 +136,7 @@ class CZCache: NSObject {
             return removeFileURLs
         }
         // Remove corresponding files from disk
-        self.ioQueue.sync(flags: .barrier) {[weak self] in
+        self.ioQueue.async(flags: .barrier) {[weak self] in
             guard let `self` = self else {return}
             removeFileURLs?.forEach {
                 do {
