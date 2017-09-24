@@ -54,7 +54,8 @@ extension UIImageView {
             return
         }
         
-        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize) {[weak self] (image, isFromCache, url) in
+        let priority: Operation.QueuePriority = (options?.contains(.highPriority) ?? false) ? .veryHigh : .normal
+        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, priority: priority) {[weak self] (image, isFromCache, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
             CZMainQueueScheduler.async {
                 if let options = options {
