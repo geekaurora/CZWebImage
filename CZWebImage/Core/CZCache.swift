@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CZUtils
 import CZNetworking
 
 class CZImageCache: CZCache {

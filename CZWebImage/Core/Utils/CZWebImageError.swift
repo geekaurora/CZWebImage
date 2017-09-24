@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CZUtils
 import CZNetworking
 
 open class CZWebImageError: CZError {
