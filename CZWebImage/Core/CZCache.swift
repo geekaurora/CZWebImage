@@ -70,7 +70,7 @@ class CZCache: NSObject {
     
     public func setCacheFile(withUrl url: URL, data: Data?) {
         guard let data = data else {return}
-        let (fileURL, cacheKey) = cacheFileInfo(forURL: url)
+        let (fileURL, cacheKey) = getCacheFileInfo(forURL: url)
         // Mem cache
         if let image = UIImage(data: data) {
             setMemCache(image: image, forKey: cacheKey)
@@ -92,7 +92,7 @@ class CZCache: NSObject {
     
     public func getCachedFile(withUrl url: URL, completion: @escaping (UIImage?) -> Void)  {
         let getCacheClosure = {
-            let (fileURL, cacheKey) = self.cacheFileInfo(forURL: url)
+            let (fileURL, cacheKey) = self.getCacheFileInfo(forURL: url)
             // Read data from mem cache
             var image: UIImage? = self.getMemCache(forKey: cacheKey)
             // Read data from disk cache
@@ -110,7 +110,7 @@ class CZCache: NSObject {
                 }
             }
             // Completion callback
-            CZMainQueueScheduler.sync {
+            CZMainQueueScheduler.async {
                 completion(image)
             }
         }
@@ -256,7 +256,7 @@ fileprivate extension CZCache {
     
     
     typealias CacheFileInfo = (fileURL: URL, cacheKey: String)
-    func cacheFileInfo(forURL url: URL) -> CacheFileInfo {
+    func getCacheFileInfo(forURL url: URL) -> CacheFileInfo {
         let cacheKey = url.absoluteString.MD5
         let fileURL = URL(fileURLWithPath: CZCacheFileManager.cacheFolder + url.absoluteString.MD5)
         return (fileURL: fileURL, cacheKey: cacheKey)

@@ -29,7 +29,7 @@ import CZNetworking
             guard let `self` = self else {return}
             if let imageIn = imageIn {
                 // Load from local disk
-                CZMainQueueScheduler.sync {
+                CZMainQueueScheduler.async {
                     completionHandler?(imageIn, true, url)
                 }
                 return
