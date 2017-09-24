@@ -50,7 +50,7 @@ public class CZImageDownloader: NSObject {
         let queue = imageDownloadQueue
         let operation = CZImageDownloadOperation(url: url,
                                                  progress: nil,
-                                                 success: {[weak self] (task, data) in
+                                                 success: { [weak self] (task, data) in
             guard let `self` = self, let data = data as? Data else {preconditionFailure()}
             // Decode/crop image in decode OperationQueue
             self.imageDecodeQueue.addOperation {
@@ -69,10 +69,9 @@ public class CZImageDownloader: NSObject {
                     completionHandler?(image, false, url)
                 }
             }
-
-        }) { (task, error) in
+        }, failure: { (task, error) in
             print("DOWNLOAD ERROR: \(error.localizedDescription)")
-        }
+        })
         operation.queuePriority = priority
         queue.addOperation(operation)
     }
