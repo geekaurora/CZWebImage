@@ -91,8 +91,7 @@ class CZCache: NSObject {
     }    
     
     public func getCachedFile(withUrl url: URL, completion: @escaping (UIImage?) -> Void)  {
-        operationQueue.addOperation {[weak self] in
-            guard let `self` = self else {return}
+        let getCacheClosure = {
             let (fileURL, cacheKey) = self.cacheFileInfo(forURL: url)
             // Read data from mem cache
             var image: UIImage? = self.getMemCache(forKey: cacheKey)
@@ -100,7 +99,7 @@ class CZCache: NSObject {
             if image == nil {
                 image = self.ioQueue.sync {
                     if let data = try? Data(contentsOf: fileURL),
-                       let image = UIImage(data: data) {
+                        let image = UIImage(data: data) {
                         // update lastVisited date
                         self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileVisitedDate, value: NSDate())
                         // Set mem cache after loading data from local drive
@@ -111,10 +110,12 @@ class CZCache: NSObject {
                 }
             }
             // Completion callback
-            CZMainQueueScheduler.async {
+            CZMainQueueScheduler.sync {
                 completion(image)
             }
         }
+        getCacheClosure()
+        //operationQueue.addOperation(getCacheClosure)
     }
     
     func cleanDiskCacheIfNeeded(completion: CleanDiskCacheCompletion? = nil){
