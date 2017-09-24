@@ -15,30 +15,29 @@ fileprivate var kvoContext: UInt8 = 0
 // Bool - isFromCache
 public typealias CZImageDownloderCompletion = (UIImage?, Bool, URL) -> Void
 
-//@objc public enum CZImagePriority: Int {
-//    case `default` = 0, thumbnail, prefetch
-//}
-
 public class CZImageDownloader: NSObject {
-    fileprivate var defaultImageQueue: OperationQueue
+    fileprivate var imageDownloadQueue: OperationQueue
+    fileprivate var imageDecodeQueue: OperationQueue
     public static let shared: CZImageDownloader = CZImageDownloader()
     
     public override init() {
-        defaultImageQueue = OperationQueue()
-        defaultImageQueue.qualityOfService = .userInteractive
+        imageDownloadQueue = OperationQueue()
+        imageDownloadQueue.qualityOfService = .userInteractive
+        imageDownloadQueue.maxConcurrentOperationCount = CZWebImageConstants.downloadQueueMaxConcurrent
+        imageDecodeQueue = OperationQueue()
+        imageDecodeQueue.maxConcurrentOperationCount = CZWebImageConstants.decodeQueueMaxConcurrent
         super.init()
         
-        defaultImageQueue.maxConcurrentOperationCount = CZWebImageConstants.defaultImageQueueMaxConcurrent
         if CZWebImageConstants.shouldObserveOperations {
-            defaultImageQueue.addObserver(self, forKeyPath: CZWebImageConstants.kOperations, options: [.new, .old], context: &kvoContext)
+            imageDownloadQueue.addObserver(self, forKeyPath: CZWebImageConstants.kOperations, options: [.new, .old], context: &kvoContext)
         }
     }
     
     deinit {
         if CZWebImageConstants.shouldObserveOperations {
-            defaultImageQueue.removeObserver(self, forKeyPath: CZWebImageConstants.kOperations)
+            imageDownloadQueue.removeObserver(self, forKeyPath: CZWebImageConstants.kOperations)
         }
-        defaultImageQueue.cancelAllOperations()
+        imageDownloadQueue.cancelAllOperations()
     }
     
     public func downloadImage(with url: URL?,
@@ -48,22 +47,29 @@ public class CZImageDownloader: NSObject {
         guard let url = url else {return}
         cancelDownload(with: url)
         
-        let queue = defaultImageQueue
+        let queue = imageDownloadQueue
         let operation = CZImageDownloadOperation(url: url,
                                                  progress: nil,
-                                                 success: { (task, data) in
-            guard let data = data as? Data else {preconditionFailure()}
-            var internalData: Data? = data
-            var image = UIImage(data: data)
-            if let cropSize = cropSize, cropSize != .zero {
-                image = image?.crop(toSize: cropSize)
-                internalData =  image == nil ? nil : UIImagePNGRepresentation(image!)
+                                                 success: {[weak self] (task, data) in
+            guard let `self` = self, let data = data as? Data else {preconditionFailure()}
+            // Decode/crop image in decode OperationQueue
+            self.imageDecodeQueue.addOperation {
+                var internalData: Data? = data
+                var image = UIImage(data: data)
+                // Decode image to bitmap format if needed. `UIImagePNGRepresentation`
+                // image = image?.cz_decodedImageWith()
+                if let cropSize = cropSize, cropSize != .zero {
+                    image = image?.crop(toSize: cropSize)
+                    internalData =  (image == nil) ? nil : UIImagePNGRepresentation(image!)
+                }
+                CZImageCache.shared.setCacheFile(withUrl: url, data: internalData)
+                
+                // Invoke completion closure back on mainQueue
+                CZMainQueueScheduler.async {
+                    completionHandler?(image, false, url)
+                }
             }
-            CZImageCache.shared.setCacheFile(withUrl: url, data: internalData)
-                                                    
-            CZMainQueueScheduler.async {
-                completionHandler?(image, false, url)
-            }
+
         }) { (task, error) in
             print("DOWNLOAD ERROR: \(error.localizedDescription)")
         }
@@ -81,7 +87,7 @@ public class CZImageDownloader: NSObject {
                 operation.cancel()
             }
         }
-        defaultImageQueue.operations.forEach(cancelIfNeeded)
+        imageDownloadQueue.operations.forEach(cancelIfNeeded)
     }
 }
 
@@ -94,7 +100,7 @@ extension CZImageDownloader {
             keyPath == CZWebImageConstants.kOperations else {
                 return
         }
-        if object === defaultImageQueue {
+        if object === imageDownloadQueue {
             print("Default image queue size: \(object.operationCount)")
         }
     }

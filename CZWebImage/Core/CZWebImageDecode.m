@@ -10,7 +10,8 @@
 
 @implementation UIImage (CZWebImageDecoder)
 
-- (UIImage *)sd_decodedImageWithImage {
+/* Main reason causes loading delay!!! */
+- (UIImage *)cz_decodedImageWithImage {
     UIImage *image = self;
 
     // while downloading huge amount of images
@@ -20,7 +21,7 @@
     // on iOS7, do not forget to call
     // [[SDImageCache sharedImageCache] clearMemory];
     @autoreleasepool{
-        // do not decode animated images
+        // Do not decode animated images
         if (image.images) { return image; }
 
         CGImageRef imageRef = image.CGImage;
@@ -36,7 +37,6 @@
         size_t width = CGImageGetWidth(imageRef);
         size_t height = CGImageGetHeight(imageRef);
 
-        // current
         CGColorSpaceModel imageColorSpaceModel = CGColorSpaceGetModel(CGImageGetColorSpace(imageRef));
         CGColorSpaceRef colorspaceRef = CGImageGetColorSpace(imageRef);
 
@@ -64,28 +64,6 @@
         
         return imageWithAlpha;
     }
-}
-
-/* Main reason causes loading delay!!! */
-- (UIImage *)forceDecodeImage {
-    return self;
-    return [self sd_decodedImageWithImage];
-    CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(self.CGImage);
-    BOOL imageHasAlphaInfo = (alphaInfo != kCGImageAlphaNone &&
-                              alphaInfo != kCGImageAlphaNoneSkipFirst &&
-                              alphaInfo != kCGImageAlphaNoneSkipLast);
-
-    UIGraphicsBeginImageContextWithOptions(self.size, !imageHasAlphaInfo, 0);
-    CGRect rect = (CGRect){.origin = CGPointZero, .size = self.size};
-    [self drawInRect:rect];
-    UIImage *decompressedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
-    if (!decompressedImage) {
-        // If really have any error occurs, we use the original image at this moment
-        decompressedImage = self;
-    }
-    return decompressedImage;
 }
 
 @end

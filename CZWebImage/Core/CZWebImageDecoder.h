@@ -10,7 +10,6 @@
 
 @interface UIImage (CZWebImageDecoder)
 
-- (UIImage *)forceDecodeImage;
-- (UIImage *)sd_decodedImageWithImage;
+- (UIImage *)cz_decodedImageWithImage;
 
 @end
