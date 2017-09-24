@@ -22,7 +22,7 @@ import CZNetworking
     
     public func downloadImage(with url: URL!,
                        cropSize: CGSize? = nil,
-                       downloadType: CZImageDownloadType,
+                       priority: Operation.QueuePriority = .normal,
                        completionHandler: CZImageDownloderCompletion!) {
         cache.getCachedFile(withUrl: url) {[weak self] (imageIn) in
             guard let `self` = self else {return}
@@ -36,7 +36,7 @@ import CZNetworking
             // Load from remote server
             self.downloader.downloadImage(with: url,
                                           cropSize: cropSize,
-                                          downloadType: downloadType,
+                                          priority: priority,
                                           completionHandler: completionHandler)
         }
     }

@@ -19,6 +19,6 @@ enum CZWebImageConstants {
 }
 
 @objc public enum CZWebImageOption: Int {
-    case shouldFadeIn = 0
-    case lowImagePriority
+    case fadeInAnimation = 0
+    case lowPriority
 }

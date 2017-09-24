@@ -9,7 +9,7 @@
 import UIKit
 import CZNetworking
 
-public typealias CZWebImageCompletion = (Error?) -> Void
+public typealias CZWebImageCompletion = (UIImage?, Error?) -> Void
 
 private var kImageUrl: UInt8 = 0
 
@@ -31,17 +31,17 @@ extension UIImageView {
             bridgingOptions = Set(options)
         }
             
-        cz_setImage(withURL: url,
+        cz_setImage(with: url,
                     placeholderImage: placeholderImage,
                     cropSize: cropSize,
                     options: bridgingOptions,
                     completion: completion)
     }
     
-    public func cz_setImage(withURL url: URL?,
+    public func cz_setImage(with url: URL?,
                      placeholderImage: UIImage? = nil,
                      cropSize: CGSize? = nil,
-                     options: Set<CZWebImageOption>? = [.shouldFadeIn],
+                     options: Set<CZWebImageOption>? = [.fadeInAnimation],
                      completion: CZWebImageCompletion? = nil) {
         image = placeholderImage
         cz_cancelCurrentImageLoad()
@@ -49,17 +49,17 @@ extension UIImageView {
 
         guard let url = url else {
             CZMainQueueScheduler.async {
-                completion?(CZWebImageError("imageURL is nil"))
+                completion?(nil, CZWebImageError("imageURL is nil"))
             }
             return
         }
         
-        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, downloadType: .default) {[weak self] (image, isFromCache, url) in
+        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize) {[weak self] (image, isFromCache, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
             CZMainQueueScheduler.async {
                 if let options = options {
                     if !isFromCache &&
-                        options.contains(.shouldFadeIn) {
+                        options.contains(.fadeInAnimation) {
                         self.fadeIn(withAnimationName: CZWebImageConstants.kFadeAnimation,
                                     interval: CZWebImageConstants.fadeAnimationDuration)
                     }
@@ -67,7 +67,7 @@ extension UIImageView {
 
                 self.image = image
                 self.layoutIfNeeded()
-                completion?(nil)
+                completion?(image, nil)
             }
         }
     }

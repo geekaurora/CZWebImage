@@ -14,47 +14,40 @@ fileprivate var kvoContext: UInt8 = 0
 // Bool - isFromCache
 public typealias CZImageDownloderCompletion = (UIImage?, Bool, URL) -> Void
 
-@objc public enum CZImageDownloadType: Int {
-    case `default` = 0, large, prefetch
-}
+//@objc public enum CZImagePriority: Int {
+//    case `default` = 0, thumbnail, prefetch
+//}
 
 public class CZImageDownloader: NSObject {
     fileprivate var defaultImageQueue: OperationQueue
-    fileprivate var largeImageQueue: OperationQueue
     public static let shared: CZImageDownloader = CZImageDownloader()
     
     public override init() {
         defaultImageQueue = OperationQueue()
         defaultImageQueue.qualityOfService = .userInteractive
-        largeImageQueue = OperationQueue()
-        largeImageQueue.qualityOfService = .default
         super.init()
         
         defaultImageQueue.maxConcurrentOperationCount = CZWebImageConstants.defaultImageQueueMaxConcurrent
-        largeImageQueue.maxConcurrentOperationCount = CZWebImageConstants.largeImageQueueMaxConcurrent
         if CZWebImageConstants.shouldObserveOperations {
             defaultImageQueue.addObserver(self, forKeyPath: CZWebImageConstants.kOperations, options: [.new, .old], context: &kvoContext)
-            largeImageQueue.addObserver(self, forKeyPath: CZWebImageConstants.kOperations, options: [.new, .old], context: &kvoContext)
         }
     }
     
     deinit {
         if CZWebImageConstants.shouldObserveOperations {
             defaultImageQueue.removeObserver(self, forKeyPath: CZWebImageConstants.kOperations)
-            largeImageQueue.removeObserver(self, forKeyPath: CZWebImageConstants.kOperations)
         }
         defaultImageQueue.cancelAllOperations()
-        largeImageQueue.cancelAllOperations()
     }
     
     public func downloadImage(with url: URL?,
                        cropSize: CGSize? = nil,
-                       downloadType: CZImageDownloadType,
+                       priority: Operation.QueuePriority = .normal,
                        completionHandler: CZImageDownloderCompletion!) {
         guard let url = url else {return}
         cancelDownload(with: url)
         
-        let queue = (downloadType == .default) ? defaultImageQueue : largeImageQueue
+        let queue = defaultImageQueue
         let operation = CZImageDownloadOperation(url: url,
                                                  progress: nil,
                                                  success: { (task, data) in
@@ -73,6 +66,7 @@ public class CZImageDownloader: NSObject {
         }) { (task, error) in
             print("DOWNLOAD ERROR: \(error.localizedDescription)")
         }
+        operation.queuePriority = priority
         queue.addOperation(operation)
     }
     
@@ -87,8 +81,7 @@ public class CZImageDownloader: NSObject {
             }
         }
         defaultImageQueue.operations.forEach(cancelIfNeeded)
-        largeImageQueue.operations.forEach(cancelIfNeeded)
-    }    
+    }
 }
 
 // MARK: - KVO Delegation
@@ -102,8 +95,6 @@ extension CZImageDownloader {
         }
         if object === defaultImageQueue {
             print("Default image queue size: \(object.operationCount)")
-        } else if object === largeImageQueue {
-            print("Large image queue size: \(object.operationCount)")
         }
     }
 }
