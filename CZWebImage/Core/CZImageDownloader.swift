@@ -56,15 +56,13 @@ public class CZImageDownloader: NSObject {
             self.imageDecodeQueue.addOperation {
                 var internalData: Data? = data
                 var image = UIImage(data: data)
-                // Decode image to bitmap format if needed. `UIImagePNGRepresentation`
-                // image = image?.cz_decodedImageWith()
                 if let cropSize = cropSize, cropSize != .zero {
                     image = image?.crop(toSize: cropSize)
                     internalData =  (image == nil) ? nil : UIImagePNGRepresentation(image!)
                 }
                 CZImageCache.shared.setCacheFile(withUrl: url, data: internalData)
                 
-                // Invoke completion closure back on mainQueue
+                // Call completionHandler on mainQueue
                 CZMainQueueScheduler.async {
                     completionHandler?(image, false, url)
                 }
