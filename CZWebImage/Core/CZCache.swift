@@ -41,7 +41,7 @@ class CZCache: NSObject {
     
     public init(maxCacheAge: TimeInterval = kMaxFileAge,
                 maxCacheSize: Int = kMaxCacheSize) {
-        print("cacheFolder: " + CZCacheFileManager.cacheFolder)
+        print("CZCacheFolder: " + CZCacheFileManager.cacheFolder)
 
         operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 60
@@ -150,7 +150,6 @@ class CZCache: NSObject {
         }
         
         // 2. Clean disk by maxSize setting: based on visited date (simple LRU)
-        print("CacheSize: \(self.size)")
         if self.size > self.maxCacheSize {
             let expectedCacheSize = self.maxCacheSize / 2
             let expectedReduceSize = self.size - expectedCacheSize
@@ -225,7 +224,6 @@ fileprivate extension CZCache {
             guard let `self` = self else {return}
             cachedItemsInfo[key] = cachedItemsInfo[key] ?? [String: Any]()
             cachedItemsInfo[key]![subkey] = value
-            print(self.cachedItemsInfoFileURL)
             self.flushCachedItemsInfoToDisk(cachedItemsInfo)
         }
     }
