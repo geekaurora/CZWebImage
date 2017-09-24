@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CZUtils
 import CZNetworking
 
 class CZImageDownloadOperation: CZConcurrentOperation {
