@@ -58,7 +58,7 @@ extension UIImageView {
         let priority: Operation.QueuePriority = (options?.contains(.highPriority) ?? false) ? .veryHigh : .normal
         CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, priority: priority) {[weak self] (image, isFromCache, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
-            CZMainQueueScheduler.async {
+            CZMainQueueScheduler.sync {
                 if let options = options {
                     if !isFromCache &&
                         options.contains(.fadeInAnimation) {
