@@ -16,7 +16,6 @@ enum CZWebImageConstants {
     static let kOperations = "operations"
     static let errorDomain = "CZWebImage"
     static let kFadeAnimation = "com.tony.webimage.fadeAnimation"
-    static let fadeAnimationDuration: TimeInterval = 0.4
 }
 
 @objc public enum CZWebImageOption: Int {

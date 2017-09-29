@@ -63,7 +63,7 @@ extension UIImageView {
                 if let options = options {
                     if !isFromCache &&
                         options.contains(.fadeInAnimation) {
-                        self.fadeIn(duration: CZWebImageConstants.fadeAnimationDuration)
+                        self.fadeIn()
                     }
                 }
 
