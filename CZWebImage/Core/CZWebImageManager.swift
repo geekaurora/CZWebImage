@@ -2,8 +2,8 @@
 //  CZWebImageManager.swift
 //  CZWebImage
 //
-//  Created by Cheng Zhang on 9/20/17.
-//  Copyright © 2017 Cheng Zhang. All rights reserved.
+//  Created by Cheng Zhang on 1/20/16.
+//  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
 import UIKit

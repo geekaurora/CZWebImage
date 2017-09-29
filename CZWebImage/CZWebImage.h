@@ -2,8 +2,8 @@
 //  CZWebImage.h
 //  CZWebImage
 //
-//  Created by Cheng Zhang on 9/21/17.
-//  Copyright © 2017 Cheng Zhang. All rights reserved.
+//  Created by Cheng Zhang on 1/18/16.
+//  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
