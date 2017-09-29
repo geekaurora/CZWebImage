@@ -14,6 +14,7 @@ public typealias CZWebImageCompletion = (UIImage?, Error?) -> Void
 
 private var kImageUrl: UInt8 = 0
 
+/// Convenience UIImageView extension for asynrhonous image downloading
 extension UIImageView {
     public var czImageUrl: URL? {
         get { return objc_getAssociatedObject(self, &kImageUrl) as? URL }

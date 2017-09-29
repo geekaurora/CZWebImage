@@ -10,6 +10,7 @@ import UIKit
 import CZUtils
 import CZNetworking
 
+/// Interface class managing image cache/downloading 
 @objc open class CZWebImageManager: NSObject {
     var imageManager: CZWebImageManager?
     fileprivate var downloader: CZImageDownloader

@@ -9,6 +9,7 @@ import Foundation
 import CZUtils
 import CZNetworking
 
+/// Concurrent operation class for image downloading OperationQueue, supports success/failure/progress callback
 class CZImageDownloadOperation: CZConcurrentOperation {
     let url: URL
     let progress: CZHTTPRequester.Progress?

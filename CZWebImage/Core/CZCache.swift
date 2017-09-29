@@ -10,10 +10,14 @@ import UIKit
 import CZUtils
 import CZNetworking
 
+/// Concrete cache class for `UIImage`
 class CZImageCache: CZCache {
     public static let shared = CZImageCache()
 }
 
+/// Thread-safe local cache class backed by DispatchQueue mutex lock/LRU queue, supports maxFileAge/maxCacheSize cleaning
+///
+/// TODO: Abstract common behavior for Image/Video cache and separate UIImage logic out to `CZImageCache`
 class CZCache: NSObject {
     fileprivate typealias CachedItemsInfo = [String: [String: Any]]
     public typealias CleanDiskCacheCompletion = () -> Void

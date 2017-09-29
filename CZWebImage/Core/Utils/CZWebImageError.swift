@@ -10,6 +10,7 @@ import UIKit
 import CZUtils
 import CZNetworking
 
+/// Error class for CZWebImage
 open class CZWebImageError: CZError {
     public init(_ description: String? = nil, code: Int = 99) {
         super.init(domain: CZWebImageConstants.errorDomain, code: code, description: description)

@@ -12,9 +12,9 @@ import CZNetworking
 
 fileprivate var kvoContext: UInt8 = 0
 
-// Bool - isFromCache
 public typealias CZImageDownloderCompletion = (UIImage?, Bool, URL) -> Void
 
+/// Asynchronous image downloading class on top of OperationQueue
 public class CZImageDownloader: NSObject {
     fileprivate var imageDownloadQueue: OperationQueue
     fileprivate var imageDecodeQueue: OperationQueue

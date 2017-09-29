@@ -9,6 +9,7 @@
 import UIKit
 import CZUtils
 
+/// CacheFileManager helper class
 internal class CZCacheFileManager: NSObject {
     static let cacheFolder: String = {
         let cacheFolder = CZFileHelper.documentDirectory + "/CZCache/"
