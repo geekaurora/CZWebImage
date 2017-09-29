@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CZCacheFileManager: NSObject {
+internal class CZCacheFileManager: NSObject {
     static let cacheFolder: String = {
         let cacheFolder = CZWebImageUtils.documentFolder() + "/CZCache/"
         let fileManager = FileManager()
