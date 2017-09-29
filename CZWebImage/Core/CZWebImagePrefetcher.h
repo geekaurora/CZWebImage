@@ -1,6 +1,6 @@
 //
 //  CZWebImagePrefetcher.h
-//  FlickrDemo
+//  CZWebImage
 //
 //  Created by Cheng Zhang on 12/30/16.
 //  Copyright © 2016 Cheng Zhang. All rights reserved.

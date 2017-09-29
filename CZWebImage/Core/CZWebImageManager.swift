@@ -1,6 +1,6 @@
 //
 //  CZWebImageManager.swift
-//  FlickrDemo
+//  CZWebImage
 //
 //  Created by Cheng Zhang on 9/20/17.
 //  Copyright © 2017 Cheng Zhang. All rights reserved.
