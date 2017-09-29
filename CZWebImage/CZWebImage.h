@@ -10,7 +10,7 @@
 
 //#import <CZWebImage/CZWebImageDecoder.h>
 #import <CZWebImage/UIView+Animation.h>
-#import <CZWebImage/CZWebImageUtils.h>
+//#import <CZWebImage/CZWebImageUtils.h>
 
 //#import <CZWebImage/CZWebImagePrefetcher.h>
 //#import <CZWebImage/UIImageView+CZWebImage.h>

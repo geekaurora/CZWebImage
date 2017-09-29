@@ -8,7 +8,6 @@
 
 #import "CZWebImagePrefetcher.h"
 #import "CZWebImageUtils.h"
-//#import "FlickrDemo-Swift.h"
 #import <CZWebImage/CZWebImage-Swift.h>
 
 static const NSUInteger CZDefaultMaxConcurrentCount = 3;
