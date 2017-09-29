@@ -16,8 +16,6 @@
 		2AB505E01F7E148A0035B59B /* CZWebImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB505DF1F7E148A0035B59B /* CZWebImageConstants.swift */; };
 		2AEBF7651F758544005A1DEF /* CZImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */; };
 		2AEBF7661F758544005A1DEF /* CZImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7571F758544005A1DEF /* CZImageDownloadOperation.swift */; };
-		2AEBF7681F758544005A1DEF /* CZWebImageDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */; };
-		2AEBF7691F758544005A1DEF /* CZWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AEBF76A1F758544005A1DEF /* CZWebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF75B1F758544005A1DEF /* CZWebImageManager.swift */; };
 		2AEBF7B11F758750005A1DEF /* CZWebImageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AEBF7A21F758750005A1DEF /* CZWebImageUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AEBF7B21F758750005A1DEF /* CZWebImageUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AEBF7A31F758750005A1DEF /* CZWebImageUtils.mm */; };
@@ -80,8 +78,6 @@
 		2AEBF73C1F758423005A1DEF /* CZNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZNetworking.xcodeproj; path = ../CZNetworking/CZNetworking.xcodeproj; sourceTree = "<group>"; };
 		2AEBF7561F758544005A1DEF /* CZImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloader.swift; path = Core/CZImageDownloader.swift; sourceTree = "<group>"; };
 		2AEBF7571F758544005A1DEF /* CZImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZImageDownloadOperation.swift; path = Core/CZImageDownloadOperation.swift; sourceTree = "<group>"; };
-		2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImageDecode.m; path = Core/CZWebImageDecode.m; sourceTree = "<group>"; };
-		2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImageDecoder.h; path = Core/CZWebImageDecoder.h; sourceTree = "<group>"; };
 		2AEBF75B1F758544005A1DEF /* CZWebImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageManager.swift; path = Core/CZWebImageManager.swift; sourceTree = "<group>"; };
 		2AEBF75C1F758544005A1DEF /* CZWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImagePrefetcher.h; path = Core/CZWebImagePrefetcher.h; sourceTree = "<group>"; };
 		2AEBF75D1F758544005A1DEF /* CZWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CZWebImagePrefetcher.m; path = Core/CZWebImagePrefetcher.m; sourceTree = "<group>"; };
@@ -147,8 +143,6 @@
 				2AEBF7571F758544005A1DEF /* CZImageDownloadOperation.swift */,
 				2AEBF7BF1F75888D005A1DEF /* CZCache.swift */,
 				2AEBF7C61F75BCA5005A1DEF /* UIImageView+CZWebImage.swift */,
-				2AEBF75A1F758544005A1DEF /* CZWebImageDecoder.h */,
-				2AEBF7591F758544005A1DEF /* CZWebImageDecode.m */,
 				2AEBF75C1F758544005A1DEF /* CZWebImagePrefetcher.h */,
 				2AEBF75D1F758544005A1DEF /* CZWebImagePrefetcher.m */,
 				2A02C0301F74628700184823 /* Utils */,
@@ -215,7 +209,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AEBF7691F758544005A1DEF /* CZWebImageDecoder.h in Headers */,
 				2AEBF7B51F758750005A1DEF /* NSString+md5String.h in Headers */,
 				2AA73FD71F7893F300B28112 /* CZWebImage.h in Headers */,
 				2AEBF7B31F758750005A1DEF /* NSError+Description.h in Headers */,
@@ -360,7 +353,6 @@
 				2AEBF7BA1F758750005A1DEF /* UIImage+Resize.m in Sources */,
 				2AEBF7C01F75888D005A1DEF /* CZCache.swift in Sources */,
 				2A65C7BA1F75CA2800C3563E /* CZWebImageError.swift in Sources */,
-				2AEBF7681F758544005A1DEF /* CZWebImageDecode.m in Sources */,
 				2AEBF7661F758544005A1DEF /* CZImageDownloadOperation.swift in Sources */,
 				2AEBF7C71F75BCA5005A1DEF /* UIImageView+CZWebImage.swift in Sources */,
 				2AEBF7B41F758750005A1DEF /* NSError+Description.m in Sources */,
