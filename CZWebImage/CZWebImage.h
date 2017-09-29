@@ -8,15 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//#import <CZWebImage/CZWebImageDecoder.h>
-//#import <CZWebImage/UIView+Animation.h>
-//#import <CZWebImage/CZWebImageUtils.h>
-
-//#import <CZWebImage/CZWebImagePrefetcher.h>
-//#import <CZWebImage/UIImageView+CZWebImage.h>
-//#import <CZWebImage/UIImage+Resize.h>
-//#import <CZWebImage/UIImage+Additions.h>
-
 //! Project version number for CZWebImage.
 FOUNDATION_EXPORT double CZWebImageVersionNumber;
 
