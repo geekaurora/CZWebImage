@@ -2,7 +2,7 @@
 //  CZWebImage.h
 //  CZWebImage
 //
-//  Created by Cheng Zhang on 1/18/16.
+//  Created by Cheng Zhang on 1/2/16.
 //  Copyright © 2016 Cheng Zhang. All rights reserved.
 //
 
