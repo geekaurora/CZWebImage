@@ -2,7 +2,7 @@
 
 Elegant progressive concurrent image downloading framework, with neat APIs, LRU mem/disk cache.
 
-### Instagram Demo 
-Implemented on top of **CZWebImage**/**CZNetworking**/**ReactiveListViewKit**, will release to Github soon
+### Instagram Demo - [Github](https://github.com/showt1me/CZInstagram)
+Implemented on top of **CZWebImage**
 
-<img src="./Documents/CZInstagram.gif">
+<img src="https://d37t5b145o82az.cloudfront.net/CZInstagram.gif">
