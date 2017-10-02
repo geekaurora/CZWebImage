@@ -21,21 +21,6 @@ extension UIImageView {
         set { objc_setAssociatedObject(self, &kImageUrl, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
     
-    /// Bridging function exposed to Objective-C
-    @objc(cz_setImageWithURL:placeholderImage:cropSize:options:completion:)
-    public func cz_setImage(withURL url: URL?,
-                            placeholderImage: UIImage?,
-                            cropSize: CGSize,
-                            options: [NSNumber]?,
-                            completion: CZWebImageCompletion?) {
-        let bridgingOptions = options?.flatMap({ CZWebImageOption(rawValue: $0.intValue)})
-        cz_setImage(with: url,
-                    placeholderImage: placeholderImage,
-                    cropSize: cropSize,
-                    options: bridgingOptions,
-                    completion: completion)
-    }
-    
     public func cz_setImage(with url: URL?,
                      placeholderImage: UIImage? = nil,
                      cropSize: CGSize? = nil,
@@ -76,3 +61,22 @@ extension UIImageView {
         }
     }
 }
+
+// MARK: - Bridging functions exposed to Objective-C
+
+extension UIImageView {
+    @objc(cz_setImageWithURL:placeholderImage:cropSize:options:completion:)
+    public func cz_setImage(withURL url: URL?,
+                            placeholderImage: UIImage?,
+                            cropSize: CGSize,
+                            options: [NSNumber]?,
+                            completion: CZWebImageCompletion?) {
+        let bridgingOptions = options?.flatMap({ CZWebImageOption(rawValue: $0.intValue)})
+        cz_setImage(with: url,
+                    placeholderImage: placeholderImage,
+                    cropSize: cropSize,
+                    options: bridgingOptions,
+                    completion: completion)
+    }
+}
+
