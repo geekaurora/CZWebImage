@@ -28,11 +28,7 @@ extension UIImageView {
                             cropSize: CGSize,
                             options: [NSNumber]?,
                             completion: CZWebImageCompletion?) {
-        var bridgingOptions: Set<CZWebImageOption>? = nil
-        if let options = options?.flatMap({ CZWebImageOption(rawValue: $0.intValue)}) {
-            bridgingOptions = Set(options)
-        }
-            
+        let bridgingOptions = options?.flatMap({ CZWebImageOption(rawValue: $0.intValue)})
         cz_setImage(with: url,
                     placeholderImage: placeholderImage,
                     cropSize: cropSize,
@@ -43,7 +39,7 @@ extension UIImageView {
     public func cz_setImage(with url: URL?,
                      placeholderImage: UIImage? = nil,
                      cropSize: CGSize? = nil,
-                     options: Set<CZWebImageOption>? = [.fadeInAnimation],
+                     options: [CZWebImageOption]? = [.fadeInAnimation],
                      completion: CZWebImageCompletion? = nil) {
         image = placeholderImage
         cz_cancelCurrentImageLoad()

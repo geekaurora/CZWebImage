@@ -17,8 +17,3 @@ enum CZWebImageConstants {
     static let errorDomain = "CZWebImage"
     static let kFadeAnimation = "com.tony.webimage.fadeAnimation"
 }
-
-@objc public enum CZWebImageOption: Int {
-    case fadeInAnimation = 0
-    case highPriority
-}
