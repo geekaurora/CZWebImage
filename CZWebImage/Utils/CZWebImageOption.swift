@@ -8,7 +8,7 @@
 
 import UIKit
 
-// CZWebImageOption for Swift
+/// CZWebImageOption for Swift
 public struct CZWebImageOption: OptionSet {
     public let rawValue: Int
     public init(rawValue: Int) {
@@ -18,7 +18,7 @@ public struct CZWebImageOption: OptionSet {
     static let highPriority  = CZWebImageOption(rawValue: CZWebImageOptionOC.highPriority.rawValue)
 }
 
-// Bridging CZWebImageOption for OC
+/// Bridging CZWebImageOption for OC
 @objc public enum CZWebImageOptionOC: Int {
     case fadeInAnimation = 1    // 1 << 0
     case highPriority = 2       // 1 << 1
