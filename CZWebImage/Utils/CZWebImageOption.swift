@@ -14,8 +14,8 @@ public struct CZWebImageOption: OptionSet {
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
-    static let fadeInAnimation  = CZWebImageOption(rawValue: CZWebImageOptionOC.fadeInAnimation.rawValue)
-    static let highPriority  = CZWebImageOption(rawValue: CZWebImageOptionOC.highPriority.rawValue)
+    public static let fadeInAnimation  = CZWebImageOption(rawValue: CZWebImageOptionOC.fadeInAnimation.rawValue)
+    public static let highPriority  = CZWebImageOption(rawValue: CZWebImageOptionOC.highPriority.rawValue)
 }
 
 /// Bridging CZWebImageOption for OC
