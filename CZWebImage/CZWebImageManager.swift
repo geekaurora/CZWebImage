@@ -35,7 +35,7 @@ import CZNetworking
                 }
                 return
             }
-            // Load from remote server
+            // Load from http server
             self.downloader.downloadImage(with: url,
                                           cropSize: cropSize,
                                           priority: priority,
