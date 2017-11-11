@@ -21,7 +21,7 @@ open class CZHTTPJsonSerializer {
         return URL(string: urlString)!
     }
 
-    /// Return serilizedString from parameters
+    /// Return serilized string from parameters
     public static func string(with parameters: [AnyHashable: Any]?) -> String? {
         guard let parameters = parameters as? [String: String] else {return nil}
         let res = parameters.keys.flatMap{"\($0)=\(parameters[$0]!)"}.joined(separator: "&")
@@ -33,8 +33,7 @@ open class CZHTTPJsonSerializer {
         guard let object = object else {return nil}
         assert(JSONSerialization.isValidJSONObject(object), "Invalid JSON object.")
         do {
-            //let jsonData = try JSONSerialization.data(withJSONObject: object, options: [])
-            let jsonData = try JSONSerialization.data(withJSONObject: object, options: JSONSerialization.WritingOptions())
+            let jsonData = try JSONSerialization.data(withJSONObject: object, options: [])
             return jsonData
         } catch let error {
             assertionFailure("Failed to serialize parameters to JSON data. Error: \(error)")
@@ -42,12 +41,12 @@ open class CZHTTPJsonSerializer {
         }
     }
 
-    /// Return nested deserialized object composed with various class types with input jsonData
+    /// Return nested deserialized object composed of various class types with input jsonData
     ///
     /// - Parameters:
     ///   - jsonData        : Input JSON data
-    ///   - removeNull      : Remove any NSNull if exist
-    /// - Returns           : Nested combination of NSDictionary, NSArray, NSSet, NSString, NSNumber
+    ///   - removeNull      : Remove any NSNull if exists
+    /// - Returns           : Nested composition of NSDictionary, NSArray, NSSet, NSString, NSNumber
     public static func deserializedObject(with jsonData: Data?, removeNull: Bool = true) -> Any? {
         guard let jsonData = jsonData else {return nil}
         do {
@@ -61,7 +60,7 @@ open class CZHTTPJsonSerializer {
             }
             return deserializedData
         } catch let error as NSError {
-            print("Error parsing results: \(error.localizedDescription)")
+            print("Parsing error: \(error.localizedDescription)")
         }
         return nil
     }

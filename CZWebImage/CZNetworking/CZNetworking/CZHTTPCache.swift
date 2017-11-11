@@ -65,7 +65,6 @@ open class CZHTTPCache: NSObject {
 
 fileprivate extension CZHTTPCache {
     func fileURL(forKey key: String) -> URL {
-        // If use path make sure add "file://" accordingly
         return folder.appendingPathComponent(key.MD5)
     }
 }

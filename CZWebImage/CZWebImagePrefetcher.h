@@ -12,11 +12,6 @@
 @class CZWebImagePrefetcher;
 @protocol CZWebImagePrefetcherDelegate;
 
-/* To be compatible with Swift, OC protocol must start from non-capital letter... */
-/* http://stackoverflow.com/questions/28165292/objective-c-protocol-to-swift-class-unrecognized-method */
-@protocol czwebImagePrefetcherDelegate<CZWebImagePrefetcherDelegate>
-@end
-
 @protocol CZWebImagePrefetcherDelegate<NSObject>
 
 @optional
@@ -31,7 +26,7 @@
 - (void)imagePrefetcher:(CZWebImagePrefetcher *__nonnull)imagePrefetcher didPrefetchURL:(NSURL *__nonnull)imageURL finishedCount:(NSUInteger)finishedCount totalCount:(NSUInteger)totalCount;
 
 /**
- * Called when all images are prefetched.
+ * Called when all images were prefetched.
  * @param imagePrefetcher The current image prefetcher
  * @param totalCount      The total number of images that were prefetched (whether successful or not)
  * @param skippedCount    The total number of images that were skipped

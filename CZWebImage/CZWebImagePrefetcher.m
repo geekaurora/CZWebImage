@@ -61,7 +61,7 @@ static const NSUInteger CZDefaultMaxConcurrentCount = 3;
 }
 
 /**
- *  Fetch the next urls based on maxConcurrentCount setting
+ *  Fetch urls of the next loop based on maxConcurrentCount setting
  */
 - (void)runNextInnerFetch {
     @synchronized(self.prefetchURLs) {

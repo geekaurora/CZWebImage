@@ -19,7 +19,7 @@ internal class CZCacheFileManager: NSObject {
             do {
                 try fileManager.createDirectory(atPath: cacheFolder, withIntermediateDirectories: true, attributes: nil)
             } catch {
-                assertionFailure("Failure of creating folder! Error - \(error.localizedDescription); Folder - \(cacheFolder)")
+                assertionFailure("Failed to create CacheFolder! Error - \(error.localizedDescription); Folder - \(cacheFolder)")
             }
         }
         return cacheFolder

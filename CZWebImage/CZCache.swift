@@ -226,8 +226,10 @@ fileprivate extension CZCache {
     func setCachedItemsInfo(key: String, subkey: String, value: Any) {
         cachedItemsInfoLock.writeLock {[weak self] (cachedItemsInfo) -> Void in
             guard let `self` = self else {return}
-            cachedItemsInfo[key] = cachedItemsInfo[key] ?? [String: Any]()
-            cachedItemsInfo[key]![subkey] = value
+            if cachedItemsInfo[key] == nil {
+                cachedItemsInfo[key] = [:]
+            }
+            cachedItemsInfo[key]?[subkey] = value
             self.flushCachedItemsInfoToDisk(cachedItemsInfo)
         }
     }
