@@ -1,0 +1,11 @@
+framework module CZUtils {
+  umbrella header "CZUtils.h"
+
+  export *
+  module * { export * }
+}
+
+module CZUtils.Swift {
+    header "CZUtils-Swift.h"
+    requires objc
+}

@@ -45,8 +45,6 @@ class CZCache: NSObject {
     
     public init(maxCacheAge: TimeInterval = kMaxFileAge,
                 maxCacheSize: Int = kMaxCacheSize) {
-        print("CZCacheFolder: " + CZCacheFileManager.cacheFolder)
-
         operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 60
         
