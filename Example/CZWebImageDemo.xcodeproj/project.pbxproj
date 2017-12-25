@@ -19,6 +19,12 @@
 		2A313D4C1FC644B200B1346D /* FeedsMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A313D4B1FC644B200B1346D /* FeedsMocker.swift */; };
 		2A313D5B1FC6488400B1346D /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A313D5A1FC6488400B1346D /* UIScreen+Extension.swift */; };
 		2A313D5F1FC6534400B1346D /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A313D5E1FC6534400B1346D /* feeds.json */; };
+		2A358A621FC74B9F005D3944 /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A611FC74B9F005D3944 /* CZNetworking.framework */; };
+		2A358A631FC74B9F005D3944 /* CZNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A611FC74B9F005D3944 /* CZNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2A358A681FC74BAC005D3944 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A651FC74BA4005D3944 /* CommonCrypto.framework */; };
+		2A358A691FC74BAC005D3944 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A651FC74BA4005D3944 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2A358A6B1FC74BB1005D3944 /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A6A1FC74BB1005D3944 /* CZUtils.framework */; };
+		2A358A6C1FC74BB1005D3944 /* CZUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A6A1FC74BB1005D3944 /* CZUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A4FFF291FC666EA0072653F /* CZWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4FFF121FC65B870072653F /* CZWebImage.framework */; };
 		2A4FFF2A1FC666EA0072653F /* CZWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4FFF121FC65B870072653F /* CZWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6ED8D8A28E41D01A981BCC17 /* Pods_CZWebImageDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CB4CA494973EEBFD1406D0 /* Pods_CZWebImageDemo.framework */; };
@@ -63,6 +69,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2A4FFF2A1FC666EA0072653F /* CZWebImage.framework in Embed Frameworks */,
+				2A358A691FC74BAC005D3944 /* CommonCrypto.framework in Embed Frameworks */,
+				2A358A631FC74B9F005D3944 /* CZNetworking.framework in Embed Frameworks */,
+				2A358A6C1FC74BB1005D3944 /* CZUtils.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,10 +93,10 @@
 		2A313D4B1FC644B200B1346D /* FeedsMocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsMocker.swift; sourceTree = "<group>"; };
 		2A313D5A1FC6488400B1346D /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		2A313D5E1FC6534400B1346D /* feeds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = feeds.json; sourceTree = "<group>"; };
+		2A358A611FC74B9F005D3944 /* CZNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A358A651FC74BA4005D3944 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A358A6A1FC74BB1005D3944 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZWebImage.xcodeproj; path = ../CZWebImage.xcodeproj; sourceTree = "<group>"; };
-		2A6A10751FC746A6002084AF /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = "<group>"; };
-		2A6A10771FC746A6002084AF /* CZUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CZUtils.framework; sourceTree = "<group>"; };
-		2A6A10781FC746A6002084AF /* CZNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CZNetworking.framework; sourceTree = "<group>"; };
 		5131666EFED54F1C71D684F5 /* Pods-CZWebImageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CZWebImageDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CZWebImageDemo/Pods-CZWebImageDemo.release.xcconfig"; sourceTree = "<group>"; };
 		67CB4CA494973EEBFD1406D0 /* Pods_CZWebImageDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CZWebImageDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D095C5F8D38C55D12E58B3A /* Pods-CZWebImageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CZWebImageDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CZWebImageDemo/Pods-CZWebImageDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,8 +107,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A358A681FC74BAC005D3944 /* CommonCrypto.framework in Frameworks */,
+				2A358A6B1FC74BB1005D3944 /* CZUtils.framework in Frameworks */,
 				2A4FFF291FC666EA0072653F /* CZWebImage.framework in Frameworks */,
 				6ED8D8A28E41D01A981BCC17 /* Pods_CZWebImageDemo.framework in Frameworks */,
+				2A358A621FC74B9F005D3944 /* CZNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,9 +121,6 @@
 		15BC2E46685FD37B3495ED6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A6A10751FC746A6002084AF /* CommonCrypto.framework */,
-				2A6A10771FC746A6002084AF /* CZUtils.framework */,
-				2A6A10781FC746A6002084AF /* CZNetworking.framework */,
 				67CB4CA494973EEBFD1406D0 /* Pods_CZWebImageDemo.framework */,
 			);
 			name = Frameworks;
@@ -122,6 +131,9 @@
 			children = (
 				2A313D2D1FC642B200B1346D /* CZWebImageDemo */,
 				2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */,
+				2A358A6A1FC74BB1005D3944 /* CZUtils.framework */,
+				2A358A651FC74BA4005D3944 /* CommonCrypto.framework */,
+				2A358A611FC74B9F005D3944 /* CZNetworking.framework */,
 				2A313D2C1FC642B200B1346D /* Products */,
 				E68280E0FFA9B7CF798B84AF /* Pods */,
 				15BC2E46685FD37B3495ED6E /* Frameworks */,
