@@ -24,11 +24,11 @@ Swift:
 import CZWebImage
 
 // Liner to fetch imageUrl
-feedImageView.cz_setImage(with: URL(string: imageUrl),
+feedImageView.cz_setImage(with: imageUrl,
                           placeholderImage: UIImage(named: "placeholder.png"))   
                           
 // Set cropSize for image - will get done in background thread automatically after download
-feedImageView.cz_setImage(with: URL(string: imageUrl),
+feedImageView.cz_setImage(with: imageUrl,
                           placeholderImage: UIImage(named: "placeholder.png"),
                           cropSize: cropSize)                          
 ```
