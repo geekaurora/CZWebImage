@@ -14,8 +14,8 @@ public extension Dictionary {
         var value: Any? = nil
         var dict: Dictionary? = self
         for subKey in dotedKey.components(separatedBy: ".") {
-            if dict == nil {return nil}
-            guard let subKey = subKey as? Key else {return nil}
+            if dict == nil { return nil }
+            guard let subKey = subKey as? Key else { return nil }
             value = dict?[subKey]
             dict = value as? Dictionary
         }

@@ -50,7 +50,7 @@ open class CZHTTPCache: NSObject {
     
     func readData(forKey key: String) -> Any? {
         return ioQueue.sync {[weak self] () -> Any? in
-            guard let `self` = self else {return nil}
+            guard let `self` = self else { return nil }
             if let dict = NSDictionary(contentsOf: self.fileURL(forKey: key)) {
                 return dict
             }

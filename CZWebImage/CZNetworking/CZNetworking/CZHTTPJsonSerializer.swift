@@ -23,20 +23,20 @@ open class CZHTTPJsonSerializer {
 
     /// Return serilized string from parameters
     public static func string(with parameters: [AnyHashable: Any]?) -> String? {
-        guard let parameters = parameters as? [String: String] else {return nil}
+        guard let parameters = parameters as? [String: String] else { return nil }
         let res = parameters.keys.flatMap{"\($0)=\(parameters[$0]!)"}.joined(separator: "&")
         return res
     }
 
     /// Return JSONData with input Diciontary/Array
     public static func jsonData(with object: Any?) -> Data? {
-        guard let object = object else {return nil}
+        guard let object = object else { return nil }
         assert(JSONSerialization.isValidJSONObject(object), "Invalid JSON object.")
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: object, options: [])
             return jsonData
         } catch let error {
-            assertionFailure("Failed to serialize parameters to JSON data. Error: \(error)")
+            assertionFailure("Failed to serialize parameters to JSON. Error: \(error)")
             return nil
         }
     }
@@ -48,9 +48,9 @@ open class CZHTTPJsonSerializer {
     ///   - removeNull      : Remove any NSNull if exists
     /// - Returns           : Nested composition of NSDictionary, NSArray, NSSet, NSString, NSNumber
     public static func deserializedObject(with jsonData: Data?, removeNull: Bool = true) -> Any? {
-        guard let jsonData = jsonData else {return nil}
+        guard let jsonData = jsonData else { return nil }
         do {
-            var deserializedData: Any? = try JSONSerialization.jsonObject(with: jsonData, options:JSONSerialization.ReadingOptions(rawValue:0))
+            var deserializedData: Any? = try JSONSerialization.jsonObject(with: jsonData, options:[])
             switch deserializedData {
             case let nullRemovable as NSNullRemovable:
                 deserializedData = nullRemovable.removedNulls()
