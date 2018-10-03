@@ -43,7 +43,7 @@ public class CZImageDownloader: NSObject {
     public func downloadImage(with url: URL?,
                        cropSize: CGSize? = nil,
                        priority: Operation.QueuePriority = .normal,
-                       completionHandler: CZImageDownloderCompletion!) {
+                       completionHandler: @escaping CZImageDownloderCompletion) {
         guard let url = url else {return}
         cancelDownload(with: url)
         
@@ -64,11 +64,11 @@ public class CZImageDownloader: NSObject {
                 
                 // Call completionHandler on mainQueue
                 CZMainQueueScheduler.async {
-                    completionHandler?(image, false, url)
+                    completionHandler(image, false, url)
                 }
             }
         }, failure: { (task, error) in
-            print("DOWNLOAD ERROR: \(error.localizedDescription)")
+            CZUtils.dbgPrint("DOWNLOAD ERROR: \(error.localizedDescription)")
         })
         operation.queuePriority = priority
         queue.addOperation(operation)
@@ -98,7 +98,7 @@ extension CZImageDownloader {
                 return
         }
         if object === imageDownloadQueue {
-            print("Default image queue size: \(object.operationCount)")
+            CZUtils.dbgPrint("Default image queue size: \(object.operationCount)")
         }
     }
 }

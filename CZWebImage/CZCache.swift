@@ -15,9 +15,9 @@ class CZImageCache: CZCache {
     public static let shared = CZImageCache()
 }
 
-/// Thread-safe local cache class backed by DispatchQueue mutex lock/LRU queue, supports maxFileAge/maxCacheSize cleaning
+/// Thread safe local cache class backed by DispatchQueue mutex lock/LRU queue, supports maxFileAge/maxCacheSize purge
 ///
-/// TODO: Abstract common behavior for Image/Video cache and separate UIImage logic out to `CZImageCache`
+/// TODO: Abstract common behavior for Image/Video cache and move UIImage part out to `CZImageCache`
 class CZCache: NSObject {
     fileprivate typealias CachedItemsInfo = [String: [String: Any]]
     public typealias CleanDiskCacheCompletion = () -> Void
@@ -92,7 +92,7 @@ class CZCache: NSObject {
         }
     }    
     
-    public func getCachedFile(withUrl url: URL, completion: @escaping (UIImage?) -> Void)  {
+    public func getCachedFile(with url: URL, completion: @escaping (UIImage?) -> Void)  {
         let getCacheClosure = {
             let (fileURL, cacheKey) = self.getCacheFileInfo(forURL: url)
             // Read data from mem cache
@@ -151,7 +151,7 @@ class CZCache: NSObject {
             }
         }
         
-        // 2. Clean disk by maxSize setting: based on visited date (simple LRU)
+        // 2. Clean disk by maxSize setting: based on visited date - simple LRU
         if self.size > self.maxCacheSize {
             let expectedCacheSize = self.maxCacheSize / 2
             let expectedReduceSize = self.size - expectedCacheSize
@@ -241,7 +241,7 @@ fileprivate extension CZCache {
     }
     
     func flushCachedItemsInfoToDisk(_ cachedItemsInfo: CachedItemsInfo) {
-        (cachedItemsInfo as NSDictionary).write(to: self.cachedItemsInfoFileURL, atomically: true)
+        (cachedItemsInfo as NSDictionary).write(to: cachedItemsInfoFileURL, atomically: true)
     }
     
     func getMemCache(forKey key: String) -> UIImage? {
