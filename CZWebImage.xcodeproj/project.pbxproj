@@ -11,7 +11,6 @@
 		2A02BFF61F7461EA00184823 /* CZWebImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02BFF51F7461EA00184823 /* CZWebImageTests.swift */; };
 		2AC0F4011F8204C100B2A3B8 /* CZWebImageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC0F4001F8204C100B2A3B8 /* CZWebImageOption.swift */; };
 		2AD471EC1F7EC24400EEE87B /* CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD471EA1F7EC24400EEE87B /* CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AD471ED1F7EC24400EEE87B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AD471EB1F7EC24400EEE87B /* Info.plist */; };
 		2AD471F71F7EC2B200EEE87B /* CZCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471EE1F7EC2B200EEE87B /* CZCache.swift */; };
 		2AD471F91F7EC2B200EEE87B /* CZImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F01F7EC2B200EEE87B /* CZImageDownloader.swift */; };
 		2AD471FA1F7EC2B200EEE87B /* CZImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F11F7EC2B200EEE87B /* CZImageDownloadOperation.swift */; };
@@ -289,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AD471ED1F7EC24400EEE87B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
