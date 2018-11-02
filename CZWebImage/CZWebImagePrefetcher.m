@@ -90,7 +90,7 @@ static const NSUInteger CZDefaultMaxConcurrentCount = 3;
                          completionHandler:^(UIImage *image, NSNumber *isFromDisk, NSURL *imageUrl) {
                              weakSelf.finishedCount++;
 
-                             /* Finished one prefech */
+                             /* Finished current prefech */
                              if (weakSelf.delegate &&
                                  [weakSelf.delegate respondsToSelector:@selector(imagePrefetcher:didPrefetchURL:finishedCount:totalCount:)]) {
                                  [weakSelf.delegate imagePrefetcher:self didPrefetchURL:imageUrl finishedCount:self.finishedCount totalCount:self.prefetchURLs.count];

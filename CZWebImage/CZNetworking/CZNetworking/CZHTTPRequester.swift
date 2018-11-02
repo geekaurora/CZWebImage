@@ -169,7 +169,7 @@ extension CZHTTPRequester: URLSessionDataDelegate {
             errorDescription += "\nReceivedData: \(receivedDict)"
         }
         let errorRes = CZNetError(errorDescription)
-        print("Failure of dataTask, error - \(errorRes)")
+        CZUtils.dbgPrint("Failure of dataTask, error - \(errorRes)")
         CZMainQueueScheduler.async { [weak self] in
             self?.failure?(nil, errorRes)
         }

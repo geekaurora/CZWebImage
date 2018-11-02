@@ -60,7 +60,7 @@ open class CZHTTPJsonSerializer {
             }
             return deserializedData
         } catch let error as NSError {
-            print("Parsing error: \(error.localizedDescription)")
+            CZUtils.dbgPrint("Parsing error: \(error.localizedDescription)")
         }
         return nil
     }

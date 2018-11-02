@@ -16,7 +16,7 @@ import UIKit
             let size =  attrs[.size] as? Int
             return size
         } catch {
-            print("Failed to get file size of \(filePath). Error - \(error.localizedDescription)")
+            CZUtils.dbgPrint("Failed to get file size of \(filePath). Error - \(error.localizedDescription)")
         }
         return nil
     }

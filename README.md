@@ -33,6 +33,9 @@ feedImageView.cz_setImage(with: imageUrl,
                           cropSize: cropSize)                          
 ```
 
+### Work Flow
+<img src="./Docs/CZWebImage-Sequence-Diagram.png">
+
 ### Instagram Demo - [Github](https://github.com/showt1me/CZInstagram)
 Implemented on top of **CZWebImage**
 

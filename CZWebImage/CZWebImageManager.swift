@@ -12,7 +12,6 @@ import CZNetworking
 
 /// Interface class managing image cache/downloading 
 @objc open class CZWebImageManager: NSObject {
-    var imageManager: CZWebImageManager?
     fileprivate var downloader: CZImageDownloader
     fileprivate var cache = CZImageCache.shared
     public static let shared: CZWebImageManager = CZWebImageManager()
@@ -22,16 +21,16 @@ import CZNetworking
         super.init()
     }
     
-    public func downloadImage(with url: URL!,
+    public func downloadImage(with url: URL,
                        cropSize: CGSize? = nil,
                        priority: Operation.QueuePriority = .normal,
-                       completionHandler: CZImageDownloderCompletion!) {
-        cache.getCachedFile(withUrl: url) {[weak self] (imageIn) in
+                       completionHandler: @escaping CZImageDownloderCompletion) {
+        cache.getCachedFile(with: url) {[weak self] (imageIn) in
             guard let `self` = self else {return}
             if let imageIn = imageIn {
                 // Load from local disk
                 CZMainQueueScheduler.sync {
-                    completionHandler?(imageIn, true, url)
+                    completionHandler(imageIn, true, url)
                 }
                 return
             }
