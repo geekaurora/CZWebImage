@@ -11,7 +11,7 @@ import CZUtils
 
 /// Network Error class
 open class CZNetError: CZError {
-    fileprivate static let domain = "CZNetworking"
+    private static let domain = "CZNetworking"
     public static let `default` = CZNetError("Network Error")
     public static let returnType = CZNetError("ReturnType Error")
     

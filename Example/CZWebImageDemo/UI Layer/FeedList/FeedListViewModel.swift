@@ -9,7 +9,7 @@
 import UIKit
 
 class FeedListViewModel: NSObject {
-    fileprivate(set) lazy var feeds: [Feed] = {
+    private(set) lazy var feeds: [Feed] = {
         return FeedsMocker.shared.feeds
     }()    
 }

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A02BFE61F7461EA00184823"
-               BuildableName = "CZWebImage.framework"
-               BlueprintName = "CZWebImage"
-               ReferencedContainer = "container:CZWebImage.xcodeproj">
+               BlueprintIdentifier = "C39982C91F7739EA00775B6C"
+               BuildableName = "CZUtils.framework"
+               BlueprintName = "CZUtils"
+               ReferencedContainer = "container:CZUtils.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A02BFEF1F7461EA00184823"
-               BuildableName = "CZWebImageTests.xctest"
-               BlueprintName = "CZWebImageTests"
-               ReferencedContainer = "container:CZWebImage.xcodeproj">
+               BlueprintIdentifier = "C39982D21F7739EA00775B6C"
+               BuildableName = "CZUtilsTests.xctest"
+               BlueprintName = "CZUtilsTests"
+               ReferencedContainer = "container:CZUtils.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A02BFE61F7461EA00184823"
-            BuildableName = "CZWebImage.framework"
-            BlueprintName = "CZWebImage"
-            ReferencedContainer = "container:CZWebImage.xcodeproj">
+            BlueprintIdentifier = "C39982C91F7739EA00775B6C"
+            BuildableName = "CZUtils.framework"
+            BlueprintName = "CZUtils"
+            ReferencedContainer = "container:CZUtils.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,10 +64,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A02BFE61F7461EA00184823"
-            BuildableName = "CZWebImage.framework"
-            BlueprintName = "CZWebImage"
-            ReferencedContainer = "container:CZWebImage.xcodeproj">
+            BlueprintIdentifier = "C39982C91F7739EA00775B6C"
+            BuildableName = "CZUtils.framework"
+            BlueprintName = "CZUtils"
+            ReferencedContainer = "container:CZUtils.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,10 +82,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A02BFE61F7461EA00184823"
-            BuildableName = "CZWebImage.framework"
-            BlueprintName = "CZWebImage"
-            ReferencedContainer = "container:CZWebImage.xcodeproj">
+            BlueprintIdentifier = "C39982C91F7739EA00775B6C"
+            BuildableName = "CZUtils.framework"
+            BlueprintName = "CZUtils"
+            ReferencedContainer = "container:CZUtils.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

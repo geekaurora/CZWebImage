@@ -11,11 +11,11 @@ import UIKit
 class FeedListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    fileprivate lazy var viewModel = {
+    private lazy var viewModel = {
         return FeedListViewModel()
     }()
     
-    fileprivate lazy var feedListTableDataSource: FeedListTableDataSource = {
+    private lazy var feedListTableDataSource: FeedListTableDataSource = {
         return FeedListTableDataSource(viewModel: viewModel)
     }()
     
@@ -23,7 +23,7 @@ class FeedListViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = feedListTableDataSource        
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     // MARK: - Screen Rotation

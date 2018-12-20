@@ -10,15 +10,15 @@ import UIKit
 import CZUtils
 import CZNetworking
 
-fileprivate var kvoContext: UInt8 = 0
+private var kvoContext: UInt8 = 0
 
 public typealias CZImageDownloderCompletion = (UIImage?, Bool, URL) -> Void
 
 /// Asynchronous image downloading class on top of OperationQueue
 public class CZImageDownloader: NSObject {
-    fileprivate var imageDownloadQueue: OperationQueue
-    fileprivate var imageDecodeQueue: OperationQueue
-    public static let shared: CZImageDownloader = CZImageDownloader()
+    private var imageDownloadQueue: OperationQueue
+    private var imageDecodeQueue: OperationQueue
+    public static let shared = CZImageDownloader()
     
     public override init() {
         imageDownloadQueue = OperationQueue()
@@ -58,7 +58,7 @@ public class CZImageDownloader: NSObject {
                 var image = UIImage(data: data)
                 if let cropSize = cropSize, cropSize != .zero {
                     image = image?.crop(toSize: cropSize)
-                    internalData =  (image == nil) ? nil : UIImagePNGRepresentation(image!)
+                    internalData =  (image == nil) ? nil : image!.pngData()
                 }
                 CZImageCache.shared.setCacheFile(withUrl: url, data: internalData)
                 

@@ -10,7 +10,7 @@ import UIKit
 
 /// DataSource for tableView of FeedList
 class FeedListTableDataSource: NSObject {
-    fileprivate var viewModel: FeedListViewModel
+    private var viewModel: FeedListViewModel
     
     init(viewModel: FeedListViewModel) {
         self.viewModel = viewModel

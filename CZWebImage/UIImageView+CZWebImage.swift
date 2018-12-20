@@ -38,7 +38,7 @@ extension UIImageView {
         }
         
         let priority: Operation.QueuePriority = (options?.contains(.highPriority) ?? false) ? .veryHigh : .normal
-        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, priority: priority) {[weak self] (image, isFromCache, url) in
+        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, priority: priority) { [weak self] (image, isFromCache, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
             CZMainQueueScheduler.sync {
                 if let options = options {
@@ -71,7 +71,7 @@ extension UIImageView {
                             cropSize: CGSize,
                             options: [NSNumber]?,
                             completion: CZWebImageCompletion?) {
-        let bridgingOptions = options?.flatMap({ CZWebImageOption(rawValue: $0.intValue)})
+        let bridgingOptions = options?.compactMap({ CZWebImageOption(rawValue: $0.intValue)})
         cz_setImage(with: url,
                     placeholderImage: placeholderImage,
                     cropSize: cropSize,

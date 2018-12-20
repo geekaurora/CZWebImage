@@ -13,14 +13,14 @@ typealias FeedDictionary = [String: Any]
 class FeedsMocker: NSObject {
     static let shared = FeedsMocker()
     
-    fileprivate(set) lazy var feeds: [Feed] = {
+    private(set) lazy var feeds: [Feed] = {
         let path = Bundle.main.path(forResource: "feeds", ofType: "json")!
         do {
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: path))
             guard let feedDicts = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [FeedDictionary] else {
                 preconditionFailure()
             }
-            return feedDicts.flatMap{ Feed(dictionary: $0)}
+            return feedDicts.compactMap{ Feed(dictionary: $0)}
         } catch {
             fatalError("Failed to deserialize feeds with JSON file. Error: \(error.localizedDescription)")
         }

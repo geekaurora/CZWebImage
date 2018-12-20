@@ -10,7 +10,7 @@ import UIKit
 
 /// Local cache class for HTTP response
 open class CZHTTPCache: NSObject {
-    fileprivate var ioQueue: DispatchQueue
+    private var ioQueue: DispatchQueue
 
     override init() {
         ioQueue = DispatchQueue(label: "com.tony.httpCache.ioQueue",
@@ -21,7 +21,7 @@ open class CZHTTPCache: NSObject {
         super.init()
     }
 
-    fileprivate let folder: URL = {
+    private let folder: URL = {
         var documentPath = try! FileManager.default.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         let cacheFolder = documentPath.appendingPathComponent("CZHTTPCache")
         do {
@@ -31,8 +31,8 @@ open class CZHTTPCache: NSObject {
         }
         return cacheFolder
     }()
-    static func cacheKey(url: URL, parameters: [AnyHashable: Any]?) -> String {
-        return CZHTTPJsonSerializer.url(url, append: parameters).absoluteString
+    static func cacheKey(url: URL, params: [AnyHashable: Any]?) -> String {
+        return CZHTTPJsonSerializer.url(baseURL: url, params: params).absoluteString
     }
 
     func saveData<T>(_ data: T, forKey key: String) {
@@ -40,7 +40,7 @@ open class CZHTTPCache: NSObject {
             guard let `self` = self else {return}
             switch data {
             case let data as NSDictionary:
-                let success = data.write(to: self.fileURL(forKey: key), atomically: false)
+                let _ = data.write(to: self.fileURL(forKey: key), atomically: false)
                 return
             default:
                 return
@@ -63,7 +63,7 @@ open class CZHTTPCache: NSObject {
     }
 }
 
-fileprivate extension CZHTTPCache {
+private extension CZHTTPCache {
     func fileURL(forKey key: String) -> URL {
         return folder.appendingPathComponent(key.MD5)
     }

@@ -8,35 +8,13 @@
 
 import UIKit
 
-/// General protocol for HTTP access processing class, e.g. CZHTTPManager
-public protocol CZHTTPAPIClientable {
-    func GET(_ urlStr: String,
-             parameters: [AnyHashable: Any]?,
-             success: @escaping CZHTTPRequester.Success,
-             failure: @escaping CZHTTPRequester.Failure,
-             cached: CZHTTPRequester.Cached?,
-             progress: CZHTTPRequester.Progress?)
-    
-    func POST(_ urlStr: String,
-              parameters: [AnyHashable: Any]?,
-              success: @escaping CZHTTPRequester.Success,
-              failure: @escaping CZHTTPRequester.Failure,
-              progress: CZHTTPRequester.Progress?)
-    
-    func DELETE(_ urlStr: String,
-                parameters: [AnyHashable: Any]?,
-                success: @escaping CZHTTPRequester.Success,
-                failure: @escaping CZHTTPRequester.Failure)
-}
-
-
 /**
  Asynchronous HTTP requests manager based on NSOperationQueue
  */
-open class CZHTTPManager: NSObject, CZHTTPAPIClientable {
-    fileprivate var queue: OperationQueue
+open class CZHTTPManager: NSObject {
+    private var queue: OperationQueue
     public static var shared = CZHTTPManager()
-    fileprivate(set) var httpCache: CZHTTPCache
+    private(set) var httpCache: CZHTTPCache
 
     public override init() {
         queue = OperationQueue()
@@ -46,63 +24,76 @@ open class CZHTTPManager: NSObject, CZHTTPAPIClientable {
     }
 
     public func GET(_ urlStr: String,
-             parameters: [AnyHashable: Any]? = nil,
-             success: @escaping CZHTTPRequester.Success,
-             failure: @escaping CZHTTPRequester.Failure,
-             cached: CZHTTPRequester.Cached? = nil,
-             progress: CZHTTPRequester.Progress? = nil) {
-        startRequester(.GET,
-                       urlStr: urlStr,
-                       parameters: parameters,
-                       success: success,
-                       failure: failure,
-                       cached: cached,
-                       progress: progress)
+                    params: HTTPRequestWorker.Params? = nil,
+                    headers: HTTPRequestWorker.Headers? = nil,
+                    success: @escaping HTTPRequestWorker.Success,
+                    failure: @escaping HTTPRequestWorker.Failure,
+                    cached: HTTPRequestWorker.Cached? = nil,
+                    progress: HTTPRequestWorker.Progress? = nil) {
+        startRequester(
+            .GET,
+            urlStr: urlStr,
+            params: params,
+            headers: headers,
+            success: success,
+            failure: failure,
+            cached: cached,
+            progress: progress)
     }
 
     public func POST(_ urlStr: String,
-             parameters: [AnyHashable: Any]? = nil,
-             success: @escaping CZHTTPRequester.Success,
-             failure: @escaping CZHTTPRequester.Failure,
-             progress: CZHTTPRequester.Progress? = nil) {
-        startRequester(.POST,
-                       urlStr: urlStr,
-                       parameters: parameters,
-                       success: success,
-                       failure: failure,
-                       progress: progress)
+                     contentType: HTTPRequestWorker.ContentType = .formUrlencoded,
+                     params: HTTPRequestWorker.Params? = nil,
+                     data: Data? = nil,
+                     headers: HTTPRequestWorker.Headers? = nil,
+                     success: @escaping HTTPRequestWorker.Success,
+                     failure: @escaping HTTPRequestWorker.Failure,
+                     progress: HTTPRequestWorker.Progress? = nil) {
+        startRequester(
+            .POST(contentType, data),
+            urlStr: urlStr,
+            params: params,
+            headers: headers,
+            success: success,
+            failure: failure,
+            progress: progress)
     }
 
     public func DELETE(_ urlStr: String,
-              parameters: [AnyHashable: Any]? = nil,
-              success: @escaping CZHTTPRequester.Success,
-              failure: @escaping CZHTTPRequester.Failure) {
-        startRequester(.DELETE,
-                       urlStr: urlStr,
-                       parameters: parameters,
-                       success: success,
-                       failure: failure)
+                       params: HTTPRequestWorker.Params? = nil,
+                       headers: HTTPRequestWorker.Headers? = nil,
+                       success: @escaping HTTPRequestWorker.Success,
+                       failure: @escaping HTTPRequestWorker.Failure) {
+        startRequester(
+            .DELETE,
+            urlStr: urlStr,
+            params: params,
+            headers: headers,
+            success: success,
+            failure: failure)
     }
 }
 
-fileprivate extension CZHTTPManager {
-    func startRequester(_ requestType: CZHTTPRequester.RequestType,
+private extension CZHTTPManager {
+    func startRequester(_ requestType: HTTPRequestWorker.RequestType,
                         urlStr: String,
-                        parameters: [AnyHashable: Any]? = nil,
-                        success: @escaping CZHTTPRequester.Success,
-                        failure: @escaping CZHTTPRequester.Failure,
-                        cached: CZHTTPRequester.Cached? = nil,
-                        progress: CZHTTPRequester.Progress? = nil) {
+                        params: HTTPRequestWorker.Params? = nil,
+                        headers: HTTPRequestWorker.Headers? = nil,
+                        success: @escaping HTTPRequestWorker.Success,
+                        failure: @escaping HTTPRequestWorker.Failure,
+                        cached: HTTPRequestWorker.Cached? = nil,
+                        progress: HTTPRequestWorker.Progress? = nil) {
         let op = BlockOperation {
-            CZHTTPRequester(requestType,
-                            url: URL(string: urlStr)!,
-                            parameters: parameters,
-                            httpCache: self.httpCache,
-                            success: success,
-                            failure: failure,
-                            cached: cached,
-                            progress: progress)
-                        .start()
+            HTTPRequestWorker(
+                requestType,
+                url: URL(string: urlStr)!,
+                params: params,
+                headers: headers,
+                httpCache: self.httpCache,
+                success: success,
+                failure: failure,
+                cached: cached,
+                progress: progress).start()
         }
         queue.addOperation(op)
     }
