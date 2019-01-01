@@ -50,15 +50,7 @@ open class CZHTTPJsonSerializer {
     public static func deserializedObject(with jsonData: Data?, removeNull: Bool = true) -> Any? {
         guard let jsonData = jsonData else { return nil }
         do {
-            let deserializedData: Any? = try JSONSerialization.jsonObject(with: jsonData, options:[])
-            // TODO: fix swizzling for nullRemovable on Swift4.2
-//            switch deserializedData {
-//            case let nullRemovable as NSNullRemovable:
-//                deserializedData = nullRemovable.removedNulls()
-//                break
-//            default:
-//                break
-//            }
+            let deserializedData = try JSONSerialization.jsonObject(with: jsonData, options:[])
             return deserializedData
         } catch let error as NSError {
             print("Parsing error: \(error.localizedDescription)")
