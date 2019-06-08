@@ -11,9 +11,9 @@
 		2A02BFF61F7461EA00184823 /* CZWebImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02BFF51F7461EA00184823 /* CZWebImageTests.swift */; };
 		2AC0F4011F8204C100B2A3B8 /* CZWebImageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC0F4001F8204C100B2A3B8 /* CZWebImageOption.swift */; };
 		2AD471EC1F7EC24400EEE87B /* CZWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD471EA1F7EC24400EEE87B /* CZWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AD471F71F7EC2B200EEE87B /* CZCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471EE1F7EC2B200EEE87B /* CZCache.swift */; };
+		2AD471F71F7EC2B200EEE87B /* CZImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471EE1F7EC2B200EEE87B /* CZImageCache.swift */; };
 		2AD471F91F7EC2B200EEE87B /* CZImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F01F7EC2B200EEE87B /* CZImageDownloader.swift */; };
-		2AD471FA1F7EC2B200EEE87B /* CZImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F11F7EC2B200EEE87B /* CZImageDownloadOperation.swift */; };
+		2AD471FA1F7EC2B200EEE87B /* ImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F11F7EC2B200EEE87B /* ImageDownloadOperation.swift */; };
 		2AD471FB1F7EC2B200EEE87B /* CZWebImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F21F7EC2B200EEE87B /* CZWebImageConstants.swift */; };
 		2AD471FC1F7EC2B200EEE87B /* CZWebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F31F7EC2B200EEE87B /* CZWebImageManager.swift */; };
 		2AD471FD1F7EC2B200EEE87B /* CZWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD471F41F7EC2B200EEE87B /* CZWebImagePrefetcher.h */; };
@@ -62,9 +62,9 @@
 		2AC0F4001F8204C100B2A3B8 /* CZWebImageOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageOption.swift; path = CZWebImage/Utils/CZWebImageOption.swift; sourceTree = SOURCE_ROOT; };
 		2AD471EA1F7EC24400EEE87B /* CZWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CZWebImage.h; path = "Supported Files/CZWebImage.h"; sourceTree = "<group>"; };
 		2AD471EB1F7EC24400EEE87B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supported Files/Info.plist"; sourceTree = "<group>"; };
-		2AD471EE1F7EC2B200EEE87B /* CZCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZCache.swift; sourceTree = "<group>"; };
+		2AD471EE1F7EC2B200EEE87B /* CZImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZImageCache.swift; sourceTree = "<group>"; };
 		2AD471F01F7EC2B200EEE87B /* CZImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZImageDownloader.swift; sourceTree = "<group>"; };
-		2AD471F11F7EC2B200EEE87B /* CZImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZImageDownloadOperation.swift; sourceTree = "<group>"; };
+		2AD471F11F7EC2B200EEE87B /* ImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadOperation.swift; sourceTree = "<group>"; };
 		2AD471F21F7EC2B200EEE87B /* CZWebImageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZWebImageConstants.swift; sourceTree = "<group>"; };
 		2AD471F31F7EC2B200EEE87B /* CZWebImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZWebImageManager.swift; sourceTree = "<group>"; };
 		2AD471F41F7EC2B200EEE87B /* CZWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZWebImagePrefetcher.h; sourceTree = "<group>"; };
@@ -116,9 +116,9 @@
 			children = (
 				2AD471F31F7EC2B200EEE87B /* CZWebImageManager.swift */,
 				2AD471F01F7EC2B200EEE87B /* CZImageDownloader.swift */,
-				2AD471F11F7EC2B200EEE87B /* CZImageDownloadOperation.swift */,
+				2AD471EE1F7EC2B200EEE87B /* CZImageCache.swift */,
+				2AD471F11F7EC2B200EEE87B /* ImageDownloadOperation.swift */,
 				2AD471F61F7EC2B200EEE87B /* UIImageView+CZWebImage.swift */,
-				2AD471EE1F7EC2B200EEE87B /* CZCache.swift */,
 				2AD471F41F7EC2B200EEE87B /* CZWebImagePrefetcher.h */,
 				2AD471F51F7EC2B200EEE87B /* CZWebImagePrefetcher.m */,
 				2AD471F21F7EC2B200EEE87B /* CZWebImageConstants.swift */,
@@ -309,11 +309,11 @@
 				2AD472031F7EC31900EEE87B /* CZCacheFileManager.swift in Sources */,
 				2AD472011F7EC2C400EEE87B /* CZWebImageError.swift in Sources */,
 				2AD471FF1F7EC2B200EEE87B /* UIImageView+CZWebImage.swift in Sources */,
-				2AD471FA1F7EC2B200EEE87B /* CZImageDownloadOperation.swift in Sources */,
+				2AD471FA1F7EC2B200EEE87B /* ImageDownloadOperation.swift in Sources */,
 				2AD471F91F7EC2B200EEE87B /* CZImageDownloader.swift in Sources */,
 				2AC0F4011F8204C100B2A3B8 /* CZWebImageOption.swift in Sources */,
 				2AD471FC1F7EC2B200EEE87B /* CZWebImageManager.swift in Sources */,
-				2AD471F71F7EC2B200EEE87B /* CZCache.swift in Sources */,
+				2AD471F71F7EC2B200EEE87B /* CZImageCache.swift in Sources */,
 				2AD471FB1F7EC2B200EEE87B /* CZWebImageConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

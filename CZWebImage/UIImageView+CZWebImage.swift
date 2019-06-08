@@ -14,7 +14,9 @@ public typealias CZWebImageCompletion = (UIImage?, Error?) -> Void
 
 private var kImageUrl: UInt8 = 0
 
-/// Convenient UIImageView extension for asynchronous image downloading
+/**
+ Convenient UIImageView extension for asynchronous image downloading
+ */
 extension UIImageView {
     public var czImageUrl: URL? {
         get { return objc_getAssociatedObject(self, &kImageUrl) as? URL }
@@ -22,10 +24,10 @@ extension UIImageView {
     }
     
     public func cz_setImage(with url: URL?,
-                     placeholderImage: UIImage? = nil,
-                     cropSize: CGSize? = nil,
-                     options: [CZWebImageOption]? = [.fadeInAnimation],
-                     completion: CZWebImageCompletion? = nil) {
+                            placeholderImage: UIImage? = nil,
+                            cropSize: CGSize? = nil,
+                            options: [CZWebImageOption] = [.fadeInAnimation],
+                            completion: CZWebImageCompletion? = nil) {
         image = placeholderImage
         cz_cancelCurrentImageLoad()
         czImageUrl = url
@@ -37,15 +39,13 @@ extension UIImageView {
             return
         }
         
-        let priority: Operation.QueuePriority = (options?.contains(.highPriority) ?? false) ? .veryHigh : .normal
+        let priority: Operation.QueuePriority = options.contains(.highPriority) ? .veryHigh : .normal
         CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, priority: priority) { [weak self] (image, isFromCache, url) in
             guard let `self` = self, self.czImageUrl == url else {return}
             CZMainQueueScheduler.sync {
-                if let options = options {
-                    if !isFromCache &&
-                        options.contains(.fadeInAnimation) {
-                        self.fadeIn()
-                    }
+                if !isFromCache &&
+                    options.contains(.fadeInAnimation) {
+                    self.fadeIn()
                 }
 
                 self.image = image
@@ -69,9 +69,9 @@ extension UIImageView {
     public func cz_setImage(withURL url: URL?,
                             placeholderImage: UIImage?,
                             cropSize: CGSize,
-                            options: [NSNumber]?,
+                            options: [NSNumber] = [],
                             completion: CZWebImageCompletion?) {
-        let bridgingOptions = options?.compactMap({ CZWebImageOption(rawValue: $0.intValue)})
+        let bridgingOptions = options.compactMap({ CZWebImageOption(rawValue: $0.intValue)})
         cz_setImage(with: url,
                     placeholderImage: placeholderImage,
                     cropSize: cropSize,

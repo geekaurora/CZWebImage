@@ -8,7 +8,9 @@
 
 import UIKit
 
-/// Constants of CZWebImage
+/**
+ Constants of CZWebImage
+ */
 enum CZWebImageConstants {
     static let shouldObserveOperations: Bool = false
     static let downloadQueueMaxConcurrent: Int = 50

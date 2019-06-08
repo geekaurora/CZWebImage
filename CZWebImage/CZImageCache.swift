@@ -1,5 +1,5 @@
 //
-//  CZCache.swift
+//  CZImageCache.swift
 //  CZWebImage
 //
 //  Created by Cheng Zhang on 1/22/16.
@@ -10,45 +10,47 @@ import UIKit
 import CZUtils
 import CZNetworking
 
-/// Concrete Cache class for `UIImage`
-class CZImageCache: CZCache {
+/**
+ Thread safe local cache backed by DispatchQueue mutex lock/LRU queue, supports maxFileAge/maxCacheSize purging strategy
+ */
+class CZImageCache: NSObject {
+    
     public static let shared = CZImageCache()
-}
-
-/// Thread safe local cache class backed by DispatchQueue mutex lock/LRU queue, supports maxFileAge/maxCacheSize purging
-///
-/// TODO: Abstract common behavior for Image/Video cache and move UIImage part out to `CZImageCache`
-class CZCache: NSObject {
+    
     typealias CachedItemsInfo = [String: [String: Any]]
     public typealias CleanDiskCacheCompletion = () -> Void
+    private enum Constant {
+        static let kCachedItemsInfoFile = "cachedItemsInfo.plist"
+        static let kFileModifiedDate = "modifiedDate"
+        static let kFileVisitedDate = "visitedDate"
+        static let kFileSize = "size"
+        static let kMaxFileAge: TimeInterval = 60 * 24 * 60 * 60
+        static let kMaxCacheSize: Int = 500 * 1024 * 1024
+        static let ioQueueLabel = "com.tony.cache.ioQueue"
+    }
+    
     private var ioQueue: DispatchQueue
-    private var operationQueue: OperationQueue
-    private var cachedItemsInfoLock: CZMutexLock<CachedItemsInfo>!
-    private var hasCachedItemsInfoToFlushToDisk: Bool = false
     private var memCache: NSCache<NSString, UIImage>
     private var fileManager: FileManager
-    private var cachedItemsInfoFileURL: URL = {
-        return URL(fileURLWithPath: CZCacheFileManager.cacheFolder + "/" + CZCache.kCachedItemsInfoFile)
+    private var operationQueue: OperationQueue
+    private var hasCachedItemsInfoToFlushToDisk: Bool = false
+    
+    private lazy var cachedItemsInfoFileURL: URL = {
+        return URL(fileURLWithPath: CZCacheFileManager.cacheFolder + "/" + Constant.kCachedItemsInfoFile)
+    }()
+    private lazy var cachedItemsInfoLock: CZMutexLock<CachedItemsInfo> = {
+        let cachedItemsInfo: CachedItemsInfo = loadCachedItemsInfo() ?? [:]
+        return CZMutexLock(cachedItemsInfo)
     }()
     private(set) var maxCacheAge: TimeInterval
     private(set) var maxCacheSize: Int
     
-    private static let kCachedItemsInfoFile = "cachedItemsInfo.plist"
-    private static let kFileModifiedDate = "modifiedDate"
-    private static let kFileVisitedDate = "visitedDate"
-    private static let kFileSize = "size"
-    
-    // 60 days
-    private static let kMaxFileAge: TimeInterval = 60 * 24 * 60 * 60
-    // 500M
-    private static let kMaxCacheSize: Int = 500 * 1024 * 1024
-    
-    public init(maxCacheAge: TimeInterval = kMaxFileAge,
-                maxCacheSize: Int = kMaxCacheSize) {
+    public init(maxCacheAge: TimeInterval = Constant.kMaxFileAge,
+                maxCacheSize: Int = Constant.kMaxCacheSize) {
         operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 60
         
-        ioQueue = DispatchQueue(label: "com.tony.cache.ioQueue",
+        ioQueue = DispatchQueue(label: Constant.ioQueueLabel,
                                 qos: .userInitiated,
                                 attributes: .concurrent)
         
@@ -62,9 +64,6 @@ class CZCache: NSObject {
         self.maxCacheAge = maxCacheAge
         self.maxCacheSize = maxCacheSize
         super.init()
-        
-        let cachedItemsInfo: CachedItemsInfo = loadCachedItemsInfo() ?? [:]
-        cachedItemsInfoLock = CZMutexLock(cachedItemsInfo)
         
         // Clean cache
         cleanDiskCacheIfNeeded()
@@ -83,9 +82,9 @@ class CZCache: NSObject {
             guard let `self` = self else {return}
             do {
                 try data.write(to: fileURL)
-                self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileModifiedDate, value: NSDate())
-                self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileVisitedDate, value: NSDate())
-                self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileSize, value: data.count)
+                self.setCachedItemsInfo(key: cacheKey, subkey: Constant.kFileModifiedDate, value: NSDate())
+                self.setCachedItemsInfo(key: cacheKey, subkey: Constant.kFileVisitedDate, value: NSDate())
+                self.setCachedItemsInfo(key: cacheKey, subkey: Constant.kFileSize, value: data.count)
             } catch {
                 assertionFailure("Failed to write file. Error - \(error.localizedDescription)")
             }
@@ -103,7 +102,7 @@ class CZCache: NSObject {
                     if let data = try? Data(contentsOf: fileURL),
                         let image = UIImage(data: data) {
                         // update lastVisited date
-                        self.setCachedItemsInfo(key: cacheKey, subkey: CZCache.kFileVisitedDate, value: NSDate())
+                        self.setCachedItemsInfo(key: cacheKey, subkey: Constant.kFileVisitedDate, value: NSDate())
                         // Set mem cache after loading data from local drive
                         self.setMemCache(image: image, forKey: cacheKey)
                         return image
@@ -129,7 +128,7 @@ class CZCache: NSObject {
             
             // Remove key if its fileModifiedDate exceeds maxCacheAge
             cachedItemsInfo.forEach { (keyValue: (key: String, value: [String : Any])) in
-                if let modifiedDate = keyValue.value[CZCache.kFileModifiedDate] as? Date,
+                if let modifiedDate = keyValue.value[Constant.kFileModifiedDate] as? Date,
                     currDate.timeIntervalSince(modifiedDate) > self.maxCacheAge {
                     removedKeys.append(keyValue.key)
                     cachedItemsInfo.removeValue(forKey: keyValue.key)
@@ -160,8 +159,8 @@ class CZCache: NSObject {
                 // Sort files with last visted date
                 let sortedItemsInfo = cachedItemsInfo.sorted { (keyValue1: (key: String, value: [String : Any]),
                     keyValue2: (key: String, value: [String : Any])) -> Bool in
-                    if let modifiedDate1 = keyValue1.value[CZCache.kFileVisitedDate] as? Date,
-                        let modifiedDate2 = keyValue2.value[CZCache.kFileVisitedDate] as? Date {
+                    if let modifiedDate1 = keyValue1.value[Constant.kFileVisitedDate] as? Date,
+                        let modifiedDate2 = keyValue2.value[Constant.kFileVisitedDate] as? Date {
                         return modifiedDate1.timeIntervalSince(modifiedDate2) < 0
                     } else {
                         fatalError()
@@ -176,7 +175,7 @@ class CZCache: NSObject {
                     }
                     cachedItemsInfo.removeValue(forKey: key)
                     removedKeys.append(key)
-                    let oneFileSize = (value[CZCache.kFileSize] as? Int) ?? 0
+                    let oneFileSize = (value[Constant.kFileSize] as? Int) ?? 0
                     removedFilesSize += oneFileSize
                 }
                 self.flushCachedItemsInfoToDisk(cachedItemsInfo)
@@ -207,11 +206,13 @@ class CZCache: NSObject {
     }
 }
 
-private extension CZCache {
+// MARK: - Private methods
+
+private extension CZImageCache {
     func getSizeWithoutLock(cachedItemsInfo: CachedItemsInfo) -> Int {
         var totalCacheSize: Int = 0
         for (_, value) in cachedItemsInfo {
-            let oneFileSize = (value[CZCache.kFileSize] as? Int)  ?? 0
+            let oneFileSize = (value[Constant.kFileSize] as? Int)  ?? 0
             totalCacheSize += oneFileSize
         }
         return totalCacheSize

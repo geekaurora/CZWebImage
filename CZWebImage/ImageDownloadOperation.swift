@@ -10,34 +10,35 @@ import Foundation
 import CZUtils
 import CZNetworking
 
-/// Concurrent operation class for image downloading OperationQueue, supports success/failure/progress callback
-class CZImageDownloadOperation: CZConcurrentOperation {
-    let url: URL
-    var requester: HTTPRequestWorker?
-    let progress: HTTPRequestWorker.Progress?
-    var success: HTTPRequestWorker.Success
-    var failure: HTTPRequestWorker.Failure
+/**
+ Concurrent operation class for image downloading OperationQueue, supports success/failure/progress callback
+ */
+class ImageDownloadOperation: CZConcurrentOperation {
     
+    private var requester: HTTPRequestWorker?
+    private var progress: HTTPRequestWorker.Progress?
+    private var success: HTTPRequestWorker.Success?
+    private var failure: HTTPRequestWorker.Failure?
+    let url: URL
+
     required init(url: URL,
                   progress: HTTPRequestWorker.Progress? = nil,
-                  success: @escaping HTTPRequestWorker.Success,
-                  failure: @escaping HTTPRequestWorker.Failure) {
+                  success: HTTPRequestWorker.Success?,
+                  failure: HTTPRequestWorker.Failure?) {
         self.url = url
         self.progress = progress
-        self.success = success
-        self.failure = failure
         super.init()
         
         self.success = { [weak self] (data, reponse) in
             // Update Operation's `isFinished` prop
             self?.finish()
-            success(data, reponse)
+            success?(data, reponse)
         }
         
         self.failure = { [weak self] (reponse, error) in
             // Update Operation's `isFinished` prop
             self?.finish()
-            failure(reponse, error)
+            failure?(reponse, error)
         }
     }
     
@@ -50,9 +51,10 @@ class CZImageDownloadOperation: CZConcurrentOperation {
         requester?.cancel()
         finish()
     }
+    
 }
 
-private extension CZImageDownloadOperation {
+private extension ImageDownloadOperation {
     func downloadImage(url: URL) {
         requester = HTTPRequestWorker(
             .GET,

@@ -14,7 +14,9 @@ private var kvoContext: UInt8 = 0
 
 public typealias CZImageDownloderCompletion = (UIImage?, Bool, URL) -> Void
 
-/// Asynchronous image downloading class on top of OperationQueue
+/**
+ Asynchronous image downloading class on top of OperationQueue
+ */
 public class CZImageDownloader: NSObject {
     private var imageDownloadQueue: OperationQueue
     private var imageDecodeQueue: OperationQueue
@@ -48,9 +50,9 @@ public class CZImageDownloader: NSObject {
         cancelDownload(with: url)
         
         let queue = imageDownloadQueue
-        let operation = CZImageDownloadOperation(url: url,
-                                                 progress: nil,
-                                                 success: { [weak self] (task, data) in
+        let operation = ImageDownloadOperation(url: url,
+                                               progress: nil,
+                                               success: { [weak self] (task, data) in
             guard let `self` = self, let data = data as? Data else {preconditionFailure()}
             // Decode/crop image in decode OperationQueue
             self.imageDecodeQueue.addOperation {
@@ -79,7 +81,7 @@ public class CZImageDownloader: NSObject {
         guard let url = url else {return}
         
         let cancelIfNeeded = { (operation: Operation) in
-            if let operation = operation as? CZImageDownloadOperation,
+            if let operation = operation as? ImageDownloadOperation,
                 operation.url == url {
                 operation.cancel()
             }
@@ -89,6 +91,7 @@ public class CZImageDownloader: NSObject {
 }
 
 // MARK: - KVO Delegation
+
 extension CZImageDownloader {
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard context == &kvoContext,

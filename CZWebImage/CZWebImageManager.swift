@@ -10,14 +10,18 @@ import UIKit
 import CZUtils
 import CZNetworking
 
-/// Interface class managing image cache/downloading 
+/**
+ Web image manager maintains asynchronous image downloading tasks
+ */
 @objc open class CZWebImageManager: NSObject {
-    private var downloader: CZImageDownloader
-    private var cache = CZImageCache.shared
+
     public static let shared: CZWebImageManager = CZWebImageManager()
+    private var downloader: CZImageDownloader
+    private var cache: CZImageCache
     
     public override init() {
-        downloader = CZImageDownloader.shared
+        downloader = CZImageDownloader()
+        cache = CZImageCache()
         super.init()
     }
     
@@ -34,7 +38,7 @@ import CZNetworking
                 }
                 return
             }
-            // Load from http server
+            // Load from http service
             self.downloader.downloadImage(with: url,
                                           cropSize: cropSize,
                                           priority: priority,
@@ -43,7 +47,7 @@ import CZNetworking
     }
     
     @objc(cancelDownloadWithURL:)
-    public func cancelDownload(with url: URL!) {
+    public func cancelDownload(with url: URL) {
         downloader.cancelDownload(with: url)
     }
 }

@@ -103,8 +103,8 @@ import CZUtils
                          headers: Headers? = nil,
                          shouldSerializeJson: Bool = true,
                          httpCache: CZHTTPCache? = nil,
-                         success: @escaping Success,
-                         failure: @escaping Failure,
+                         success: Success?,
+                         failure: Failure?,
                          cached: Cached? = nil,
                          progress: Progress? = nil) {
         self.requestType = requestType
