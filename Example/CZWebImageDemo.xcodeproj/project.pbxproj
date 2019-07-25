@@ -21,8 +21,6 @@
 		2A313D5F1FC6534400B1346D /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A313D5E1FC6534400B1346D /* feeds.json */; };
 		2A358A621FC74B9F005D3944 /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A611FC74B9F005D3944 /* CZNetworking.framework */; };
 		2A358A631FC74B9F005D3944 /* CZNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A611FC74B9F005D3944 /* CZNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2A358A681FC74BAC005D3944 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A651FC74BA4005D3944 /* CommonCrypto.framework */; };
-		2A358A691FC74BAC005D3944 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A651FC74BA4005D3944 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A358A6B1FC74BB1005D3944 /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A6A1FC74BB1005D3944 /* CZUtils.framework */; };
 		2A358A6C1FC74BB1005D3944 /* CZUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A6A1FC74BB1005D3944 /* CZUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A4FFF291FC666EA0072653F /* CZWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4FFF121FC65B870072653F /* CZWebImage.framework */; };
@@ -45,14 +43,7 @@
 			remoteGlobalIDString = 2A02BFF01F7461EA00184823;
 			remoteInfo = CZWebImageTests;
 		};
-		2A4FFF151FC65B8D0072653F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A02BFE61F7461EA00184823;
-			remoteInfo = CZWebImage;
-		};
-		2A4FFF2B1FC666EA0072653F /* PBXContainerItemProxy */ = {
+		C32781A722E9F661000FA22C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */;
 			proxyType = 1;
@@ -69,7 +60,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2A4FFF2A1FC666EA0072653F /* CZWebImage.framework in Embed Frameworks */,
-				2A358A691FC74BAC005D3944 /* CommonCrypto.framework in Embed Frameworks */,
 				2A358A631FC74B9F005D3944 /* CZNetworking.framework in Embed Frameworks */,
 				2A358A6C1FC74BB1005D3944 /* CZUtils.framework in Embed Frameworks */,
 			);
@@ -107,7 +97,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A358A681FC74BAC005D3944 /* CommonCrypto.framework in Frameworks */,
 				2A358A6B1FC74BB1005D3944 /* CZUtils.framework in Frameworks */,
 				2A4FFF291FC666EA0072653F /* CZWebImage.framework in Frameworks */,
 				6ED8D8A28E41D01A981BCC17 /* Pods_CZWebImageDemo.framework in Frameworks */,
@@ -252,8 +241,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2A4FFF161FC65B8D0072653F /* PBXTargetDependency */,
-				2A4FFF2C1FC666EA0072653F /* PBXTargetDependency */,
+				C32781A822E9F661000FA22C /* PBXTargetDependency */,
 			);
 			name = CZWebImageDemo;
 			productName = CZWebImageDemo;
@@ -404,15 +392,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2A4FFF161FC65B8D0072653F /* PBXTargetDependency */ = {
+		C32781A822E9F661000FA22C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CZWebImage;
-			targetProxy = 2A4FFF151FC65B8D0072653F /* PBXContainerItemProxy */;
-		};
-		2A4FFF2C1FC666EA0072653F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CZWebImage;
-			targetProxy = 2A4FFF2B1FC666EA0072653F /* PBXContainerItemProxy */;
+			targetProxy = C32781A722E9F661000FA22C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -560,7 +543,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.CZWebImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -578,7 +561,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.CZWebImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -40,10 +40,10 @@ extension UIImageView {
         }
         
         let priority: Operation.QueuePriority = options.contains(.highPriority) ? .veryHigh : .normal
-        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, priority: priority) { [weak self] (image, isFromCache, url) in
+        CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, priority: priority) { [weak self] (image, error, fromCache) in
             guard let `self` = self, self.czImageUrl == url else {return}
             CZMainQueueScheduler.sync {
-                if !isFromCache &&
+                if !fromCache &&
                     options.contains(.fadeInAnimation) {
                     self.fadeIn()
                 }

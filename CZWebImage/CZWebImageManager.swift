@@ -34,7 +34,7 @@ import CZNetworking
             if let image = image {
                 // Load from local disk
                 CZMainQueueScheduler.sync {
-                    completionHandler(image, true, url)
+                    completionHandler(image, nil, true)
                 }
                 return
             }

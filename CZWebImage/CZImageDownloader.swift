@@ -12,7 +12,7 @@ import CZNetworking
 
 private var kvoContext: UInt8 = 0
 
-public typealias CZImageDownloderCompletion = (UIImage?, Bool, URL) -> Void
+public typealias CZImageDownloderCompletion = (_ image: UIImage?, _ error: Error?, _ fromCache: Bool) -> Void
 
 /**
  Asynchronous image downloading class on top of OperationQueue
@@ -53,7 +53,7 @@ public class CZImageDownloader: NSObject {
         let operation = ImageDownloadOperation(url: url,
                                                progress: nil,
                                                success: { [weak self] (task, data) in
-            guard let `self` = self, let data = data as? Data else {preconditionFailure()}
+            guard let `self` = self, let data = data else {preconditionFailure()}
             // Decode/crop image in decode OperationQueue
             self.imageDecodeQueue.addOperation {
                 var internalData: Data? = data
@@ -66,11 +66,12 @@ public class CZImageDownloader: NSObject {
                 
                 // Call completionHandler on mainQueue
                 CZMainQueueScheduler.async {
-                    completionHandler(image, false, url)
+                    completionHandler(image, nil, false)
                 }
             }
         }, failure: { (task, error) in
             CZUtils.dbgPrint("DOWNLOAD ERROR: \(error.localizedDescription)")
+            completionHandler(nil, error, false)
         })
         operation.queuePriority = priority
         queue.addOperation(operation)
