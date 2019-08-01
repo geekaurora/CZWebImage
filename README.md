@@ -1,11 +1,11 @@
 # CZWebImage
 
-![Swift Version](https://img.shields.io/badge/swift-3.2-orange.svg)
+![Swift Version](https://img.shields.io/badge/swift-5.0-orange.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/CZUtils.svg?style=flat)](http://cocoapods.org/pods/CZUtils)
 [![Platform](https://img.shields.io/cocoapods/p/CZUtils.svg?style=flat)](http://cocoapods.org/pods/CZUtils)
-
-Elegant progressive concurrent image downloading framework, with neat APIs, LRU mem/disk cache. Supports cropping image in background thread.
+ 
+Elegant progressive concurrent image downloading framework, with neat API and performant LRU mem/disk cache.
 
 ### How To Use
 
@@ -36,6 +36,9 @@ feedImageView.cz_setImage(with: imageUrl,
 ### Work Flow
 <img src="./Docs/CZWebImage-Sequence-Diagram.png">
 
+### Debugging
+Set `shouldObserveOperations` of `CZWebImageConstants` to `true` to observe downloading tasks.
+ 
 ### Instagram Demo - [Github](https://github.com/showt1me/CZInstagram)
 Implemented on top of **CZWebImage**
 
