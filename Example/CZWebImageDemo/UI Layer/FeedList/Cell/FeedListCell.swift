@@ -24,6 +24,8 @@ class FeedListCell: UITableViewCell {
     }
 
     func config(with feed: Feed) {
+        feedImageView.image = nil
+        
         if let imageUrlStr = feed.imageUrl,
            let imageUrl = URL(string: imageUrlStr) {
             // set `imageUrl`for `imageView`

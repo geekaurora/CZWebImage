@@ -18,7 +18,7 @@
 		2AD471FC1F7EC2B200EEE87B /* CZWebImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F31F7EC2B200EEE87B /* CZWebImageManager.swift */; };
 		2AD471FD1F7EC2B200EEE87B /* CZWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AD471F41F7EC2B200EEE87B /* CZWebImagePrefetcher.h */; };
 		2AD471FF1F7EC2B200EEE87B /* UIImageView+CZWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD471F61F7EC2B200EEE87B /* UIImageView+CZWebImage.swift */; };
-		2AD472011F7EC2C400EEE87B /* CZWebImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD472001F7EC2C400EEE87B /* CZWebImageError.swift */; };
+		2AD472011F7EC2C400EEE87B /* WebImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD472001F7EC2C400EEE87B /* WebImageError.swift */; };
 		2AD472031F7EC31900EEE87B /* CZCacheFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD472021F7EC31900EEE87B /* CZCacheFileManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +70,7 @@
 		2AD471F41F7EC2B200EEE87B /* CZWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZWebImagePrefetcher.h; sourceTree = "<group>"; };
 		2AD471F51F7EC2B200EEE87B /* CZWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZWebImagePrefetcher.m; sourceTree = "<group>"; };
 		2AD471F61F7EC2B200EEE87B /* UIImageView+CZWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+CZWebImage.swift"; sourceTree = "<group>"; };
-		2AD472001F7EC2C400EEE87B /* CZWebImageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZWebImageError.swift; path = CZWebImage/Utils/CZWebImageError.swift; sourceTree = SOURCE_ROOT; };
+		2AD472001F7EC2C400EEE87B /* WebImageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebImageError.swift; path = CZWebImage/Utils/WebImageError.swift; sourceTree = SOURCE_ROOT; };
 		2AD472021F7EC31900EEE87B /* CZCacheFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZCacheFileManager.swift; path = CZWebImage/Utils/CZCacheFileManager.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -140,7 +140,7 @@
 		2A02C0301F74628700184823 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2AD472001F7EC2C400EEE87B /* CZWebImageError.swift */,
+				2AD472001F7EC2C400EEE87B /* WebImageError.swift */,
 				2AD472021F7EC31900EEE87B /* CZCacheFileManager.swift */,
 				2AC0F4001F8204C100B2A3B8 /* CZWebImageOption.swift */,
 			);
@@ -308,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AD472031F7EC31900EEE87B /* CZCacheFileManager.swift in Sources */,
-				2AD472011F7EC2C400EEE87B /* CZWebImageError.swift in Sources */,
+				2AD472011F7EC2C400EEE87B /* WebImageError.swift in Sources */,
 				2AD471FF1F7EC2B200EEE87B /* UIImageView+CZWebImage.swift in Sources */,
 				2AD471FA1F7EC2B200EEE87B /* ImageDownloadOperation.swift in Sources */,
 				2AD471F91F7EC2B200EEE87B /* CZImageDownloader.swift in Sources */,

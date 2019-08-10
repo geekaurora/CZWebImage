@@ -28,13 +28,13 @@ import CZNetworking
     public func downloadImage(with url: URL,
                        cropSize: CGSize? = nil,
                        priority: Operation.QueuePriority = .normal,
-                       completionHandler: @escaping CZImageDownloderCompletion) {
+                       completion: @escaping CZImageDownloderCompletion) {
         cache.getCachedFile(with: url) { [weak self] (image) in
-            guard let `self` = self else {return}
+            guard let `self` = self else { return }
             if let image = image {
                 // Load from local disk
                 CZMainQueueScheduler.sync {
-                    completionHandler(image, nil, true)
+                    completion(image, nil, true)
                 }
                 return
             }
@@ -42,7 +42,7 @@ import CZNetworking
             self.downloader.downloadImage(with: url,
                                           cropSize: cropSize,
                                           priority: priority,
-                                          completionHandler: completionHandler)
+                                          completion: completion)
         }
     }
     

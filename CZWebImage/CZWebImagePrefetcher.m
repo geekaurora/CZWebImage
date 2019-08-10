@@ -87,7 +87,7 @@ static const NSUInteger CZDefaultMaxConcurrentCount = 3;
         [self.manager downloadImageWithURL:url
                                   cropSize:CGSizeZero
                               downloadType:Operation.QueuePriorityPrefetch
-                         completionHandler:^(UIImage *image, NSNumber *isFromDisk, NSURL *imageUrl) {
+                         completion:^(UIImage *image, NSNumber *isFromDisk, NSURL *imageUrl) {
                              weakSelf.finishedCount++;
 
                              /* Finished current prefech */

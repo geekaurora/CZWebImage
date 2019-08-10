@@ -70,7 +70,7 @@ class CZImageCache: NSObject {
     }
     
     public func setCacheFile(withUrl url: URL, data: Data?) {
-        guard let data = data else {return}
+        guard let data = data.assertIfNil else { return }
         let (fileURL, cacheKey) = getCacheFileInfo(forURL: url)
         // Mem cache
         if let image = UIImage(data: data) {
@@ -79,7 +79,7 @@ class CZImageCache: NSObject {
         
         // Disk cache
         ioQueue.async(flags: .barrier) { [weak self] in
-            guard let `self` = self else {return}
+            guard let `self` = self else { return }
             do {
                 try data.write(to: fileURL)
                 self.setCachedItemsInfo(key: cacheKey, subkey: Constant.kFileModifiedDate, value: NSDate())
@@ -136,7 +136,7 @@ class CZImageCache: NSObject {
         }
         // Remove corresponding files from disk
         self.ioQueue.async(flags: .barrier) { [weak self] in
-            guard let `self` = self else {return}
+            guard let `self` = self else { return }
             removeFileURLs?.forEach {
                 do {
                     try self.fileManager.removeItem(at: $0)
@@ -180,7 +180,7 @@ class CZImageCache: NSObject {
             
             // Remove corresponding files from disk
             self.ioQueue.async(flags: .barrier) { [weak self] in
-                guard let `self` = self else {return}
+                guard let `self` = self else { return }
                 removeFileURLs?.forEach {
                     do {
                         try self.fileManager.removeItem(at: $0)
@@ -220,7 +220,7 @@ private extension CZImageCache {
     
     func setCachedItemsInfo(key: String, subkey: String, value: Any) {
         cachedItemsInfoLock.writeLock { [weak self] (cachedItemsInfo) -> Void in
-            guard let `self` = self else {return}
+            guard let `self` = self else { return }
             if cachedItemsInfo[key] == nil {
                 cachedItemsInfo[key] = [:]
             }
@@ -231,7 +231,7 @@ private extension CZImageCache {
     
     func removeCachedItemsInfo(forKey key: String) {
         cachedItemsInfoLock.writeLock { [weak self] (cachedItemsInfo) -> Void in
-            guard let `self` = self else {return}
+            guard let `self` = self else { return }
             cachedItemsInfo.removeValue(forKey: key)
             self.flushCachedItemsInfoToDisk(cachedItemsInfo)
         }

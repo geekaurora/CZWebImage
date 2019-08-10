@@ -34,23 +34,30 @@ extension UIImageView {
         image = placeholderImage
         guard let url = url else {
             CZMainQueueScheduler.async {
-                completion?(nil, CZWebImageError("imageURL is nil"))
+                completion?(nil, WebImageError("imageURL is nil"))
             }
             return
         }
         
         let priority: Operation.QueuePriority = options.contains(.highPriority) ? .veryHigh : .normal
         CZWebImageManager.shared.downloadImage(with: url, cropSize: cropSize, priority: priority) { [weak self] (image, error, fromCache) in
-            guard let `self` = self, self.czImageUrl == url else {return}
+            guard let `self` = self, self.czImageUrl == url else { return }
+            
+            if let error = error {
+                let isCancelled = (error as NSError).code == NSURLErrorCancelled
+                if !isCancelled {
+                    assertionFailure("Failed to download image: \(url). Error - \(error.localizedDescription)")
+                }
+                return
+            }
+            
             CZMainQueueScheduler.sync {
-                if !fromCache &&
-                    options.contains(.fadeInAnimation) {
+                if !fromCache && options.contains(.fadeInAnimation) {
                     self.fadeIn()
                 }
-
                 self.image = image
                 self.layoutIfNeeded()
-                completion?(image, nil)
+                completion?(image, error)
             }
         }
     }

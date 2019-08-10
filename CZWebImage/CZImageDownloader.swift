@@ -52,33 +52,34 @@ public class CZImageDownloader: NSObject {
     public func downloadImage(with url: URL?,
                        cropSize: CGSize? = nil,
                        priority: Operation.QueuePriority = .normal,
-                       completionHandler: @escaping CZImageDownloderCompletion) {
-        guard let url = url else {return}
+                       completion: @escaping CZImageDownloderCompletion) {
+        guard let url = url else { return }
         cancelDownload(with: url)
         
         let queue = imageDownloadQueue
         let operation = ImageDownloadOperation(url: url,
                                                progress: nil,
                                                success: { [weak self] (task, data) in
-            guard let `self` = self, let data = data else {preconditionFailure()}
+            guard let `self` = self, let data = data else {
+                completion(nil, WebImageError.invalidData, false)
+                return
+            }
             // Decode/crop image in decode OperationQueue
             self.imageDecodeQueue.addOperation {
-                var internalData: Data? = data
-                var image = UIImage(data: data)
-                if let cropSize = cropSize, cropSize != .zero {
-                    image = image?.crop(toSize: cropSize)
-                    internalData =  (image == nil) ? nil : image!.pngData()
+                guard let image = UIImage(data: data) else {
+                    completion(nil, WebImageError.invalidData, false)
+                    return
                 }
-                CZImageCache.shared.setCacheFile(withUrl: url, data: internalData)
+                let (outputImage, ouputData) = self.cropImageIfNeeded(image, data: data, cropSize: cropSize)
+                CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
                 
-                // Call completionHandler on mainQueue
+                // Call completion on mainQueue
                 CZMainQueueScheduler.async {
-                    completionHandler(image, nil, false)
+                    completion(outputImage, nil, false)
                 }
             }
         }, failure: { (task, error) in
-            CZUtils.dbgPrint("DOWNLOAD ERROR: \(error.localizedDescription)")
-            completionHandler(nil, error, false)
+            completion(nil, error, false)
         })
         operation.queuePriority = priority
         queue.addOperation(operation)
@@ -86,7 +87,7 @@ public class CZImageDownloader: NSObject {
     
     @objc(cancelDownloadWithURL:)
     public func cancelDownload(with url: URL?) {
-        guard let url = url else {return}
+        guard let url = url else { return }
         
         let cancelIfNeeded = { (operation: Operation) in
             if let operation = operation as? ImageDownloadOperation,
@@ -96,6 +97,20 @@ public class CZImageDownloader: NSObject {
         }
         imageDownloadQueue.operations.forEach(cancelIfNeeded)
     }
+}
+
+// MARK: - Private methods
+
+private extension CZImageDownloader {
+    
+    func cropImageIfNeeded(_ image: UIImage, data: Data, cropSize: CGSize?) -> (image: UIImage, data: Data?) {
+        guard let cropSize = cropSize, cropSize != .zero else {
+            return (image, data)
+        }
+        let croppedImage = image.crop(toSize: cropSize)
+        return (croppedImage, croppedImage.pngData())
+    }
+    
 }
 
 // MARK: - KVO Delegation
