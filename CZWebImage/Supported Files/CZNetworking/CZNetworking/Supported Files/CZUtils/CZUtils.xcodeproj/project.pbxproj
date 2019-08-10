@@ -33,6 +33,7 @@
 		2A901E661F7EC169004DAAC5 /* Swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A901E5E1F7EC169004DAAC5 /* Swizzling.swift */; };
 		2A901E671F7EC169004DAAC5 /* ThreadSafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A901E5F1F7EC169004DAAC5 /* ThreadSafeDictionary.swift */; };
 		2AB659E81FF02C95001A8835 /* CZUtils.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2AB659E71FF02C95001A8835 /* CZUtils.podspec */; };
+		2AC19D7522FEC96A000C4462 /* Error+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC19D7422FEC96A000C4462 /* Error+.swift */; };
 		2AD1DA2E21DAD9FC00527308 /* Codable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1DA2D21DAD9FC00527308 /* Codable+.swift */; };
 		2AE4888D1F806C580052B05F /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE4888C1F806C580052B05F /* Array+.swift */; };
 		2AEC18991F7C2791007A5DF1 /* TestThreadSafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC18981F7C2791007A5DF1 /* TestThreadSafeDictionary.swift */; };
@@ -84,6 +85,7 @@
 		2A901E5E1F7EC169004DAAC5 /* Swizzling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swizzling.swift; sourceTree = "<group>"; };
 		2A901E5F1F7EC169004DAAC5 /* ThreadSafeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadSafeDictionary.swift; sourceTree = "<group>"; };
 		2AB659E71FF02C95001A8835 /* CZUtils.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CZUtils.podspec; sourceTree = SOURCE_ROOT; };
+		2AC19D7422FEC96A000C4462 /* Error+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+.swift"; sourceTree = "<group>"; };
 		2AD1DA2D21DAD9FC00527308 /* Codable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Codable+.swift"; path = "Extensions/Codable+.swift"; sourceTree = "<group>"; };
 		2AE4888C1F806C580052B05F /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+.swift"; path = "Extensions/Array+.swift"; sourceTree = "<group>"; };
 		2AEC18981F7C2791007A5DF1 /* TestThreadSafeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestThreadSafeDictionary.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				DF10CDE62157003900DAFDAB /* Optional+.swift */,
+				2AD1DA2D21DAD9FC00527308 /* Codable+.swift */,
 				2AE4888C1F806C580052B05F /* Array+.swift */,
 				2A901E3D1F7EC10B004DAAC5 /* Dictionary+.swift */,
 				DF722E0722B4F10D003477FD /* Set+.swift */,
@@ -222,8 +225,8 @@
 				2A901E411F7EC10B004DAAC5 /* UIScreen+.swift */,
 				2A901E421F7EC10B004DAAC5 /* UIView+.swift */,
 				2A901E431F7EC10B004DAAC5 /* UIViewController+.swift */,
-				2AD1DA2D21DAD9FC00527308 /* Codable+.swift */,
 				2AFC641621C198B9000F36EF /* NSObject+.swift */,
+				2AC19D7422FEC96A000C4462 /* Error+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				2A901E561F7EC136004DAAC5 /* CriticalSectionLock.swift in Sources */,
 				2A901E4A1F7EC10B004DAAC5 /* UIView+.swift in Sources */,
 				2AD1DA2E21DAD9FC00527308 /* Codable+.swift in Sources */,
+				2AC19D7522FEC96A000C4462 /* Error+.swift in Sources */,
 				2A901E621F7EC169004DAAC5 /* CZMainQueueScheduler.swift in Sources */,
 				2A901E571F7EC136004DAAC5 /* CZDispatchGroup.swift in Sources */,
 				2A901E481F7EC10B004DAAC5 /* UIImage+.swift in Sources */,

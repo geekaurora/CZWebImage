@@ -44,7 +44,7 @@ extension UIImageView {
             guard let `self` = self, self.czImageUrl == url else { return }
             
             if let error = error {
-                let isCancelled = (error as NSError).code == NSURLErrorCancelled
+                let isCancelled = (error.retrievedCode == NSURLErrorCancelled)
                 if !isCancelled {
                     assertionFailure("Failed to download image: \(url). Error - \(error.localizedDescription)")
                 }

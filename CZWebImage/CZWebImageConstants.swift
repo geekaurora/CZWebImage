@@ -12,9 +12,9 @@ import UIKit
  Constants of CZWebImage
  */
 enum CZWebImageConstants {
-    static let shouldObserveOperations: Bool = false
-    static let downloadQueueMaxConcurrent: Int = 5
-    static let decodeQueueMaxConcurrent: Int = downloadQueueMaxConcurrent
+    static let shouldObserveOperations = false
+    static let downloadQueueMaxConcurrent = 5
+    static let decodeQueueMaxConcurrent = downloadQueueMaxConcurrent
     static let kOperations = "operations"
     static let errorDomain = "CZWebImage"
     static let kFadeAnimation = "com.tony.webimage.fadeAnimation"

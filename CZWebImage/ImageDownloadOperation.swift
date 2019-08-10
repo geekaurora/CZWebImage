@@ -49,7 +49,6 @@ class ImageDownloadOperation: CZConcurrentOperation {
     override func cancel() {
         super.cancel()
         requester?.cancel()
-        finish()
     }
     
 }
