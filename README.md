@@ -42,4 +42,4 @@ Set `shouldObserveOperations` of `CZWebImageConstants` to `true` to observe down
 ### Instagram Demo - [Github](https://github.com/showt1me/CZInstagram)
 Implemented on top of **CZWebImage**
 
-<img src="./Docs/CZInstagram.gif">
+<img src="https://media.giphy.com/media/jSWYS99p1rXe9nSCtp/giphy.gif">

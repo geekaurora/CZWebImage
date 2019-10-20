@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,54 +19,8 @@
 		2A313D4C1FC644B200B1346D /* FeedsMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A313D4B1FC644B200B1346D /* FeedsMocker.swift */; };
 		2A313D5B1FC6488400B1346D /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A313D5A1FC6488400B1346D /* UIScreen+Extension.swift */; };
 		2A313D5F1FC6534400B1346D /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A313D5E1FC6534400B1346D /* feeds.json */; };
-		2A358A621FC74B9F005D3944 /* CZNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A611FC74B9F005D3944 /* CZNetworking.framework */; };
-		2A358A631FC74B9F005D3944 /* CZNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A611FC74B9F005D3944 /* CZNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2A358A6B1FC74BB1005D3944 /* CZUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A6A1FC74BB1005D3944 /* CZUtils.framework */; };
-		2A358A6C1FC74BB1005D3944 /* CZUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A358A6A1FC74BB1005D3944 /* CZUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2A4FFF291FC666EA0072653F /* CZWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4FFF121FC65B870072653F /* CZWebImage.framework */; };
-		2A4FFF2A1FC666EA0072653F /* CZWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4FFF121FC65B870072653F /* CZWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6ED8D8A28E41D01A981BCC17 /* Pods_CZWebImageDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67CB4CA494973EEBFD1406D0 /* Pods_CZWebImageDemo.framework */; };
+		C307AC6C235C1635006ECD12 /* CZWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C307AC6B235C1635006ECD12 /* CZWebImage */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2A4FFF111FC65B870072653F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A02BFE71F7461EA00184823;
-			remoteInfo = CZWebImage;
-		};
-		2A4FFF131FC65B870072653F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A02BFF01F7461EA00184823;
-			remoteInfo = CZWebImageTests;
-		};
-		C32781A722E9F661000FA22C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A02BFE61F7461EA00184823;
-			remoteInfo = CZWebImage;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		2A313D641FC6559900B1346D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2A4FFF2A1FC666EA0072653F /* CZWebImage.framework in Embed Frameworks */,
-				2A358A631FC74B9F005D3944 /* CZNetworking.framework in Embed Frameworks */,
-				2A358A6C1FC74BB1005D3944 /* CZUtils.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2A313D2B1FC642B200B1346D /* CZWebImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZWebImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,10 +40,6 @@
 		2A358A611FC74B9F005D3944 /* CZNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A358A651FC74BA4005D3944 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A358A6A1FC74BB1005D3944 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZWebImage.xcodeproj; path = ../CZWebImage.xcodeproj; sourceTree = "<group>"; };
-		5131666EFED54F1C71D684F5 /* Pods-CZWebImageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CZWebImageDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CZWebImageDemo/Pods-CZWebImageDemo.release.xcconfig"; sourceTree = "<group>"; };
-		67CB4CA494973EEBFD1406D0 /* Pods_CZWebImageDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CZWebImageDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D095C5F8D38C55D12E58B3A /* Pods-CZWebImageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CZWebImageDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CZWebImageDemo/Pods-CZWebImageDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,35 +47,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A358A6B1FC74BB1005D3944 /* CZUtils.framework in Frameworks */,
-				2A4FFF291FC666EA0072653F /* CZWebImage.framework in Frameworks */,
-				6ED8D8A28E41D01A981BCC17 /* Pods_CZWebImageDemo.framework in Frameworks */,
-				2A358A621FC74B9F005D3944 /* CZNetworking.framework in Frameworks */,
+				C307AC6C235C1635006ECD12 /* CZWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15BC2E46685FD37B3495ED6E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				67CB4CA494973EEBFD1406D0 /* Pods_CZWebImageDemo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		2A313D221FC642B200B1346D = {
 			isa = PBXGroup;
 			children = (
 				2A313D2D1FC642B200B1346D /* CZWebImageDemo */,
-				2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */,
 				2A358A6A1FC74BB1005D3944 /* CZUtils.framework */,
 				2A358A651FC74BA4005D3944 /* CommonCrypto.framework */,
 				2A358A611FC74B9F005D3944 /* CZNetworking.framework */,
 				2A313D2C1FC642B200B1346D /* Products */,
-				E68280E0FFA9B7CF798B84AF /* Pods */,
-				15BC2E46685FD37B3495ED6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,30 +133,12 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		2A4FFF0A1FC65B870072653F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2A4FFF121FC65B870072653F /* CZWebImage.framework */,
-				2A4FFF141FC65B870072653F /* CZWebImageTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2A4FFF171FC65BD60072653F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				2A313D591FC6486400B1346D /* Extensions */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		E68280E0FFA9B7CF798B84AF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8D095C5F8D38C55D12E58B3A /* Pods-CZWebImageDemo.debug.xcconfig */,
-				5131666EFED54F1C71D684F5 /* Pods-CZWebImageDemo.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,20 +148,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A313D3D1FC642B200B1346D /* Build configuration list for PBXNativeTarget "CZWebImageDemo" */;
 			buildPhases = (
-				C5FEE941D92A484ECAD73B25 /* [CP] Check Pods Manifest.lock */,
 				2A313D271FC642B200B1346D /* Sources */,
 				2A313D281FC642B200B1346D /* Frameworks */,
 				2A313D291FC642B200B1346D /* Resources */,
-				2A313D641FC6559900B1346D /* Embed Frameworks */,
-				2F631AF82A175877CACC9E79 /* [CP] Embed Pods Frameworks */,
-				6E96EB5474EAF69E5CF7F11B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C32781A822E9F661000FA22C /* PBXTargetDependency */,
 			);
 			name = CZWebImageDemo;
+			packageProductDependencies = (
+				C307AC6B235C1635006ECD12 /* CZWebImage */,
+			);
 			productName = CZWebImageDemo;
 			productReference = 2A313D2B1FC642B200B1346D /* CZWebImageDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -273,37 +189,17 @@
 				Base,
 			);
 			mainGroup = 2A313D221FC642B200B1346D;
+			packageReferences = (
+				C307AC6A235C1635006ECD12 /* XCRemoteSwiftPackageReference "CZWebImage" */,
+			);
 			productRefGroup = 2A313D2C1FC642B200B1346D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2A4FFF0A1FC65B870072653F /* Products */;
-					ProjectRef = 2A4FFF091FC65B870072653F /* CZWebImage.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2A313D2A1FC642B200B1346D /* CZWebImageDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2A4FFF121FC65B870072653F /* CZWebImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CZWebImage.framework;
-			remoteRef = 2A4FFF111FC65B870072653F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2A4FFF141FC65B870072653F /* CZWebImageTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CZWebImageTests.xctest;
-			remoteRef = 2A4FFF131FC65B870072653F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2A313D291FC642B200B1346D /* Resources */ = {
@@ -318,60 +214,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2F631AF82A175877CACC9E79 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CZWebImageDemo/Pods-CZWebImageDemo-frameworks.sh",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CZWebImageDemo/Pods-CZWebImageDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E96EB5474EAF69E5CF7F11B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CZWebImageDemo/Pods-CZWebImageDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5FEE941D92A484ECAD73B25 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CZWebImageDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2A313D271FC642B200B1346D /* Sources */ = {
@@ -390,14 +232,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C32781A822E9F661000FA22C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CZWebImage;
-			targetProxy = C32781A722E9F661000FA22C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2A313D321FC642B200B1346D /* Main.storyboard */ = {
@@ -525,22 +359,24 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		2A313D3E1FC642B200B1346D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D095C5F8D38C55D12E58B3A /* Pods-CZWebImageDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = CZWebImageDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.CZWebImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -550,15 +386,16 @@
 		};
 		2A313D3F1FC642B200B1346D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5131666EFED54F1C71D684F5 /* Pods-CZWebImageDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = CZWebImageDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.CZWebImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -588,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C307AC6A235C1635006ECD12 /* XCRemoteSwiftPackageReference "CZWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/geekaurora/CZWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C307AC6B235C1635006ECD12 /* CZWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C307AC6A235C1635006ECD12 /* XCRemoteSwiftPackageReference "CZWebImage" */;
+			productName = CZWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A313D231FC642B200B1346D /* Project object */;
 }

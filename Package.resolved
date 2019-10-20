@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CZNetworking",
+        "repositoryURL": "https://github.com/geekaurora/CZNetworking.git",
+        "state": {
+          "branch": null,
+          "revision": "4fd722501dfec2ffdb108fd87b52e6e68ae3102e",
+          "version": "3.0.0"
+        }
+      },
+      {
+        "package": "CZUtils",
+        "repositoryURL": "https://github.com/geekaurora/CZUtils.git",
+        "state": {
+          "branch": null,
+          "revision": "007ab788b085f6c82b1efa6e99312be6f3a55db6",
+          "version": "3.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
