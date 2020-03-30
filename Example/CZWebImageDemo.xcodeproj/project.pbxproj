@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,8 +19,46 @@
 		2A313D4C1FC644B200B1346D /* FeedsMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A313D4B1FC644B200B1346D /* FeedsMocker.swift */; };
 		2A313D5B1FC6488400B1346D /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A313D5A1FC6488400B1346D /* UIScreen+Extension.swift */; };
 		2A313D5F1FC6534400B1346D /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A313D5E1FC6534400B1346D /* feeds.json */; };
-		C307AC6C235C1635006ECD12 /* CZWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C307AC6B235C1635006ECD12 /* CZWebImage */; };
+		DF2C24872432190C006B8912 /* CZWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2C247D243218FE006B8912 /* CZWebImage.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DF2C2478243218FE006B8912 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2C246A243218FE006B8912 /* CZWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "CZNetworking::CZNetworking::Product";
+			remoteInfo = CZNetworking;
+		};
+		DF2C247A243218FE006B8912 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2C246A243218FE006B8912 /* CZWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "CZUtils::CZUtils::Product";
+			remoteInfo = CZUtils;
+		};
+		DF2C247C243218FE006B8912 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2C246A243218FE006B8912 /* CZWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "CZWebImage::CZWebImage::Product";
+			remoteInfo = CZWebImage;
+		};
+		DF2C247E243218FE006B8912 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2C246A243218FE006B8912 /* CZWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "CZWebImage::CZWebImageTests::Product";
+			remoteInfo = CZWebImageTests;
+		};
+		DF2C248424321907006B8912 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2C246A243218FE006B8912 /* CZWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "CZWebImage::CZWebImage";
+			remoteInfo = CZWebImage;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2A313D2B1FC642B200B1346D /* CZWebImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZWebImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +78,7 @@
 		2A358A611FC74B9F005D3944 /* CZNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A358A651FC74BA4005D3944 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A358A6A1FC74BB1005D3944 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2C246A243218FE006B8912 /* CZWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CZWebImage.xcodeproj; path = ../CZWebImage.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C307AC6C235C1635006ECD12 /* CZWebImage in Frameworks */,
+				DF2C24872432190C006B8912 /* CZWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,11 +96,13 @@
 		2A313D221FC642B200B1346D = {
 			isa = PBXGroup;
 			children = (
+				DF2C246A243218FE006B8912 /* CZWebImage.xcodeproj */,
 				2A313D2D1FC642B200B1346D /* CZWebImageDemo */,
 				2A358A6A1FC74BB1005D3944 /* CZUtils.framework */,
 				2A358A651FC74BA4005D3944 /* CommonCrypto.framework */,
 				2A358A611FC74B9F005D3944 /* CZNetworking.framework */,
 				2A313D2C1FC642B200B1346D /* Products */,
+				DF2C24862432190C006B8912 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +182,24 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		DF2C246B243218FE006B8912 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF2C2479243218FE006B8912 /* CZNetworking.framework */,
+				DF2C247B243218FE006B8912 /* CZUtils.framework */,
+				DF2C247D243218FE006B8912 /* CZWebImage.framework */,
+				DF2C247F243218FE006B8912 /* CZWebImageTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF2C24862432190C006B8912 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,10 +214,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				DF2C248524321907006B8912 /* PBXTargetDependency */,
 			);
 			name = CZWebImageDemo;
 			packageProductDependencies = (
-				C307AC6B235C1635006ECD12 /* CZWebImage */,
 			);
 			productName = CZWebImageDemo;
 			productReference = 2A313D2B1FC642B200B1346D /* CZWebImageDemo.app */;
@@ -190,16 +249,52 @@
 			);
 			mainGroup = 2A313D221FC642B200B1346D;
 			packageReferences = (
-				C307AC6A235C1635006ECD12 /* XCRemoteSwiftPackageReference "CZWebImage" */,
 			);
 			productRefGroup = 2A313D2C1FC642B200B1346D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DF2C246B243218FE006B8912 /* Products */;
+					ProjectRef = DF2C246A243218FE006B8912 /* CZWebImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2A313D2A1FC642B200B1346D /* CZWebImageDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DF2C2479243218FE006B8912 /* CZNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CZNetworking.framework;
+			remoteRef = DF2C2478243218FE006B8912 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DF2C247B243218FE006B8912 /* CZUtils.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CZUtils.framework;
+			remoteRef = DF2C247A243218FE006B8912 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DF2C247D243218FE006B8912 /* CZWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CZWebImage.framework;
+			remoteRef = DF2C247C243218FE006B8912 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DF2C247F243218FE006B8912 /* CZWebImageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = CZWebImageTests.xctest;
+			remoteRef = DF2C247E243218FE006B8912 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2A313D291FC642B200B1346D /* Resources */ = {
@@ -232,6 +327,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DF2C248524321907006B8912 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CZWebImage;
+			targetProxy = DF2C248424321907006B8912 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2A313D321FC642B200B1346D /* Main.storyboard */ = {
@@ -303,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -356,11 +459,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -372,11 +474,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = CZWebImageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.CZWebImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -391,11 +490,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = CZWebImageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tony.CZWebImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -425,25 +521,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C307AC6A235C1635006ECD12 /* XCRemoteSwiftPackageReference "CZWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/geekaurora/CZWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C307AC6B235C1635006ECD12 /* CZWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C307AC6A235C1635006ECD12 /* XCRemoteSwiftPackageReference "CZWebImage" */;
-			productName = CZWebImage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A313D231FC642B200B1346D /* Project object */;
 }
