@@ -33,7 +33,7 @@ extension UIImageView {
         czImageUrl = url
         image = placeholderImage
         guard let url = url else {
-            CZMainQueueScheduler.async {
+            MainQueueScheduler.async {
                 completion?(nil, WebImageError("imageURL is nil"))
             }
             return
@@ -51,7 +51,7 @@ extension UIImageView {
                 return
             }
             
-            CZMainQueueScheduler.sync {
+            MainQueueScheduler.sync {
                 if !fromCache && options.contains(.fadeInAnimation) {
                     self.fadeIn()
                 }

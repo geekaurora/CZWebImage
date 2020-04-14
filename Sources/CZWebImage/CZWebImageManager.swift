@@ -33,7 +33,7 @@ import CZNetworking
             guard let `self` = self else { return }
             if let image = image {
                 // Load from local disk
-                CZMainQueueScheduler.sync {
+                MainQueueScheduler.sync {
                     completion(image, nil, true)
                 }
                 return

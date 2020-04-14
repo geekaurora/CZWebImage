@@ -110,7 +110,7 @@ class CZImageCache: NSObject {
             }
         }
         // Completion callback
-        CZMainQueueScheduler.sync {
+        MainQueueScheduler.sync {
             completion(image)
         }
     }

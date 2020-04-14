@@ -74,7 +74,7 @@ public class CZImageDownloader: NSObject {
                 CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
                 
                 // Call completion on mainQueue
-                CZMainQueueScheduler.async {
+                MainQueueScheduler.async {
                     completion(outputImage, nil, false)
                 }
             }
