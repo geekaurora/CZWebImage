@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/geekaurora/CZNetworking.git",
         "state": {
           "branch": null,
-          "revision": "b2797f721eb560a76194518084ae23654140db12",
-          "version": "3.2.2"
+          "revision": "881425e8570ee496c5de4172abd858fddfa6209c",
+          "version": "3.2.3"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/geekaurora/CZUtils.git",
         "state": {
           "branch": null,
-          "revision": "0a8647b729a8eef0b649b9057a48568ce3d7a5c0",
-          "version": "3.2.1"
+          "revision": "9784d916f81f7b13e8eab4f2b32776ab5da8d85d",
+          "version": "3.2.2"
         }
       }
     ]
