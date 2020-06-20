@@ -1,11 +1,3 @@
-//
-//  CZImageDownloadOperation.swift
-//  CZWebImage
-//
-//  Created by Cheng Zhang on 1/22/16.
-//  Copyright © 2016 Cheng Zhang. All rights reserved.
-//
-
 import Foundation
 import CZUtils
 import CZNetworking
@@ -13,7 +5,7 @@ import CZNetworking
 /**
  Concurrent operation class for image downloading OperationQueue, supports success/failure/progress callback
  */
-class ImageDownloadOperation: CZConcurrentOperation {
+class ImageDownloadOperation: ConcurrentBlockOperation {
     
     private var requester: HTTPRequestWorker?
     private var progress: HTTPRequestWorker.Progress?
