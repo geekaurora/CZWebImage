@@ -56,7 +56,6 @@ public class CZImageDownloader: NSObject {
         guard let url = url else { return }
         cancelDownload(with: url)
         
-        let queue = imageDownloadQueue
         let operation = ImageDownloadOperation(url: url,
                                                progress: nil,
                                                success: { [weak self] (task, data) in
@@ -82,7 +81,7 @@ public class CZImageDownloader: NSObject {
             completion(nil, error, false)
         })
         operation.queuePriority = priority
-        queue.addOperation(operation)
+        imageDownloadQueue.addOperation(operation)
     }
     
     @objc(cancelDownloadWithURL:)
