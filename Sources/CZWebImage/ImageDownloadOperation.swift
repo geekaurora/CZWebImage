@@ -21,6 +21,7 @@ class ImageDownloadOperation: ConcurrentBlockOperation {
         self.progress = progress
         super.init()
         
+        self.props["url"] = url
         self.success = { [weak self] (data, reponse) in
             // Update Operation's `isFinished` prop
             self?.finish()

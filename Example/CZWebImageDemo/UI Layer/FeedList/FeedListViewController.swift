@@ -7,28 +7,30 @@
 //
 
 import UIKit
+import CZWebImage
 
 class FeedListViewController: UIViewController {
-    @IBOutlet var tableView: UITableView!
+  @IBOutlet var tableView: UITableView!
+  
+  private lazy var viewModel = {
+    return FeedListViewModel()
+  }()
+  
+  private lazy var feedListTableDataSource: FeedListTableDataSource = {
+    return FeedListTableDataSource(viewModel: viewModel)
+  }()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    private lazy var viewModel = {
-        return FeedListViewModel()
-    }()
-    
-    private lazy var feedListTableDataSource: FeedListTableDataSource = {
-        return FeedListTableDataSource(viewModel: viewModel)
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.dataSource = feedListTableDataSource        
-        tableView.rowHeight = UITableView.automaticDimension
-    }
-    
-    // MARK: - Screen Rotation
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        tableView.reloadData()
-    }
+    CZWebImageConstants.shouldObserveOperations = true
+    tableView.dataSource = feedListTableDataSource
+    tableView.rowHeight = UITableView.automaticDimension
+  }
+  
+  // MARK: - Screen Rotation
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    tableView.reloadData()
+  }
 }
 

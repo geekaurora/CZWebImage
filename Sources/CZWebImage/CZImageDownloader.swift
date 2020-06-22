@@ -123,7 +123,7 @@ extension CZImageDownloader {
                 return
         }
         if object === imageDownloadQueue {
-            CZUtils.dbgPrint("Queued tasks: \(object.operationCount)")
+            CZUtils.dbgPrint("[CZImageDownloader] Queued tasks: \(object.operationCount)")
         }
     }
 }
