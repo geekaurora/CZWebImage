@@ -11,13 +11,17 @@ class CZImageCache: CZBaseHttpFileCache {
 
   /// Data transformer that transforms from `data` to  UIImage.
   static func transformMetaDataToCachedData(_ data: Data?) -> UIImage? {
-    guard let data = data else { return nil }
+    guard let data = data else {
+      return nil
+    }
     let image = UIImage(data: data)
     return image
   }
   
   init() {
-    super.init(transformMetaDataToCachedData: Self.transformMetaDataToCachedData)
+    super.init(
+      cachedDataClassType: UIImage.self,
+      transformMetaDataToCachedData: Self.transformMetaDataToCachedData)
   }
   
   override func cacheCost(forImage image: AnyObject) -> Int {
