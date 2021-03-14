@@ -9,6 +9,7 @@
 import UIKit
 import CZUtils
 import CZNetworking
+import CZHttpFileCache
 
 private var kvoContext: UInt8 = 0
 
