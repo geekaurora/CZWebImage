@@ -6,7 +6,7 @@ import CZHttpFileCache
 /**
  Thread safe local cache backed by DispatchQueue mutex lock/LRU queue, supports maxFileAge/maxCacheSize purging strategy
  */
-class CZImageCache: CZBaseHttpFileCache {
+class CZImageCache: CZBaseHttpFileCache<UIImage> {
   public static let shared = CZImageCache()
 
   /// Data transformer that transforms from `data` to  UIImage.
@@ -20,7 +20,7 @@ class CZImageCache: CZBaseHttpFileCache {
   
   init() {
     super.init(
-      cachedDataClassType: UIImage.self,
+      // cachedDataClassType: UIImage.self,
       transformMetaDataToCachedData: Self.transformMetaDataToCachedData)
   }
   
