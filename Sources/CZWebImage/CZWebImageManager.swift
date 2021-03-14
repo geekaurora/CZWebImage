@@ -29,7 +29,7 @@ import CZNetworking
                        cropSize: CGSize? = nil,
                        priority: Operation.QueuePriority = .normal,
                        completion: @escaping CZImageDownloderCompletion) {
-      cache.getCachedFile(with: url) { [weak self] (image: UIImage?) in
+      cache.getCachedFile(with: url) { [weak self] (image) in
             guard let `self` = self else { return }
             if let image = image {
                 // Load from local disk

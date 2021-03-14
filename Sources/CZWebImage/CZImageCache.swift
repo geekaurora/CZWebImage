@@ -24,10 +24,7 @@ class CZImageCache: CZBaseHttpFileCache<UIImage> {
       transformMetaDataToCachedData: Self.transformMetaDataToCachedData)
   }
   
-  override func cacheCost(forImage image: AnyObject) -> Int {
-    guard let image = (image as? UIImage).assertIfNil else {
-      return 0
-    }
+  override func cacheCost(forImage image: UIImage) -> Int {
     return Int(image.size.height * image.size.width * image.scale * image.scale)
   }
 }
