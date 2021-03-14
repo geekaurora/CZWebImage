@@ -14,6 +14,13 @@ import CZHttpFileCache
 /**
  Thread safe local cache backed by DispatchQueue mutex lock/LRU queue, supports maxFileAge/maxCacheSize purging strategy
  */
-class CZImageCache: CZHttpFileCache {
-    public static let shared = CZImageCache()
+class CZImageCache: CZBaseHttpFileCache {
+  static func transformMetaDataToCachedData(_ data: Data?) -> UIImage? {
+    return nil
+  }
+  public static let shared = CZImageCache()
+  
+  init() {
+    super.init(transformMetaDataToCachedData: Self.transformMetaDataToCachedData)
+  }
 }
