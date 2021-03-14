@@ -9,6 +9,7 @@
 import UIKit
 import CZUtils
 import CZNetworking
+import CZHttpFileCache
 
 /**
  Web image manager maintains asynchronous image downloading tasks
