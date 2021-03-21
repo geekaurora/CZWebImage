@@ -1,7 +1,7 @@
 import UIKit
 import CZUtils
 import CZNetworking
-import CZWebFileDownloader
+import CZHttpFile
 
 public typealias CZImageDownloderCompletion = (_ image: UIImage?, _ error: Error?, _ fromCache: Bool) -> Void
 
