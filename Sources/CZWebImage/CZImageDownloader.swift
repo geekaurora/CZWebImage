@@ -15,7 +15,11 @@ public class CZImageDownloader: NSObject {
     static let imageDecodeQueueName = "com.tony.image.decode"
   }
   private lazy var httpFileDownloader: CZHttpFileDownloader = {
-    let httpFileDownloader = CZHttpFileDownloader()
+    let httpFileDownloader = CZHttpFileDownloader(
+      downloadQueueMaxConcurrent: CZWebImageConstants.downloadQueueMaxConcurrent,
+      decodeQueueMaxConcurrent: CZWebImageConstants.decodeQueueMaxConcurrent,
+      errorDomain: CZWebImageConstants.errorDomain,
+      shouldObserveOperations: CZWebImageConstants.shouldObserveOperations)
     return httpFileDownloader
   }()
   
