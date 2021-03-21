@@ -21,8 +21,7 @@ private var kvoContext: UInt8 = 0
 /**
  Asynchronous httpFile downloading class on top of OperationQueue
  */
-public class CZHttpFileDownloader<DataType: NSObjectProtocol>: NSObject {
-  //public static let shared = CZHttpFileDownloader()
+internal class CZHttpFileDownloader<DataType: NSObjectProtocol>: NSObject {
   private let httpFileDownloadQueue: OperationQueue
   private let httpFileDecodeQueue: OperationQueue
   private let shouldObserveOperations: Bool
@@ -88,7 +87,7 @@ public class CZHttpFileDownloader<DataType: NSObjectProtocol>: NSObject {
           // let (outputHttpFile, ouputData) = self.cropHttpFileIfNeeded(httpFile, data: data, cropSize: cropSize)
           
           // Save downloaded file to cache.
-          self.cache.setCacheFile(withUrl: url, data: ouputData)          
+          self.cache.setCacheFile(withUrl: url, data: ouputData)
           // CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
           
           // Call completion on mainQueue
