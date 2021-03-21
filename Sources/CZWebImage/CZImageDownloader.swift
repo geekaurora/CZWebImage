@@ -26,7 +26,6 @@ public class CZImageDownloader: NSObject {
   }()
   
   public override init() {
-    
     super.init()
   }
     

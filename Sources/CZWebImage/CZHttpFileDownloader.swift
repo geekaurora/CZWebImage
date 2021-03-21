@@ -91,17 +91,6 @@ public class CZHttpFileDownloader: NSObject {
             completion(outputHttpFile, nil, false)
           }
           
-//          guard let httpFile = UIHttpFile(data: data) else {
-//            completion(nil, WebHttpFileError.invalidData, false)
-//            return
-//          }
-//          let (outputHttpFile, ouputData) = self.cropHttpFileIfNeeded(httpFile, data: data, cropSize: cropSize)
-//          CZHttpFileCache.shared.setCacheFile(withUrl: url, data: ouputData)
-//
-//          // Call completion on mainQueue
-//          MainQueueScheduler.async {
-//            completion(outputHttpFile, nil, false)
-//          }
         }
       }, failure: { (task, error) in
         completion(nil, error, false)
