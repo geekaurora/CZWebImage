@@ -10,7 +10,6 @@ public typealias CZImageDownloderCompletion = (_ image: UIImage?, _ error: Error
  Asynchronous image downloading class on top of OperationQueue
  */
 internal class CZImageDownloader: NSObject {
-  // public static let shared = CZImageDownloader()
   private enum Constant {
     static let imageDownloadQueueName = "com.tony.image.download"
     static let imageDecodeQueueName = "com.tony.image.decode"

@@ -8,10 +8,9 @@ import CZWebFileDownloader
  Web image manager maintains asynchronous image downloading tasks
  */
 @objc open class CZWebImageManager: NSObject {
-
     public static let shared: CZWebImageManager = CZWebImageManager()
     private var downloader: CZImageDownloader
-    internal var cache: CZImageCache
+    private var cache: CZImageCache
     
     public override init() {
       cache = CZImageCache()
