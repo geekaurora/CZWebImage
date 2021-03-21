@@ -10,20 +10,21 @@ public enum CZHttpFileDownloaderConstant {
   public static var errorDomain = "CZHttpFileDownloader"
 }
 
+public enum Constant {
+  public static let httpFileDownloadQueueName = "com.cz.httpfile.download"
+  public static let httpFileDecodeQueueName = "com.cz.httpfile.decode"
+  public static var kOperations = "operations"
+}
+
 private var kvoContext: UInt8 = 0
 
 /**
  Asynchronous httpFile downloading class on top of OperationQueue
  */
-public class CZHttpFileDownloader: NSObject {
-  public static let shared = CZHttpFileDownloader()
+public class CZHttpFileDownloader<Type>: NSObject {
+  //public static let shared = CZHttpFileDownloader()
   private let httpFileDownloadQueue: OperationQueue
   private let httpFileDecodeQueue: OperationQueue
-  public enum Constant {
-    public static let httpFileDownloadQueueName = "com.cz.httpfile.download"
-    public static let httpFileDecodeQueueName = "com.cz.httpfile.decode"
-    public static var kOperations = "operations"
-  }
   private let shouldObserveOperations: Bool
   
   public init(downloadQueueMaxConcurrent: Int = CZHttpFileDownloaderConstant.downloadQueueMaxConcurrent,
@@ -111,11 +112,9 @@ public class CZHttpFileDownloader: NSObject {
     }
     httpFileDownloadQueue.operations.forEach(cancelIfNeeded)
   }
-}
+  
+  // MARK: - KVO Delegation
 
-// MARK: - KVO Delegation
-
-extension CZHttpFileDownloader {
   public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     guard context == &kvoContext,
           let object = object as? OperationQueue,
