@@ -60,7 +60,7 @@ public class CZHttpFileDownloader: NSObject {
   ///
   /// - Parameters:
   ///   - decodeData: Closure used to decode `Data` to tuple (`DataType`, `Data`). If is nil, then returns `Data` directly.
-  public func downloadImage<DataType>(with url: URL?,
+  public func downloadHttpFile<DataType>(with url: URL?,
                             cropSize: CGSize? = nil,
                             priority: Operation.QueuePriority = .normal,
                             decodeData: ((Data) -> (DataType?, Data))?,
@@ -68,40 +68,40 @@ public class CZHttpFileDownloader: NSObject {
     guard let url = url else { return }
     cancelDownload(with: url)
     
-    let operation = ImageDownloadOperation(
+    let operation = HttpFileDownloadOperation(
       url: url,
       progress: nil,
       success: { [weak self] (task, data) in
         guard let `self` = self, let data = data else {
-          completion(nil, WebImageError.invalidData, false)
+          completion(nil, WebHttpFileError.invalidData, false)
           return
         }
         // Decode/crop httpFile in decode OperationQueue
         self.httpFileDecodeQueue.addOperation {
-          guard let (outputImage, ouputData) = decodeData?(data) else {
-            completion(nil, WebImageError.invalidData, false)
+          guard let (outputHttpFile, ouputData) = decodeData?(data) else {
+            completion(nil, WebHttpFileError.invalidData, false)
             return
           }
-          // let (outputImage, ouputData) = self.cropImageIfNeeded(httpFile, data: data, cropSize: cropSize)
+          // let (outputHttpFile, ouputData) = self.cropHttpFileIfNeeded(httpFile, data: data, cropSize: cropSize)
           
           // Save downloaded file to cache.
           CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
           
           // Call completion on mainQueue
           MainQueueScheduler.async {
-            completion(outputImage, nil, false)
+            completion(outputHttpFile, nil, false)
           }
           
-//          guard let httpFile = UIImage(data: data) else {
-//            completion(nil, WebImageError.invalidData, false)
+//          guard let httpFile = UIHttpFile(data: data) else {
+//            completion(nil, WebHttpFileError.invalidData, false)
 //            return
 //          }
-//          let (outputImage, ouputData) = self.cropImageIfNeeded(httpFile, data: data, cropSize: cropSize)
-//          CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
+//          let (outputHttpFile, ouputData) = self.cropHttpFileIfNeeded(httpFile, data: data, cropSize: cropSize)
+//          CZHttpFileCache.shared.setCacheFile(withUrl: url, data: ouputData)
 //
 //          // Call completion on mainQueue
 //          MainQueueScheduler.async {
-//            completion(outputImage, nil, false)
+//            completion(outputHttpFile, nil, false)
 //          }
         }
       }, failure: { (task, error) in
@@ -116,7 +116,7 @@ public class CZHttpFileDownloader: NSObject {
     guard let url = url else { return }
     
     let cancelIfNeeded = { (operation: Operation) in
-      if let operation = operation as? ImageDownloadOperation,
+      if let operation = operation as? HttpFileDownloadOperation,
          operation.url == url {
         operation.cancel()
       }
