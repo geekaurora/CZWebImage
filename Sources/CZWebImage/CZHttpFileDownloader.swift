@@ -56,10 +56,15 @@ public class CZHttpFileDownloader: NSObject {
     httpFileDownloadQueue.cancelAllOperations()
   }
   
-  public func downloadImage(with url: URL?,
+  /// Download the http file with the desired params.
+  ///
+  /// - Parameters:
+  ///   - decodeData: Closure used to decode `Data` to tuple (`DataType`, `Data`). If is nil, then returns `Data` directly.
+  public func downloadImage<DataType>(with url: URL?,
                             cropSize: CGSize? = nil,
                             priority: Operation.QueuePriority = .normal,
-                            completion: @escaping (_ httpFile: UIImage?, _ error: Error?, _ fromCache: Bool) -> Void) {
+                            decodeData: ((Data) -> (DataType?, Data))?,
+                            completion: @escaping (_ httpFile: DataType?, _ error: Error?, _ fromCache: Bool) -> Void) {
     guard let url = url else { return }
     cancelDownload(with: url)
     
@@ -73,17 +78,31 @@ public class CZHttpFileDownloader: NSObject {
         }
         // Decode/crop httpFile in decode OperationQueue
         self.httpFileDecodeQueue.addOperation {
-          guard let httpFile = UIImage(data: data) else {
+          guard let (outputImage, ouputData) = decodeData?(data) else {
             completion(nil, WebImageError.invalidData, false)
             return
           }
-          let (outputImage, ouputData) = self.cropImageIfNeeded(httpFile, data: data, cropSize: cropSize)
+          // let (outputImage, ouputData) = self.cropImageIfNeeded(httpFile, data: data, cropSize: cropSize)
+          
+          // Save downloaded file to cache.
           CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
           
           // Call completion on mainQueue
           MainQueueScheduler.async {
             completion(outputImage, nil, false)
           }
+          
+//          guard let httpFile = UIImage(data: data) else {
+//            completion(nil, WebImageError.invalidData, false)
+//            return
+//          }
+//          let (outputImage, ouputData) = self.cropImageIfNeeded(httpFile, data: data, cropSize: cropSize)
+//          CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
+//
+//          // Call completion on mainQueue
+//          MainQueueScheduler.async {
+//            completion(outputImage, nil, false)
+//          }
         }
       }, failure: { (task, error) in
         completion(nil, error, false)
@@ -104,20 +123,6 @@ public class CZHttpFileDownloader: NSObject {
     }
     httpFileDownloadQueue.operations.forEach(cancelIfNeeded)
   }
-}
-
-// MARK: - Private methods
-
-private extension CZHttpFileDownloader {
-  
-  func cropImageIfNeeded(_ httpFile: UIImage, data: Data, cropSize: CGSize?) -> (httpFile: UIImage, data: Data?) {
-    guard let cropSize = cropSize, cropSize != .zero else {
-      return (httpFile, data)
-    }
-    let croppedImage = httpFile.crop(toSize: cropSize)
-    return (croppedImage, croppedImage.pngData())
-  }
-  
 }
 
 // MARK: - KVO Delegation
