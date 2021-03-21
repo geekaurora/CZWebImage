@@ -59,12 +59,11 @@ public class CZHttpFileDownloader: NSObject {
   /// Download the http file with the desired params.
   ///
   /// - Parameters:
-  ///   - decodeData: Closure used to decode `Data` to tuple (`DataType`, `Data`). If is nil, then returns `Data` directly.
+  ///   - decodeData: Closure used to decode `Data` to tuple (DataType?, Data?). If is nil, then returns `Data` directly.
   public func downloadHttpFile<DataType>(with url: URL?,
-                            cropSize: CGSize? = nil,
-                            priority: Operation.QueuePriority = .normal,
-                            decodeData: ((Data) -> (DataType?, Data))?,
-                            completion: @escaping (_ httpFile: DataType?, _ error: Error?, _ fromCache: Bool) -> Void) {
+                                         priority: Operation.QueuePriority = .normal,
+                                         decodeData: ((Data) -> (DataType?, Data?)?)?,
+                                         completion: @escaping (_ httpFile: DataType?, _ error: Error?, _ fromCache: Bool) -> Void) {
     guard let url = url else { return }
     cancelDownload(with: url)
     
@@ -78,7 +77,7 @@ public class CZHttpFileDownloader: NSObject {
         }
         // Decode/crop httpFile in decode OperationQueue
         self.httpFileDecodeQueue.addOperation {
-          guard let (outputHttpFile, ouputData) = decodeData?(data) else {
+          guard let (outputHttpFile, ouputData) = (decodeData?(data)).assertIfNil else {
             completion(nil, WebHttpFileError.invalidData, false)
             return
           }
