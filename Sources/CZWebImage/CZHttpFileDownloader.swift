@@ -13,15 +13,15 @@ public enum CZHttpFileDownloaderConstant {
 private var kvoContext: UInt8 = 0
 
 /**
- Asynchronous image downloading class on top of OperationQueue
+ Asynchronous httpFile downloading class on top of OperationQueue
  */
 public class CZHttpFileDownloader: NSObject {
   public static let shared = CZHttpFileDownloader()
-  private let imageDownloadQueue: OperationQueue
-  private let imageDecodeQueue: OperationQueue
+  private let httpFileDownloadQueue: OperationQueue
+  private let httpFileDecodeQueue: OperationQueue
   public enum Constant {
-    public static let imageDownloadQueueName = "com.cz.httpfile.download"
-    public static let imageDecodeQueueName = "com.cz.httpfile.decode"
+    public static let httpFileDownloadQueueName = "com.cz.httpfile.download"
+    public static let httpFileDecodeQueueName = "com.cz.httpfile.decode"
     public static var kOperations = "operations"
   }
   private let shouldObserveOperations: Bool
@@ -30,36 +30,36 @@ public class CZHttpFileDownloader: NSObject {
               decodeQueueMaxConcurrent: Int = CZHttpFileDownloaderConstant.decodeQueueMaxConcurrent,
               errorDomain: String = CZHttpFileDownloaderConstant.errorDomain,
               shouldObserveOperations: Bool = CZHttpFileDownloaderConstant.shouldObserveOperations,
-              imageDownloadQueueName: String = Constant.imageDownloadQueueName,
-              imageDecodeQueueName: String = Constant.imageDecodeQueueName) {
+              httpFileDownloadQueueName: String = Constant.httpFileDownloadQueueName,
+              httpFileDecodeQueueName: String = Constant.httpFileDecodeQueueName) {
     self.shouldObserveOperations = shouldObserveOperations
     
-    imageDownloadQueue = OperationQueue()
-    imageDownloadQueue.name = imageDownloadQueueName
-    imageDownloadQueue.qualityOfService = .userInteractive
-    imageDownloadQueue.maxConcurrentOperationCount = downloadQueueMaxConcurrent
+    httpFileDownloadQueue = OperationQueue()
+    httpFileDownloadQueue.name = httpFileDownloadQueueName
+    httpFileDownloadQueue.qualityOfService = .userInteractive
+    httpFileDownloadQueue.maxConcurrentOperationCount = downloadQueueMaxConcurrent
     
-    imageDecodeQueue = OperationQueue()
-    imageDownloadQueue.name = imageDecodeQueueName
-    imageDecodeQueue.maxConcurrentOperationCount = decodeQueueMaxConcurrent
+    httpFileDecodeQueue = OperationQueue()
+    httpFileDownloadQueue.name = httpFileDecodeQueueName
+    httpFileDecodeQueue.maxConcurrentOperationCount = decodeQueueMaxConcurrent
     super.init()
     
     if shouldObserveOperations {
-      imageDownloadQueue.addObserver(self, forKeyPath: Constant.kOperations, options: [.new, .old], context: &kvoContext)
+      httpFileDownloadQueue.addObserver(self, forKeyPath: Constant.kOperations, options: [.new, .old], context: &kvoContext)
     }
   }
   
   deinit {
     if shouldObserveOperations {
-      imageDownloadQueue.removeObserver(self, forKeyPath: Constant.kOperations)
+      httpFileDownloadQueue.removeObserver(self, forKeyPath: Constant.kOperations)
     }
-    imageDownloadQueue.cancelAllOperations()
+    httpFileDownloadQueue.cancelAllOperations()
   }
   
   public func downloadImage(with url: URL?,
                             cropSize: CGSize? = nil,
                             priority: Operation.QueuePriority = .normal,
-                            completion: @escaping (_ image: UIImage?, _ error: Error?, _ fromCache: Bool) -> Void) {
+                            completion: @escaping (_ httpFile: UIImage?, _ error: Error?, _ fromCache: Bool) -> Void) {
     guard let url = url else { return }
     cancelDownload(with: url)
     
@@ -70,13 +70,13 @@ public class CZHttpFileDownloader: NSObject {
                                               completion(nil, WebImageError.invalidData, false)
                                               return
                                             }
-                                            // Decode/crop image in decode OperationQueue
-                                            self.imageDecodeQueue.addOperation {
-                                              guard let image = UIImage(data: data) else {
+                                            // Decode/crop httpFile in decode OperationQueue
+                                            self.httpFileDecodeQueue.addOperation {
+                                              guard let httpFile = UIImage(data: data) else {
                                                 completion(nil, WebImageError.invalidData, false)
                                                 return
                                               }
-                                              let (outputImage, ouputData) = self.cropImageIfNeeded(image, data: data, cropSize: cropSize)
+                                              let (outputImage, ouputData) = self.cropImageIfNeeded(httpFile, data: data, cropSize: cropSize)
                                               CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
                                               
                                               // Call completion on mainQueue
@@ -88,7 +88,7 @@ public class CZHttpFileDownloader: NSObject {
                                             completion(nil, error, false)
                                            })
     operation.queuePriority = priority
-    imageDownloadQueue.addOperation(operation)
+    httpFileDownloadQueue.addOperation(operation)
   }
   
   @objc(cancelDownloadWithURL:)
@@ -101,7 +101,7 @@ public class CZHttpFileDownloader: NSObject {
         operation.cancel()
       }
     }
-    imageDownloadQueue.operations.forEach(cancelIfNeeded)
+    httpFileDownloadQueue.operations.forEach(cancelIfNeeded)
   }
 }
 
@@ -109,11 +109,11 @@ public class CZHttpFileDownloader: NSObject {
 
 private extension CZHttpFileDownloader {
   
-  func cropImageIfNeeded(_ image: UIImage, data: Data, cropSize: CGSize?) -> (image: UIImage, data: Data?) {
+  func cropImageIfNeeded(_ httpFile: UIImage, data: Data, cropSize: CGSize?) -> (httpFile: UIImage, data: Data?) {
     guard let cropSize = cropSize, cropSize != .zero else {
-      return (image, data)
+      return (httpFile, data)
     }
-    let croppedImage = image.crop(toSize: cropSize)
+    let croppedImage = httpFile.crop(toSize: cropSize)
     return (croppedImage, croppedImage.pngData())
   }
   
@@ -129,7 +129,7 @@ extension CZHttpFileDownloader {
           keyPath == Constant.kOperations else {
       return
     }
-    if object === imageDownloadQueue {
+    if object === httpFileDownloadQueue {
       CZUtils.dbgPrint("[CZHttpFileDownloader] Queued tasks: \(object.operationCount)")
     }
   }
