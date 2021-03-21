@@ -41,7 +41,6 @@
 		2A358A651FC74BA4005D3944 /* CommonCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A358A6A1FC74BB1005D3944 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35BB0E72446063900D21E42 /* CZWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZWebImage; path = ..; sourceTree = "<group>"; };
-		C3FDAB3D26075473004BE699 /* CZHttpFile */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZHttpFile; path = ../../CZHttpFile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +58,6 @@
 		2A313D221FC642B200B1346D = {
 			isa = PBXGroup;
 			children = (
-				C3FDAB3D26075473004BE699 /* CZHttpFile */,
 				C35BB0E72446063900D21E42 /* CZWebImage */,
 				2A313D2D1FC642B200B1346D /* CZWebImageDemo */,
 				2A358A6A1FC74BB1005D3944 /* CZUtils.framework */,

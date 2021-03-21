@@ -35,7 +35,7 @@ internal class CZImageDownloader: NSObject {
                             priority: Operation.QueuePriority = .normal,
                             completion: @escaping CZImageDownloderCompletion) {
     httpFileDownloader.downloadHttpFile(
-      with: url,
+      url: url,
       priority: priority,
       decodeData: { [weak self] (data: Data) -> (UIImage?, Data?)? in
         guard let `self` = self,
