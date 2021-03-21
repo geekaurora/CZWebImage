@@ -21,18 +21,21 @@ private var kvoContext: UInt8 = 0
 /**
  Asynchronous httpFile downloading class on top of OperationQueue
  */
-public class CZHttpFileDownloader<Type>: NSObject {
+public class CZHttpFileDownloader<DataType: NSObjectProtocol>: NSObject {
   //public static let shared = CZHttpFileDownloader()
   private let httpFileDownloadQueue: OperationQueue
   private let httpFileDecodeQueue: OperationQueue
   private let shouldObserveOperations: Bool
+  private let cache: CZBaseHttpFileCache<DataType>
   
-  public init(downloadQueueMaxConcurrent: Int = CZHttpFileDownloaderConstant.downloadQueueMaxConcurrent,
+  public init(cache: CZBaseHttpFileCache<DataType>,
+              downloadQueueMaxConcurrent: Int = CZHttpFileDownloaderConstant.downloadQueueMaxConcurrent,
               decodeQueueMaxConcurrent: Int = CZHttpFileDownloaderConstant.decodeQueueMaxConcurrent,
               errorDomain: String = CZHttpFileDownloaderConstant.errorDomain,
               shouldObserveOperations: Bool = CZHttpFileDownloaderConstant.shouldObserveOperations,
               httpFileDownloadQueueName: String = Constant.httpFileDownloadQueueName,
               httpFileDecodeQueueName: String = Constant.httpFileDecodeQueueName) {
+    self.cache = cache
     self.shouldObserveOperations = shouldObserveOperations
     
     httpFileDownloadQueue = OperationQueue()
@@ -61,10 +64,10 @@ public class CZHttpFileDownloader<Type>: NSObject {
   ///
   /// - Parameters:
   ///   - decodeData: Closure used to decode `Data` to tuple (DataType?, Data?). If is nil, then returns `Data` directly.
-  public func downloadHttpFile<DataType>(with url: URL?,
-                                         priority: Operation.QueuePriority = .normal,
-                                         decodeData: ((Data) -> (DataType?, Data?)?)?,
-                                         completion: @escaping (_ httpFile: DataType?, _ error: Error?, _ fromCache: Bool) -> Void) {
+  public func downloadHttpFile(with url: URL?,
+                               priority: Operation.QueuePriority = .normal,
+                               decodeData: ((Data) -> (DataType?, Data?)?)?,
+                               completion: @escaping (_ httpFile: DataType?, _ error: Error?, _ fromCache: Bool) -> Void) {
     guard let url = url else { return }
     cancelDownload(with: url)
     
@@ -85,7 +88,8 @@ public class CZHttpFileDownloader<Type>: NSObject {
           // let (outputHttpFile, ouputData) = self.cropHttpFileIfNeeded(httpFile, data: data, cropSize: cropSize)
           
           // Save downloaded file to cache.
-          CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
+          self.cache.setCacheFile(withUrl: url, data: ouputData)          
+          // CZImageCache.shared.setCacheFile(withUrl: url, data: ouputData)
           
           // Call completion on mainQueue
           MainQueueScheduler.async {
@@ -114,7 +118,7 @@ public class CZHttpFileDownloader<Type>: NSObject {
   }
   
   // MARK: - KVO Delegation
-
+  
   public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     guard context == &kvoContext,
           let object = object as? OperationQueue,

@@ -10,11 +10,11 @@ import CZHttpFileCache
 
     public static let shared: CZWebImageManager = CZWebImageManager()
     private var downloader: CZImageDownloader
-    private var cache: CZImageCache
+    internal var cache: CZImageCache
     
     public override init() {
-        downloader = CZImageDownloader()
-        cache = CZImageCache()
+      cache = CZImageCache()
+      downloader = CZImageDownloader(cache: cache)
         super.init()
     }
     

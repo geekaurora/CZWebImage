@@ -8,9 +8,8 @@ public typealias CZImageDownloderCompletion = (_ image: UIImage?, _ error: Error
 /**
  Asynchronous image downloading class on top of OperationQueue
  */
-public class CZImageDownloader: NSObject {
-  public static let shared = CZImageDownloader()
-  
+internal class CZImageDownloader: NSObject {
+  // public static let shared = CZImageDownloader()
   private enum Constant {
     static let imageDownloadQueueName = "com.tony.image.download"
     static let imageDecodeQueueName = "com.tony.image.decode"
@@ -18,14 +17,17 @@ public class CZImageDownloader: NSObject {
   
   private lazy var httpFileDownloader: CZHttpFileDownloader<UIImage> = {
     let httpFileDownloader = CZHttpFileDownloader<UIImage>(
+      cache: self.cache,
       downloadQueueMaxConcurrent: CZWebImageConstants.downloadQueueMaxConcurrent,
       decodeQueueMaxConcurrent: CZWebImageConstants.decodeQueueMaxConcurrent,
       errorDomain: CZWebImageConstants.errorDomain,
       shouldObserveOperations: CZWebImageConstants.shouldObserveOperations)
     return httpFileDownloader
   }()
+  private let cache: CZImageCache
   
-  public override init() {
+  public init(cache: CZImageCache) {
+    self.cache = cache
     super.init()
   }
     
