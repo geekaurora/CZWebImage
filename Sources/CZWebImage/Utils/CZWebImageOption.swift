@@ -1,11 +1,3 @@
-//
-//  CZWebImageOption.swift
-//  CZWebImage
-//
-//  Created by Cheng Zhang on 1/18/16.
-//  Copyright © 2016 Cheng Zhang. All rights reserved.
-//
-
 import UIKit
 
 /// CZWebImageOption for Swift

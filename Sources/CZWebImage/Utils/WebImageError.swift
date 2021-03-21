@@ -1,11 +1,3 @@
-//
-//  CZWebImageError.swift
-//  CZWebImage
-//
-//  Created by Cheng Zhang on 1/19/16.
-//  Copyright © 2016 Cheng Zhang. All rights reserved.
-//
-
 import UIKit
 import CZUtils
 import CZNetworking
