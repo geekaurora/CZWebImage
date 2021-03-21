@@ -1,7 +1,6 @@
 import UIKit
 import CZUtils
 import CZNetworking
-import CZHttpFileCache
 import CZWebFileDownloader
 
 /**
