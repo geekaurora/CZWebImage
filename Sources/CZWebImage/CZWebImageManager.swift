@@ -1,28 +1,20 @@
-//
-//  CZWebImageManager.swift
-//  CZWebImage
-//
-//  Created by Cheng Zhang on 1/20/16.
-//  Copyright © 2016 Cheng Zhang. All rights reserved.
-//
-
 import UIKit
 import CZUtils
 import CZNetworking
 import CZHttpFileCache
+import CZWebFileDownloader
 
 /**
  Web image manager maintains asynchronous image downloading tasks
  */
 @objc open class CZWebImageManager: NSObject {
-
     public static let shared: CZWebImageManager = CZWebImageManager()
     private var downloader: CZImageDownloader
     private var cache: CZImageCache
     
     public override init() {
-        downloader = CZImageDownloader()
-        cache = CZImageCache()
+      cache = CZImageCache()
+      downloader = CZImageDownloader(cache: cache)
         super.init()
     }
     

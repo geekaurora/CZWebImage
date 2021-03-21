@@ -1,11 +1,3 @@
-//
-//  UIImageView+Extension.swift
-//  CZWebImage
-//
-//  Created by Cheng Zhang on 1/26/16.
-//  Copyright © 2016 Cheng Zhang. All rights reserved.
-//
-
 import UIKit
 import CZUtils
 import CZNetworking
