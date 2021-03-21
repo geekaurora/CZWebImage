@@ -18,12 +18,11 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/geekaurora/CZUtils.git", from: "3.2.7"),
     .package(url: "https://github.com/geekaurora/CZNetworking.git", from: "3.2.2"),
-    .package(url: "https://github.com/geekaurora/CZHttpFileCache.git", from: "2.2.0"),
     .package(url: "https://github.com/geekaurora/CZWebFileDownloader.git", from: "1.0.0"),
   ],
   targets: [
     .target(
       name: "CZWebImage",
-      dependencies: ["CZUtils", "CZNetworking", "CZHttpFileCache", "CZWebFileDownloader"]),
+      dependencies: ["CZUtils", "CZNetworking", "CZWebFileDownloader"]),
   ]
 )
