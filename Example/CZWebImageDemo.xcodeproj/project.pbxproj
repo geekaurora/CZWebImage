@@ -20,7 +20,23 @@
 		2A313D5B1FC6488400B1346D /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A313D5A1FC6488400B1346D /* UIScreen+Extension.swift */; };
 		2A313D5F1FC6534400B1346D /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A313D5E1FC6534400B1346D /* feeds.json */; };
 		C35BB0E92446068600D21E42 /* CZWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C35BB0E82446068600D21E42 /* CZWebImage */; };
+		C3F84368263FC3F9002FCE68 /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C3F84367263FC3F9002FCE68 /* CZUtils */; };
+		C3F84369263FC3F9002FCE68 /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C3F84367263FC3F9002FCE68 /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C3F8436A263FC3F9002FCE68 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C3F84369263FC3F9002FCE68 /* CZUtils in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2A313D2B1FC642B200B1346D /* CZWebImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CZWebImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C35BB0E92446068600D21E42 /* CZWebImage in Frameworks */,
+				C3F84368263FC3F9002FCE68 /* CZUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +180,7 @@
 				2A313D271FC642B200B1346D /* Sources */,
 				2A313D281FC642B200B1346D /* Frameworks */,
 				2A313D291FC642B200B1346D /* Resources */,
+				C3F8436A263FC3F9002FCE68 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +189,7 @@
 			name = CZWebImageDemo;
 			packageProductDependencies = (
 				C35BB0E82446068600D21E42 /* CZWebImage */,
+				C3F84367263FC3F9002FCE68 /* CZUtils */,
 			);
 			productName = CZWebImageDemo;
 			productReference = 2A313D2B1FC642B200B1346D /* CZWebImageDemo.app */;
@@ -202,6 +221,7 @@
 			);
 			mainGroup = 2A313D221FC642B200B1346D;
 			packageReferences = (
+				C3F84366263FC3F9002FCE68 /* XCRemoteSwiftPackageReference "CZUtils" */,
 			);
 			productRefGroup = 2A313D2C1FC642B200B1346D /* Products */;
 			projectDirPath = "";
@@ -437,10 +457,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		C3F84366263FC3F9002FCE68 /* XCRemoteSwiftPackageReference "CZUtils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/geekaurora/CZUtils.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.9.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		C35BB0E82446068600D21E42 /* CZWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CZWebImage;
+		};
+		C3F84367263FC3F9002FCE68 /* CZUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3F84366263FC3F9002FCE68 /* XCRemoteSwiftPackageReference "CZUtils" */;
+			productName = CZUtils;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

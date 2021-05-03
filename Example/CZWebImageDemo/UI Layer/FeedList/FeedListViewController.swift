@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CZUtils
 import CZWebImage
 
 class FeedListViewController: UIViewController {
@@ -22,6 +23,8 @@ class FeedListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    CZFPSLabel().display(on: view)
     
     CZWebImageConstants.shouldObserveOperations = true
     tableView.dataSource = feedListTableDataSource
