@@ -58,6 +58,8 @@
 		2A358A6A1FC74BB1005D3944 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31EA0F1260F145900EFDBA9 /* CZHttpFile */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZHttpFile; path = ../../CZHttpFile; sourceTree = "<group>"; };
 		C35BB0E72446063900D21E42 /* CZWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZWebImage; path = ..; sourceTree = "<group>"; };
+		C3F2AFE1263FF83B00EC00A4 /* CZNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZNetworking; path = ../../CZNetworking; sourceTree = "<group>"; };
+		C3F2AFE2263FF94F00EC00A4 /* CZUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZUtils; path = ../../CZUtils; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,8 @@
 		2A313D221FC642B200B1346D = {
 			isa = PBXGroup;
 			children = (
+				C3F2AFE2263FF94F00EC00A4 /* CZUtils */,
+				C3F2AFE1263FF83B00EC00A4 /* CZNetworking */,
 				C31EA0F1260F145900EFDBA9 /* CZHttpFile */,
 				C35BB0E72446063900D21E42 /* CZWebImage */,
 				2A313D2D1FC642B200B1346D /* CZWebImageDemo */,
