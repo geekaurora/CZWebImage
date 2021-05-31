@@ -7,52 +7,49 @@ import CZHttpFile
  Web image manager maintains asynchronous image downloading tasks
  */
 @objc open class CZWebImageManager: NSObject {
-    public static let shared: CZWebImageManager = CZWebImageManager()
-    private var downloader: CZImageDownloader
-    private var cache: CZImageCache
+  public static let shared: CZWebImageManager = CZWebImageManager()
+  private var downloader: CZImageDownloader
+  private var cache: CZImageCache
+  
+  public override init() {
+    cache = CZImageCache()
+    downloader = CZImageDownloader(cache: cache)
+    super.init()
+  }
+  
+  public func downloadImage(with url: URL,
+                            cropSize: CGSize? = nil,
+                            priority: Operation.QueuePriority = .normal,
+                            completion: @escaping CZImageDownloderCompletion) {
     
-    public override init() {
-      cache = CZImageCache()
-      downloader = CZImageDownloader(cache: cache)
-        super.init()
-    }
-    
-    public func downloadImage(with url: URL,
-                       cropSize: CGSize? = nil,
-                       priority: Operation.QueuePriority = .normal,
-                       completion: @escaping CZImageDownloderCompletion) {
-//      // * TEST - Fixed crash!
-//      URLSession.shared.dataTask(with: url) { (data, response, error) in
-//        guard let data = data.assertIfNil else { return }
-//        let image = UIImage(data: data)
-//        completion(image, error, false)
-//      }.resume()
+    cache.getCachedFile(withUrl: url) { [weak self] (image) in
+      guard let `self` = self else { return }
+      
+      // Load from local disk
+      if let image = image {
+        MainQueueScheduler.sync {
+          completion(image, nil, true)
+        }
+        return
+      }
       
       // Load from http service
-      self.downloader.downloadImage(with: url,
-                                    cropSize: cropSize,
-                                    priority: priority,
-                                    completion: completion)
-      
-//      cache.getCachedFile(withUrl: url) { [weak self] (image) in
-//            guard let `self` = self else { return }
-//            if let image = image {
-//                // Load from local disk
-//                MainQueueScheduler.sync {
-//                    completion(image, nil, true)
-//                }
-//                return
-//            }
-//            // Load from http service
-//            self.downloader.downloadImage(with: url,
-//                                          cropSize: cropSize,
-//                                          priority: priority,
-//                                          completion: completion)
-//        }
+      self.downloader.downloadImage(
+        with: url,
+        cropSize: cropSize,
+        priority: priority,
+        completion: completion)
     }
     
-    @objc(cancelDownloadWithURL:)
-    public func cancelDownload(with url: URL) {
-        downloader.cancelDownload(with: url)
-    }
+    //      // Load from http service
+    //      self.downloader.downloadImage(with: url,
+    //                                    cropSize: cropSize,
+    //                                    priority: priority,
+    //                                    completion: completion)
+  }
+  
+  @objc(cancelDownloadWithURL:)
+  public func cancelDownload(with url: URL) {
+    downloader.cancelDownload(with: url)
+  }
 }
