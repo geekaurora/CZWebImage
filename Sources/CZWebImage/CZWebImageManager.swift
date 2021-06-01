@@ -40,12 +40,6 @@ import CZHttpFile
         priority: priority,
         completion: completion)
     }
-    
-    //      // Load from http service
-    //      self.downloader.downloadImage(with: url,
-    //                                    cropSize: cropSize,
-    //                                    priority: priority,
-    //                                    completion: completion)
   }
   
   @objc(cancelDownloadWithURL:)
