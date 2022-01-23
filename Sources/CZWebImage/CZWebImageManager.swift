@@ -9,7 +9,7 @@ import CZHttpFile
 @objc open class CZWebImageManager: NSObject {
   public static let shared: CZWebImageManager = CZWebImageManager()
   private var downloader: CZImageDownloader
-  private var cache: CZImageCache
+  public private(set) var cache: CZImageCache
   
   public override init() {
     cache = CZImageCache()
