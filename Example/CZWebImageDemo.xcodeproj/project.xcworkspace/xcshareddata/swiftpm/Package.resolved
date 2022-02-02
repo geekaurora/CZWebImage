@@ -9,15 +9,6 @@
           "revision": "fee1c04183de55cf07ce699e25bc6d27e308f49b",
           "version": "1.1.2"
         }
-      },
-      {
-        "package": "CZUtils",
-        "repositoryURL": "https://github.com/geekaurora/CZUtils.git",
-        "state": {
-          "branch": null,
-          "revision": "51f2ab4a42918e00f812bcf62a9e14bf785048c7",
-          "version": "3.9.6"
-        }
       }
     ]
   },

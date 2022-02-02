@@ -21,6 +21,7 @@ import CZHttpFile
                             cropSize: CGSize? = nil,
                             priority: Operation.QueuePriority = .normal,
                             completion: @escaping CZImageDownloderCompletion) {
+    CZSignpostHelper.shared.start()
     
     cache.getCachedFile(withUrl: url) { [weak self] (image) in
       guard let `self` = self else { return }
