@@ -21,6 +21,7 @@
 		2A313D5F1FC6534400B1346D /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A313D5E1FC6534400B1346D /* feeds.json */; };
 		C35BB0E92446068600D21E42 /* CZWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C35BB0E82446068600D21E42 /* CZWebImage */; };
 		C3E5D8B629ECB9FC004B11BC /* URLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5D8B529ECB9FC004B11BC /* URLSessionManager.swift */; };
+		C3E5D8B829ECBAC8004B11BC /* UIImageView+CZWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5D8B729ECBAC8004B11BC /* UIImageView+CZWebImage.swift */; };
 		C3F84368263FC3F9002FCE68 /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C3F84367263FC3F9002FCE68 /* CZUtils */; };
 		C3F84369263FC3F9002FCE68 /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C3F84367263FC3F9002FCE68 /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		C31EA0F1260F145900EFDBA9 /* CZHttpFile */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZHttpFile; path = ../../CZHttpFile; sourceTree = "<group>"; };
 		C35BB0E72446063900D21E42 /* CZWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZWebImage; path = ..; sourceTree = "<group>"; };
 		C3E5D8B529ECB9FC004B11BC /* URLSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionManager.swift; sourceTree = "<group>"; };
+		C3E5D8B729ECBAC8004B11BC /* UIImageView+CZWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+CZWebImage.swift"; sourceTree = "<group>"; };
 		C3F2AFE1263FF83B00EC00A4 /* CZNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZNetworking; path = ../../CZNetworking; sourceTree = "<group>"; };
 		C3F2AFE2263FF94F00EC00A4 /* CZUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZUtils; path = ../../CZUtils; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				C3E5D8B529ECB9FC004B11BC /* URLSessionManager.swift */,
+				C3E5D8B729ECBAC8004B11BC /* UIImageView+CZWebImage.swift */,
 			);
 			path = CZWebImageAsyncAwait;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				2A313D461FC6433F00B1346D /* FeedListCell.swift in Sources */,
 				2A313D4C1FC644B200B1346D /* FeedsMocker.swift in Sources */,
 				2A313D481FC643C000B1346D /* FeedListTableDataSource.swift in Sources */,
+				C3E5D8B829ECBAC8004B11BC /* UIImageView+CZWebImage.swift in Sources */,
 				2A313D431FC642E500B1346D /* Feed.swift in Sources */,
 				2A313D4A1FC6440500B1346D /* FeedListViewModel.swift in Sources */,
 				2A313D2F1FC642B200B1346D /* AppDelegate.swift in Sources */,

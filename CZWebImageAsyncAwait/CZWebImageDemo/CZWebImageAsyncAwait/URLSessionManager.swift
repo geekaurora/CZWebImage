@@ -1,15 +1,17 @@
-import Foundation
+import UIKit
 import CZUtils
 
 actor URLSessionManager {
   static let shared = URLSessionManager()
   
-  private var memoryCache = [URL: Data]()
+  private var memoryCache = [URL: UIImage]()
   
-  public func fetch(url: URL) async throws -> Data? {
+  public func fetch(url: URL) async throws -> UIImage? {
     let (data, response) = try await URLSession.shared.data(from: url)
-    memoryCache[url] = data
-    return data
+    let image = UIImage(data: data)
+    
+    memoryCache[url] = image
+    return image
   }
   
 }

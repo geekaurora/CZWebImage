@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CZWebImage
+// import CZWebImage
 
 class FeedListCell: UITableViewCell {
     static let cellId = "FeedListCell"
