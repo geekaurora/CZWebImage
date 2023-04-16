@@ -20,6 +20,8 @@
 		2A313D5B1FC6488400B1346D /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A313D5A1FC6488400B1346D /* UIScreen+Extension.swift */; };
 		2A313D5F1FC6534400B1346D /* feeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A313D5E1FC6534400B1346D /* feeds.json */; };
 		C35BB0E92446068600D21E42 /* CZWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C35BB0E82446068600D21E42 /* CZWebImage */; };
+		C3E5D8B629ECB9FC004B11BC /* URLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5D8B529ECB9FC004B11BC /* URLSessionManager.swift */; };
+		C3E5D8B829ECBAC8004B11BC /* UIImageView+CZWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5D8B729ECBAC8004B11BC /* UIImageView+CZWebImage.swift */; };
 		C3F84368263FC3F9002FCE68 /* CZUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C3F84367263FC3F9002FCE68 /* CZUtils */; };
 		C3F84369263FC3F9002FCE68 /* CZUtils in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C3F84367263FC3F9002FCE68 /* CZUtils */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		2A358A6A1FC74BB1005D3944 /* CZUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CZUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31EA0F1260F145900EFDBA9 /* CZHttpFile */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZHttpFile; path = ../../CZHttpFile; sourceTree = "<group>"; };
 		C35BB0E72446063900D21E42 /* CZWebImage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZWebImage; path = ..; sourceTree = "<group>"; };
+		C3E5D8B529ECB9FC004B11BC /* URLSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionManager.swift; sourceTree = "<group>"; };
+		C3E5D8B729ECBAC8004B11BC /* UIImageView+CZWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+CZWebImage.swift"; sourceTree = "<group>"; };
 		C3F2AFE1263FF83B00EC00A4 /* CZNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZNetworking; path = ../../CZNetworking; sourceTree = "<group>"; };
 		C3F2AFE2263FF94F00EC00A4 /* CZUtils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CZUtils; path = ../../CZUtils; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +106,7 @@
 		2A313D2D1FC642B200B1346D /* CZWebImageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C3E5D8B429ECB9D2004B11BC /* CZWebImageAsyncAwait */,
 				2A313D411FC642C300B1346D /* UI Layer */,
 				2A313D401FC642BB00B1346D /* Data Layer */,
 				2A4FFF171FC65BD60072653F /* Utils */,
@@ -165,6 +170,15 @@
 				2A313D591FC6486400B1346D /* Extensions */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C3E5D8B429ECB9D2004B11BC /* CZWebImageAsyncAwait */ = {
+			isa = PBXGroup;
+			children = (
+				C3E5D8B529ECB9FC004B11BC /* URLSessionManager.swift */,
+				C3E5D8B729ECBAC8004B11BC /* UIImageView+CZWebImage.swift */,
+			);
+			path = CZWebImageAsyncAwait;
 			sourceTree = "<group>";
 		};
 		DF2C24862432190C006B8912 /* Frameworks */ = {
@@ -255,11 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E5D8B629ECB9FC004B11BC /* URLSessionManager.swift in Sources */,
 				2A313D311FC642B200B1346D /* FeedListViewController.swift in Sources */,
 				2A313D5B1FC6488400B1346D /* UIScreen+Extension.swift in Sources */,
 				2A313D461FC6433F00B1346D /* FeedListCell.swift in Sources */,
 				2A313D4C1FC644B200B1346D /* FeedsMocker.swift in Sources */,
 				2A313D481FC643C000B1346D /* FeedListTableDataSource.swift in Sources */,
+				C3E5D8B829ECBAC8004B11BC /* UIImageView+CZWebImage.swift in Sources */,
 				2A313D431FC642E500B1346D /* Feed.swift in Sources */,
 				2A313D4A1FC6440500B1346D /* FeedListViewModel.swift in Sources */,
 				2A313D2F1FC642B200B1346D /* AppDelegate.swift in Sources */,
@@ -338,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -391,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -407,7 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = CZWebImageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,7 +442,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55RDUQ8X48;
 				INFOPLIST_FILE = CZWebImageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
