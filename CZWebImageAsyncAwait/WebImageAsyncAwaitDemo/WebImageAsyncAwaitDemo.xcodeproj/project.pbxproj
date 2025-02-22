@@ -14,6 +14,7 @@
 		DF3371142D6965F1002C3489 /* WebImageAsyncAwaitDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3371132D6965F1002C3489 /* WebImageAsyncAwaitDemoTests.swift */; };
 		DF33711E2D6965F1002C3489 /* WebImageAsyncAwaitDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF33711D2D6965F1002C3489 /* WebImageAsyncAwaitDemoUITests.swift */; };
 		DF3371202D6965F1002C3489 /* WebImageAsyncAwaitDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF33711F2D6965F1002C3489 /* WebImageAsyncAwaitDemoUITestsLaunchTests.swift */; };
+		DF33712F2D69663A002C3489 /* CZWebImageAsyncAwait in Frameworks */ = {isa = PBXBuildFile; productRef = DF33712E2D69663A002C3489 /* CZWebImageAsyncAwait */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DF3371192D6965F1002C3489 /* WebImageAsyncAwaitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebImageAsyncAwaitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF33711D2D6965F1002C3489 /* WebImageAsyncAwaitDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageAsyncAwaitDemoUITests.swift; sourceTree = "<group>"; };
 		DF33711F2D6965F1002C3489 /* WebImageAsyncAwaitDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageAsyncAwaitDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DF33712C2D696630002C3489 /* CZWebImageAsyncAwait */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CZWebImageAsyncAwait; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF33712F2D69663A002C3489 /* CZWebImageAsyncAwait in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +77,12 @@
 		DF3370F62D6965EE002C3489 = {
 			isa = PBXGroup;
 			children = (
+				DF33712C2D696630002C3489 /* CZWebImageAsyncAwait */,
 				DF3371012D6965EE002C3489 /* WebImageAsyncAwaitDemo */,
 				DF3371122D6965F1002C3489 /* WebImageAsyncAwaitDemoTests */,
 				DF33711C2D6965F1002C3489 /* WebImageAsyncAwaitDemoUITests */,
 				DF3371002D6965EE002C3489 /* Products */,
+				DF33712D2D69663A002C3489 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +132,13 @@
 			path = WebImageAsyncAwaitDemoUITests;
 			sourceTree = "<group>";
 		};
+		DF33712D2D69663A002C3489 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +155,9 @@
 			dependencies = (
 			);
 			name = WebImageAsyncAwaitDemo;
+			packageProductDependencies = (
+				DF33712E2D69663A002C3489 /* CZWebImageAsyncAwait */,
+			);
 			productName = WebImageAsyncAwaitDemo;
 			productReference = DF3370FF2D6965EE002C3489 /* WebImageAsyncAwaitDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -590,6 +605,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF33712E2D69663A002C3489 /* CZWebImageAsyncAwait */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CZWebImageAsyncAwait;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF3370F72D6965EE002C3489 /* Project object */;
 }

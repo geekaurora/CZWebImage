@@ -1,4 +1,5 @@
 import SwiftUI
+import CZWebImageAsyncAwait
 
 struct ContentView: View {
   var body: some View {
