@@ -103,8 +103,7 @@
 			children = (
 				DF3371042D6965EE002C3489 /* ContentView.swift */,
 				DF8534F32D6ABE30009E50B4 /* FeedMock.swift */,
-				DF3371022D6965EE002C3489 /* WebImageAsyncAwaitDemoApp.swift */,
-				DF3371062D6965F0002C3489 /* Assets.xcassets */,
+				DF8534F52D6ABE63009E50B4 /* Supported_Files */,
 				DF3371082D6965F0002C3489 /* Preview Content */,
 			);
 			path = WebImageAsyncAwaitDemo;
@@ -140,6 +139,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF8534F52D6ABE63009E50B4 /* Supported_Files */ = {
+			isa = PBXGroup;
+			children = (
+				DF3371062D6965F0002C3489 /* Assets.xcassets */,
+				DF3371022D6965EE002C3489 /* WebImageAsyncAwaitDemoApp.swift */,
+			);
+			path = Supported_Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
