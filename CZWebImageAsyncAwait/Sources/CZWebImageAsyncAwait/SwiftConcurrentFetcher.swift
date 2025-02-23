@@ -1,8 +1,9 @@
 import UIKit
 // import CZUtils
 
-actor URLSessionManager {
-  static let shared = URLSessionManager()
+actor SwiftConcurrentFetcher {
+  static let shared = SwiftConcurrentFetcher()
+
   private var memoryCache = [URL: UIImage]()
   
   public func fetch(url: URL) async throws -> UIImage? {
