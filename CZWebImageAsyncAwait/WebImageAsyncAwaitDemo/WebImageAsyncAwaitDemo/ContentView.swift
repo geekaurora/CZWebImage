@@ -1,16 +1,20 @@
 import SwiftUI
-import CZWebImageAsyncAwait
 
-struct ContentView : View {
-  var body: some View {
-    List {
-      ForEach(FeedMock.imageUrls, id: \.self) {
-        SwiftImage($0) { imageView in
-          imageView
-            .resizable()
-            .aspectRatio(1, contentMode: .fit)
+struct ContentView: View {
+  @State 
+  var isSingleFetchExampleViewActive = false
+
+  public var body: some View {
+    if #available(iOS 16, *)  {
+      return NavigationStack {
+        NavigationLink(
+          destination: SingleFetchExampleView(),
+          isActive: $isSingleFetchExampleViewActive
+        ) {
+          Text("SingleFetchExampleView")
         }
       }
     }
   }
+
 }
