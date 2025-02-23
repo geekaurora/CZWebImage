@@ -1,7 +1,6 @@
 import SwiftUI
 
 public struct SwiftImage<V: View>: View {
-
   @ObservedObject private var state = SwiftImageState()
 
   public typealias Config<V> = (Image) -> V
@@ -39,7 +38,6 @@ public struct SwiftImage<V: View>: View {
     self.init(url, placeholder: placeholder, config: config)
   }
 
-  @ViewBuilder
   public var body: some View {
     contentView()
       .task {

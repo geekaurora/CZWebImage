@@ -1,5 +1,4 @@
 import UIKit
-// import CZUtils
 
 actor SwiftConcurrentFetcher {
   static let shared = SwiftConcurrentFetcher()
@@ -10,6 +9,7 @@ actor SwiftConcurrentFetcher {
     if let cachedImage = memoryCache[url] {
       return cachedImage
     }
+
     // Fetch from network.
     let (data, response) = try await URLSession.shared.data(from: url)
     let image = UIImage(data: data)
