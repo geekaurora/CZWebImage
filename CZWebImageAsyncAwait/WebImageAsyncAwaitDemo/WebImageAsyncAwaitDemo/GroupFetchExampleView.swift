@@ -2,6 +2,8 @@ import SwiftUI
 import CZWebImageAsyncAwait
 
 struct GroupFetchExampleView : View {
+  @ObservedObject private var state = SwiftImageState()
+
   var body: some View {
     List {
       ForEach(FeedMock.imageUrls, id: \.self) {

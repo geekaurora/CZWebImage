@@ -1,7 +1,7 @@
 import UIKit
 
-actor SwiftConcurrentFetcher {
-  static let shared = SwiftConcurrentFetcher()
+public actor SwiftConcurrentFetcher {
+  public static let shared = SwiftConcurrentFetcher()
 
   private var memoryCache = [URL: UIImage]()
   
