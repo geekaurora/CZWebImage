@@ -29,4 +29,8 @@ struct Feed {
     self.imageUrl = imageUrl
     self.image = image
   }
+
+  func mutableCopy() -> Feed {
+    Feed(id: id, imageUrl: imageUrl, image: image)
+  }
 }

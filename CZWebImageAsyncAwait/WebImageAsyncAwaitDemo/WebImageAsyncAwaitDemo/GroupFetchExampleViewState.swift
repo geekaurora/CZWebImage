@@ -10,7 +10,8 @@ class GroupFetchExampleViewState : ObservableObject {
       for feed in FeedMock.feeds {
         group.addTask {
           let image = try! await SwiftConcurrentFetcher.shared.fetch(url: URL(string: feed.imageUrl)!)!
-          let newFeed = Feed(id: feed.id, imageUrl: feed.imageUrl, image: image)
+          var newFeed = feed.mutableCopy()
+          newFeed.image = image
           return newFeed
         }
       }
