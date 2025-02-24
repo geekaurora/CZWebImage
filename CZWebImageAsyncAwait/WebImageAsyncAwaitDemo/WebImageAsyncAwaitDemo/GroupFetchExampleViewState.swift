@@ -4,6 +4,7 @@ import CZWebImageAsyncAwait
 class GroupFetchExampleViewState : ObservableObject {
   @Published var images: [UIImage]? = []
 
+  @MainActor
   func fetchImages() async {
     self.images = try? await withThrowingTaskGroup(of: UIImage.self) { group in
       for imageUrl in FeedMock.imageUrls {
