@@ -6,10 +6,10 @@ struct GroupFetchExampleView : View {
 
   var body: some View {
     VStack {
-      if let images = state.images {
+      if let feeds = state.feeds {
         List {
-          ForEach(images, id: \.self) {
-            Image(uiImage: $0)
+          ForEach(feeds, id: \.id) {
+            Image(uiImage: $0.image!)
           }
         }
       }
