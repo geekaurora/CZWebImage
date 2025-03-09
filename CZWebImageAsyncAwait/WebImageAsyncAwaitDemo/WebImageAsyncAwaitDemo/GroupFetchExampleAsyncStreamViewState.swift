@@ -9,13 +9,13 @@ class GroupFetchExampleAsyncStreamViewState : ObservableObject {
 
     let quakes: AsyncStream<Feed> = AsyncStream { continuation in
 
-//      for feed in FeedMock.feeds {
-//        let image = try? await SwiftConcurrentFetcher.shared.fetch(url: URL(string: feed.imageUrl)!)
-//        var newFeed = feed.mutableCopy()
-//        newFeed.image = image
-//
-//        continuation.yield(newFeed)
-//      }
+      for feed in FeedMock.feeds {
+        // let image = try? await SwiftConcurrentFetcher.shared.fetch(url: URL(string: feed.imageUrl)!)
+        //        var newFeed = feed.mutableCopy()
+        //        newFeed.image = image
+
+        // continuation.yield(newFeed)
+      }
 
 
       //        let monitor = QuakeMonitor()
