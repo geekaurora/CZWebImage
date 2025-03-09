@@ -16,6 +16,8 @@
 		DF3371202D6965F1002C3489 /* WebImageAsyncAwaitDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF33711F2D6965F1002C3489 /* WebImageAsyncAwaitDemoUITestsLaunchTests.swift */; };
 		DF33712F2D69663A002C3489 /* CZWebImageAsyncAwait in Frameworks */ = {isa = PBXBuildFile; productRef = DF33712E2D69663A002C3489 /* CZWebImageAsyncAwait */; };
 		DF5B1DAB2D6CFB7A0028C9AB /* GroupFetchExampleViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5B1DAA2D6CFB790028C9AB /* GroupFetchExampleViewState.swift */; };
+		DF5B1DBA2D6D09320028C9AB /* GroupFetchExampleAsyncStreamViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5B1DB82D6D09320028C9AB /* GroupFetchExampleAsyncStreamViewState.swift */; };
+		DF5B1DBC2D6D096D0028C9AB /* GroupFetchExampleAsyncStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5B1DBB2D6D096D0028C9AB /* GroupFetchExampleAsyncStreamView.swift */; };
 		DF8534F42D6ABE30009E50B4 /* FeedMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8534F32D6ABE30009E50B4 /* FeedMock.swift */; };
 		DF8534F72D6ABF3D009E50B4 /* SingleFetchExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8534F62D6ABF3D009E50B4 /* SingleFetchExampleView.swift */; };
 		DF8534F92D6AC04E009E50B4 /* GroupFetchExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8534F82D6AC04E009E50B4 /* GroupFetchExampleView.swift */; };
@@ -51,6 +53,8 @@
 		DF33711F2D6965F1002C3489 /* WebImageAsyncAwaitDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageAsyncAwaitDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DF33712C2D696630002C3489 /* CZWebImageAsyncAwait */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CZWebImageAsyncAwait; path = ..; sourceTree = "<group>"; };
 		DF5B1DAA2D6CFB790028C9AB /* GroupFetchExampleViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupFetchExampleViewState.swift; sourceTree = "<group>"; };
+		DF5B1DB82D6D09320028C9AB /* GroupFetchExampleAsyncStreamViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupFetchExampleAsyncStreamViewState.swift; sourceTree = "<group>"; };
+		DF5B1DBB2D6D096D0028C9AB /* GroupFetchExampleAsyncStreamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupFetchExampleAsyncStreamView.swift; sourceTree = "<group>"; };
 		DF8534F32D6ABE30009E50B4 /* FeedMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedMock.swift; sourceTree = "<group>"; };
 		DF8534F62D6ABF3D009E50B4 /* SingleFetchExampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleFetchExampleView.swift; sourceTree = "<group>"; };
 		DF8534F82D6AC04E009E50B4 /* GroupFetchExampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupFetchExampleView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				DF8534F62D6ABF3D009E50B4 /* SingleFetchExampleView.swift */,
 				DF8534F82D6AC04E009E50B4 /* GroupFetchExampleView.swift */,
 				DF5B1DAA2D6CFB790028C9AB /* GroupFetchExampleViewState.swift */,
+				DF5B1DBB2D6D096D0028C9AB /* GroupFetchExampleAsyncStreamView.swift */,
+				DF5B1DB82D6D09320028C9AB /* GroupFetchExampleAsyncStreamViewState.swift */,
 				DF8534F32D6ABE30009E50B4 /* FeedMock.swift */,
 				DF8534F52D6ABE63009E50B4 /* Supported_Files */,
 				DF3371082D6965F0002C3489 /* Preview Content */,
@@ -293,7 +299,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF5B1DAB2D6CFB7A0028C9AB /* GroupFetchExampleViewState.swift in Sources */,
+				DF5B1DBC2D6D096D0028C9AB /* GroupFetchExampleAsyncStreamView.swift in Sources */,
 				DF3371052D6965EE002C3489 /* ContentView.swift in Sources */,
+				DF5B1DBA2D6D09320028C9AB /* GroupFetchExampleAsyncStreamViewState.swift in Sources */,
 				DF8534F42D6ABE30009E50B4 /* FeedMock.swift in Sources */,
 				DF8534F72D6ABF3D009E50B4 /* SingleFetchExampleView.swift in Sources */,
 				DF3371032D6965EE002C3489 /* WebImageAsyncAwaitDemoApp.swift in Sources */,
